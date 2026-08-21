@@ -1,5 +1,13 @@
 export const componentSections = [
   {
+    title: 'Shells',
+    items: [{ id: 'application-shell', title: 'Application Shell' }],
+  },
+  {
+    title: 'Navigation',
+    items: [{ id: 'breadcrumb', title: 'Breadcrumb' }],
+  },
+  {
     title: 'Form Controls',
     items: [{ id: 'input', title: 'Input' }],
   },
@@ -17,6 +25,18 @@ export const componentSections = [
 ];
 
 export const componentMeta = {
+  'application-shell': {
+    section: 'Shells',
+    eyebrow: 'SHELLS',
+    title: 'Application Shell',
+    description: 'A reusable application frame with persistent navigation and an empty workspace.',
+  },
+  breadcrumb: {
+    section: 'Navigation',
+    eyebrow: 'NAVIGATION',
+    title: 'Breadcrumb',
+    description: 'A compact trail that keeps users oriented within nested pages.',
+  },
   input: {
     section: 'Form Controls',
     eyebrow: 'FORM CONTROLS',

@@ -10,7 +10,7 @@ export default function PaginationShowcase() {
 
   return (
     <div className="space-y-8">
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="nexo-pagination-metrics grid gap-4">
         <Metric label="Total items" value="42" />
         <Metric label="Items per page" value="7" />
         <Metric label="Current page" value={`${page} / ${totalPages}`} />

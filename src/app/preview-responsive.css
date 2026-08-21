@@ -1,0 +1,37 @@
+.nexo-preview-canvas {
+  container-type: inline-size;
+}
+
+.nexo-input-grid,
+.nexo-pagination-metrics,
+.nexo-detail-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.nexo-table-search {
+  width: 100%;
+}
+
+@container (min-width: 640px) {
+  .nexo-input-grid,
+  .nexo-pagination-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .nexo-table-header {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nexo-table-search {
+    width: 16rem;
+  }
+}
+
+@container (min-width: 900px) {
+  .nexo-detail-layout {
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+}

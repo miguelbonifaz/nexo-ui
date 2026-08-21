@@ -6,20 +6,46 @@ import { sampleRecords, toDetailRecord } from '@/lib/data';
 import { componentMeta, componentSections } from '@/lib/component-data';
 import { componentRegistry } from '@/lib/component-registry';
 import CodeBlock from './code-block';
+import ApplicationShellShowcase from './application-shell-showcase';
+import BreadcrumbShowcase from './breadcrumb-showcase';
 import DetailModal from './detail-modal';
 import DetailModalShowcase from './detail-modal-showcase';
 import InputShowcase from './input-showcase';
 import PaginationShowcase from './pagination-showcase';
+import ResponsivePreview from './responsive-preview';
 import ShowcaseSidebar from './showcase-sidebar';
 import TableShowcase from './table-showcase';
+
+async function copyToClipboard(text) {
+  try {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+  } catch {
+    // Fall through to the local HTTP fallback.
+  }
+
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  textarea.remove();
+
+  if (!copied) throw new Error('Clipboard is unavailable');
+}
 
 export default function ShowcaseApp() {
   const [activeId, setActiveId] = useState('table');
   const [showCode, setShowCode] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [previewMode, setPreviewMode] = useState('light');
+  const [previewMode, setPreviewMode] = useState('dark');
   const [copied, setCopied] = useState(false);
-  const [selectedRecord, setSelectedRecord] = useState(toDetailRecord(sampleRecords[0]));
+  const [selectedRecord, setSelectedRecord] = useState(() => toDetailRecord(sampleRecords[0]));
   const [modalOpen, setModalOpen] = useState(false);
 
   const meta = componentMeta[activeId];
@@ -32,7 +58,7 @@ export default function ShowcaseApp() {
   }
 
   async function copyCode() {
-    await navigator.clipboard.writeText(registryItem.code);
+    await copyToClipboard(registryItem.code);
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1600);
   }
@@ -43,6 +69,8 @@ export default function ShowcaseApp() {
   }
 
   function renderPreview() {
+    if (activeId === 'application-shell') return <ApplicationShellShowcase />;
+    if (activeId === 'breadcrumb') return <BreadcrumbShowcase />;
     if (activeId === 'input') return <InputShowcase />;
     if (activeId === 'pagination') return <PaginationShowcase />;
     if (activeId === 'detail-modal') return <DetailModalShowcase onOpen={openDetail} />;
@@ -79,8 +107,8 @@ export default function ShowcaseApp() {
                   <button type="button" onClick={copyCode} className="inline-flex items-center gap-2 rounded-lg bg-cyan-300 px-3 py-2 text-xs font-semibold text-[#071018] transition hover:bg-cyan-200">{copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}{copied ? 'Copied' : 'Copy code'}</button>
                 </div>
               </div>
-              <div className={showCode ? 'p-3 sm:p-5' : `p-3 sm:p-5 ${previewMode === 'dark' ? 'bg-[#0a101a]' : 'bg-[#e8edf3]'}`}>
-                {showCode ? <CodeBlock code={registryItem.code} /> : <div className="preview-surface rounded-2xl p-4 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-7">{renderPreview()}</div>}
+              <div className="bg-[#0a101a] p-3 sm:p-5">
+                {showCode ? <CodeBlock code={registryItem.code} /> : <div className="preview-surface rounded-2xl p-3 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-5"><ResponsivePreview dark={previewMode === 'dark'}>{renderPreview()}</ResponsivePreview></div>}
               </div>
             </section>
 

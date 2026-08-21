@@ -5,7 +5,7 @@ export default function DetailModalShowcase({ onOpen }) {
   const record = sampleRecords[0];
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-center">
+    <div className="nexo-detail-layout grid gap-6">
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-7">
         <div className="flex items-start justify-between gap-4">
           <div>

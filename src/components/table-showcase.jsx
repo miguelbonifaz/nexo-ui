@@ -31,7 +31,6 @@ export default function TableShowcase({ onSelectRecord }) {
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
   );
-
   function updateQuery(value) {
     setQuery(value);
     setPage(1);
@@ -39,12 +38,12 @@ export default function TableShowcase({ onSelectRecord }) {
 
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-      <div className="flex flex-col gap-4 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="nexo-table-header flex flex-col gap-4 border-b border-slate-200 px-5 py-4">
         <div>
           <p className="text-sm font-semibold text-slate-900">Recent records</p>
           <p className="mt-1 text-xs text-slate-500">A practical table for operational collections.</p>
         </div>
-        <label className="relative block sm:w-64">
+        <label className="nexo-table-search relative block">
           <span className="sr-only">Search records</span>
           <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
           <input
@@ -59,13 +58,8 @@ export default function TableShowcase({ onSelectRecord }) {
 
       {visibleRecords.length > 0 ? (
         <>
-          <div className="hidden overflow-x-auto md:block">
+          <div className="overflow-x-auto">
             <DesktopTable records={visibleRecords} onSelectRecord={onSelectRecord} />
-          </div>
-          <div className="grid gap-3 p-3 md:hidden">
-            {visibleRecords.map((record) => (
-              <MobileRecord key={record.id} record={record} onSelectRecord={onSelectRecord} />
-            ))}
           </div>
           <Pagination
             currentPage={currentPage}
@@ -120,28 +114,6 @@ function DesktopTable({ records, onSelectRecord }) {
         ))}
       </tbody>
     </table>
-  );
-}
-
-function MobileRecord({ record, onSelectRecord }) {
-  return (
-    <article className="rounded-xl border border-slate-200 p-4">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="font-semibold text-slate-900">{record.customer}</p>
-          <p className="mt-1 text-xs text-slate-400">{record.id} · {record.phone}</p>
-        </div>
-        <StatusBadge label={record.status} tone={record.tone} />
-      </div>
-      <div className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4 text-xs">
-        <div><p className="text-slate-400">Product</p><p className="mt-1 font-medium text-slate-700">{record.product}</p></div>
-        <div><p className="text-slate-400">Delivery</p><p className="mt-1 font-medium text-slate-700">{record.deliveryDate}</p></div>
-      </div>
-      <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
-        <span className="font-semibold text-slate-900">{record.price}</span>
-        <OpenButton record={record} onSelectRecord={onSelectRecord} />
-      </div>
-    </article>
   );
 }
 

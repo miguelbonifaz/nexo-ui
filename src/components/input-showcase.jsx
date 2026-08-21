@@ -9,7 +9,7 @@ export default function InputShowcase() {
 
   return (
     <div className="space-y-8">
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="nexo-input-grid grid gap-5">
         <Input label="Default" placeholder="Enter a value" />
         <Input
           label="With value"
