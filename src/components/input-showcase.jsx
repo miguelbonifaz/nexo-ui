@@ -19,15 +19,15 @@ export default function InputShowcase() {
         <Input label="Disabled" value="Disabled input" disabled />
       </div>
 
-      <div className="border-t border-slate-200 pt-7">
+      <div className="border-t border-slate-200 pt-7 dark:border-slate-800">
         <div className="mb-4 flex items-center justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold text-slate-900">Search input</p>
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Search input</p>
+            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
               A composed input with a leading icon for collection filters.
             </p>
           </div>
-          <span className="hidden rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-semibold tracking-[0.08em] text-slate-500 uppercase sm:inline-flex">
+          <span className="hidden rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-semibold tracking-[0.08em] text-slate-500 uppercase sm:inline-flex dark:bg-slate-800 dark:text-slate-400">
             Interactive
           </span>
         </div>
@@ -39,7 +39,7 @@ export default function InputShowcase() {
             value={value}
             onChange={(event) => setValue(event.target.value)}
             placeholder="Search records..."
-            className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-4 pl-10 text-sm text-slate-900 shadow-[0_1px_2px_rgb(15_23_42/0.03)] outline-none transition focus:border-slate-400 focus:ring-4 focus:ring-slate-900/[0.06] placeholder:text-slate-400"
+            className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-4 pl-10 text-sm text-slate-900 shadow-[0_1px_2px_rgb(15_23_42/0.03)] outline-none transition focus:border-slate-400 focus:ring-4 focus:ring-slate-900/[0.06] placeholder:text-slate-400 dark:border-slate-700/60 dark:bg-slate-900/60 dark:text-slate-100 dark:focus:border-slate-400 dark:focus:ring-white/20 dark:placeholder:text-slate-500"
           />
         </label>
       </div>

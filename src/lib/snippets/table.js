@@ -1,5 +1,12 @@
 export const tableSnippet = String.raw`import { Eye } from 'lucide-react';
 
+export const records = [
+  { id: 'Q-1048', customer: 'Olivia Carter', product: 'Chocolate Celebration Cake', deliveryDate: 'Oct 18, 2026', price: '$86.00', status: 'Pending' },
+  { id: 'Q-1047', customer: 'Noah Bennett', product: 'Vanilla Garden Cake', deliveryDate: 'Oct 21, 2026', price: '$62.00', status: 'In Review' },
+  { id: 'Q-1046', customer: 'Mia Brooks', product: 'Red Velvet Number Cake', deliveryDate: 'Oct 25, 2026', price: '$108.00', status: 'Confirmed' },
+  { id: 'Q-1045', customer: 'James Rivera', product: 'Lemon Drizzle Loaf', deliveryDate: 'Oct 28, 2026', price: '$44.00', status: 'Finalized' },
+];
+
 const statusStyles = {
   Pending: 'bg-amber-50 text-amber-700',
   'In Review': 'bg-blue-50 text-blue-700',
@@ -14,7 +21,9 @@ function StatusBadge({ status }) {
   );
 }
 
-export default function Table({ records, onOpen }) {
+export default function Table({ records: providedRecords, onOpen }) {
+  const rows = providedRecords ?? records;
+
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
       <div className="overflow-x-auto">
@@ -30,7 +39,7 @@ export default function Table({ records, onOpen }) {
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
-            {records.map((record) => (
+            {rows.map((record) => (
               <tr key={record.id} className="hover:bg-slate-50">
                 <td className="px-5 py-4 font-semibold text-slate-900">{record.customer}</td>
                 <td className="px-5 py-4 text-slate-600">{record.product}</td>

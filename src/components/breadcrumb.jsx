@@ -9,13 +9,13 @@ export default function Breadcrumb({ items = [] }) {
 
           return (
             <li key={item.label} className="flex items-center gap-1.5">
-              {index > 0 && <ChevronRight aria-hidden="true" className="size-3.5 text-slate-300" />}
+              {index > 0 && <ChevronRight aria-hidden="true" className="size-3.5 text-slate-300 dark:text-slate-600" />}
               {isCurrent ? (
-                <span aria-current="page" className="font-semibold text-slate-900">
+                  <span aria-current="page" className="font-semibold text-slate-900 dark:text-slate-100">
                   {item.label}
                 </span>
               ) : (
-                <a href={item.href ?? '#'} className="text-slate-500 transition hover:text-slate-900">
+                  <a href={item.href ?? '#'} className="text-slate-500 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100">
                   {item.label}
                 </a>
               )}

@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, Code2, Copy, Menu, Monitor, Moon, Sun } from 'lucide-react';
+import { Check, Copy, Menu, Monitor, Moon, Sun } from 'lucide-react';
 import { useState } from 'react';
 import { sampleRecords, toDetailRecord } from '@/lib/data';
 import { componentMeta, componentSections } from '@/lib/component-data';
@@ -100,7 +100,11 @@ export default function ShowcaseApp() {
 
             <section className="nexo-enter-delay-1 overflow-hidden rounded-[22px] border border-white/[0.1] bg-[#0d131e] shadow-[0_24px_90px_rgb(2_6_23/0.28)]">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.08] px-4 py-3 sm:px-5">
-                <div className="flex items-center rounded-lg bg-[#070a10] p-1"><button type="button" onClick={() => setShowCode(false)} className={`rounded-md px-3 py-1.5 text-xs font-semibold transition ${!showCode ? 'bg-slate-700 text-white shadow-sm' : 'text-slate-500 hover:text-slate-300'}`}>Preview</button><button type="button" onClick={() => setShowCode(true)} className={`rounded-md px-3 py-1.5 text-xs font-semibold transition ${showCode ? 'bg-slate-700 text-white shadow-sm' : 'text-slate-500 hover:text-slate-300'}`}><Code2 className="mr-1.5 inline size-3.5" />Code</button></div>
+                <div className="relative grid w-[132px] grid-cols-2 items-center rounded-lg bg-[#070a10] p-1">
+                  <span aria-hidden="true" className={`absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-md bg-slate-700 shadow-sm transition-transform duration-300 ease-out ${showCode ? 'translate-x-full' : 'translate-x-0'}`} />
+                  <button type="button" onClick={() => setShowCode(false)} className={`relative z-10 w-full rounded-md px-0 py-1.5 text-xs font-semibold transition-colors ${!showCode ? 'text-white' : 'text-slate-500 hover:text-slate-300'}`}>Preview</button>
+                  <button type="button" onClick={() => setShowCode(true)} className={`relative z-10 w-full rounded-md px-0 py-1.5 text-xs font-semibold transition-colors ${showCode ? 'text-white' : 'text-slate-500 hover:text-slate-300'}`}>Code</button>
+                </div>
                 <div className="flex items-center gap-2">
                   {!showCode && <div className="hidden items-center gap-1 rounded-lg border border-white/[0.08] p-1 sm:flex"><button type="button" aria-label="Light preview" onClick={() => setPreviewMode('light')} className={`rounded-md p-1.5 ${previewMode === 'light' ? 'bg-white/[0.12] text-white' : 'text-slate-500'}`}><Sun className="size-3.5" /></button><button type="button" aria-label="Dark preview" onClick={() => setPreviewMode('dark')} className={`rounded-md p-1.5 ${previewMode === 'dark' ? 'bg-white/[0.12] text-white' : 'text-slate-500'}`}><Moon className="size-3.5" /></button></div>}
                   <span className="hidden border-l border-white/[0.1] pl-3 font-mono text-[10px] font-semibold tracking-[0.1em] text-slate-400 uppercase sm:block">React / JSX</span>
@@ -108,7 +112,13 @@ export default function ShowcaseApp() {
                 </div>
               </div>
               <div className="bg-[#0a101a] p-3 sm:p-5">
-                {showCode ? <CodeBlock code={registryItem.code} /> : <div className="preview-surface rounded-2xl p-3 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-5"><ResponsivePreview dark={previewMode === 'dark'}>{renderPreview()}</ResponsivePreview></div>}
+                {showCode ? <CodeBlock code={registryItem.code} /> : (
+                  <div className={`preview-theme ${previewMode === 'dark' ? 'dark' : ''}`}>
+                    <div className="preview-surface rounded-2xl p-3 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-5">
+                      <ResponsivePreview dark={previewMode === 'dark'}>{renderPreview()}</ResponsivePreview>
+                    </div>
+                  </div>
+                )}
               </div>
             </section>
 
@@ -117,7 +127,7 @@ export default function ShowcaseApp() {
         </main>
       </div>
 
-      <DetailModal record={selectedRecord} open={modalOpen} onClose={() => setModalOpen(false)} onPrimaryAction={() => setModalOpen(false)} />
+      <DetailModal dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={() => setModalOpen(false)} onPrimaryAction={() => setModalOpen(false)} />
     </div>
   );
 }

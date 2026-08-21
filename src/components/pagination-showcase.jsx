@@ -15,11 +15,11 @@ export default function PaginationShowcase() {
         <Metric label="Items per page" value="7" />
         <Metric label="Current page" value={`${page} / ${totalPages}`} />
       </div>
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-950">
         <div className="flex min-h-32 items-center justify-center px-5 text-center">
           <div>
-            <p className="text-sm font-semibold text-slate-900">Page {page} selected</p>
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Page {page} selected</p>
+            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
               Navigate the collection to see the control update.
             </p>
           </div>
@@ -39,11 +39,11 @@ export default function PaginationShowcase() {
 
 function Metric({ label, value }) {
   return (
-    <div className="border-l-2 border-slate-200 pl-4">
-      <p className="text-[10px] font-semibold tracking-[0.1em] text-slate-400 uppercase">
+    <div className="border-l-2 border-slate-200 pl-4 dark:border-slate-700">
+      <p className="text-[10px] font-semibold tracking-[0.1em] text-slate-400 uppercase dark:text-slate-500">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">{value}</p>
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">{value}</p>
     </div>
   );
 }
