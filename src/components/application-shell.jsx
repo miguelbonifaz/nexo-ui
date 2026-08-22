@@ -19,7 +19,11 @@ const navigation = [
   { label: 'Reports', icon: BarChart3 },
 ];
 
-const teams = ['Heroicons', 'Tailwind Labs', 'Workcation'];
+const workspaces = [
+  { name: 'Nexo UI', description: 'Component library' },
+  { name: 'Dulce Sabor', description: 'Product workspace' },
+  { name: 'Client Projects', description: 'Shared workspace' },
+];
 
 function SidebarItem({ item, activeItem }) {
   const Icon = item.icon;
@@ -28,7 +32,7 @@ function SidebarItem({ item, activeItem }) {
   return (
     <a
       href={`#${item.label.toLowerCase()}`}
-      className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold whitespace-nowrap transition ${isActive ? 'bg-slate-100 text-slate-900 dark:bg-[#2ec4b6]/10 dark:text-[#2ec4b6]' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/[0.05] dark:hover:text-slate-100'}`}
+      className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors ${isActive ? 'bg-slate-100 text-slate-900 dark:bg-slate-800/80 dark:text-[#2ec4b6]' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'}`}
     >
       <Icon className={`size-[18px] shrink-0 stroke-[1.6] ${isActive ? 'text-slate-900 dark:text-[#2ec4b6]' : 'text-slate-400'}`} />
       <span className="truncate">{item.label}</span>
@@ -36,16 +40,18 @@ function SidebarItem({ item, activeItem }) {
   );
 }
 
-function TeamItem({ name }) {
+function WorkspaceItem({ workspace }) {
+  const { name, description } = workspace;
+
   return (
     <a
       href={`#${name.toLowerCase().replaceAll(' ', '-')}`}
-      className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/[0.05] dark:hover:text-slate-100"
+      className="flex items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"
     >
-      <span className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-100 font-mono text-[10px] text-slate-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
-        {name[0]}
+      <span className="min-w-0">
+        <span className="block truncate">{name}</span>
+        <span className="block truncate text-[10px] font-normal text-slate-400 dark:text-slate-500">{description}</span>
       </span>
-      <span className="truncate">{name}</span>
     </a>
   );
 }
@@ -53,7 +59,7 @@ function TeamItem({ name }) {
 function SidebarFooter() {
   return (
     <div className="mt-auto pt-8">
-      <div className="flex items-center justify-between rounded-2xl bg-slate-100 px-3.5 py-2.5 dark:bg-white/[0.04]">
+      <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 dark:border-slate-800 dark:bg-slate-900">
         <span className="font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400">Dark</span>
         <button type="button" aria-label="Toggle color theme" className="relative flex h-[26px] w-12 items-center justify-end rounded-full bg-slate-200 px-[3px] ring-1 ring-slate-300 dark:bg-slate-800 dark:ring-slate-700">
           <span className="flex size-[18px] items-center justify-center rounded-full bg-white text-slate-900 shadow-sm dark:bg-slate-100">
@@ -61,18 +67,18 @@ function SidebarFooter() {
           </span>
         </button>
       </div>
-      <a href="#settings" className="mt-4 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/[0.05] dark:hover:text-slate-100">
+      <a href="#settings" className="mt-4 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100">
         <Settings className="size-[18px] stroke-[1.6]" />
         <span>Settings</span>
       </a>
       <div className="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700/70">
-        <div className="flex items-center gap-3 rounded-2xl bg-slate-100 p-2.5 dark:bg-white/[0.04]">
+        <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-2.5 dark:border-slate-800 dark:bg-slate-900">
           <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#2ec4b6] text-xs font-bold text-[#071018]">TU</span>
           <div className="min-w-0 flex-1 leading-tight">
             <p className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100">Test User</p>
             <p className="truncate text-xs text-slate-500 dark:text-slate-400">test.user@example.com</p>
           </div>
-          <button type="button" aria-label="Sign out" className="flex size-8 shrink-0 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-white/[0.08] dark:hover:text-slate-200">
+          <button type="button" aria-label="Sign out" className="flex size-8 shrink-0 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-200">
             <LogOut className="size-[18px] stroke-[1.6]" />
           </button>
         </div>
@@ -83,8 +89,8 @@ function SidebarFooter() {
 
 export default function ApplicationShell({ children, activeItem = 'Dashboard' }) {
   return (
-    <div className="flex min-h-[460px] w-full overflow-hidden bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
-      <aside className="flex w-56 shrink-0 flex-col bg-[#FAFAF8] px-3 py-5 text-slate-600 transition-colors dark:bg-[#0f0f0f] dark:text-slate-300">
+    <div className="grid min-h-[520px] w-full grid-cols-[clamp(13rem,22%,22rem)_minmax(0,1fr)] overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] transition-colors dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
+      <aside className="flex min-h-[520px] min-w-0 flex-col border-r border-slate-200 bg-[#FAFAF8] px-4 py-6 text-slate-600 transition-colors dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
         <div className="flex items-center gap-3 px-3 pb-10">
           <span className="flex size-9 items-center justify-center rounded-xl bg-[#2ec4b6] text-sm font-bold text-[#071018] shadow-[0_6px_16px_-6px_rgb(46_196_182/0.4)]">N</span>
           <span className="truncate text-base font-semibold tracking-tight text-slate-900 dark:text-slate-50">Nexo UI</span>
@@ -98,17 +104,22 @@ export default function ApplicationShell({ children, activeItem = 'Dashboard' })
         </nav>
 
         <div className="mt-8">
-          <p className="mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400">Your teams</p>
+          <p className="mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400">Workspaces</p>
           <div className="space-y-0.5">
-            {teams.map((name) => <TeamItem key={name} name={name} />)}
+            {workspaces.map((workspace) => <WorkspaceItem key={workspace.name} workspace={workspace} />)}
           </div>
         </div>
 
         <SidebarFooter />
       </aside>
 
-      <main aria-label="Workspace" className="min-h-[460px] min-w-0 flex-1 bg-white transition-colors dark:bg-slate-950">
-        {children}
+      <main aria-label="Workspace" className="flex min-h-[520px] min-w-0 flex-col bg-slate-50 p-6 transition-colors sm:p-10 dark:bg-slate-900">
+        <div
+          aria-label="Dashboard workspace"
+          className="min-h-[420px] flex-1 rounded-xl border border-dashed border-slate-300 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgb(100_116_139/0.08)_10px,rgb(100_116_139/0.08)_12px)] transition-colors dark:border-slate-700/80 dark:bg-slate-900/60 dark:bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgb(148_163_184/0.08)_10px,rgb(148_163_184/0.08)_12px)]"
+        >
+          {children}
+        </div>
       </main>
     </div>
   );
