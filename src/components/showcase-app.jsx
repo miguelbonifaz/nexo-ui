@@ -91,7 +91,7 @@ export default function ShowcaseApp() {
         </header>
 
         <main className="nexo-grid min-h-[calc(100vh-72px)] px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
-          <div className="mx-auto max-w-[1180px]">
+          <div className="mx-auto max-w-[1320px]">
             <div className="nexo-enter mb-10 max-w-3xl">
               <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-cyan-300 uppercase">{meta.eyebrow}</p>
               <h1 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white sm:text-6xl">{meta.title}</h1>
