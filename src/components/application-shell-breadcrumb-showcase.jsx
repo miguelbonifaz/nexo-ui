@@ -6,9 +6,9 @@ const breadcrumbItems = [
   { label: 'Reports' },
 ];
 
-export default function ApplicationShellBreadcrumbShowcase() {
+export default function ApplicationShellBreadcrumbShowcase(props) {
   return (
-    <ApplicationShellWithBreadcrumb activeItem="Reports" items={breadcrumbItems}>
+    <ApplicationShellWithBreadcrumb {...props} activeItem="Reports" items={breadcrumbItems}>
       <div className="flex flex-1 flex-col justify-between">
         <div>
           <p className="font-mono text-[10px] font-semibold tracking-[0.14em] text-slate-400 uppercase dark:text-slate-500">Current workspace</p>

@@ -1,5 +1,5 @@
 import ApplicationShell from './application-shell';
 
-export default function ApplicationShellShowcase() {
-  return <ApplicationShell />;
+export default function ApplicationShellShowcase(props) {
+  return <ApplicationShell {...props} />;
 }

@@ -1,36 +1,13 @@
-import { sampleRecords } from '@/lib/data';
-import { tablerIcons } from '@/lib/tabler-icons';
-import NexoIcon from './nexo-icon';
-
 export default function DetailModalShowcase({ onOpen }) {
-  const record = sampleRecords[0];
-
   return (
-    <div className="nexo-detail-layout grid gap-6">
-      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-colors sm:p-7 dark:border-slate-800 dark:bg-slate-900/60">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-[10px] font-semibold tracking-[0.1em] text-slate-400 uppercase dark:text-slate-500">Selected record</p>
-            <h3 className="mt-2 text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100">{record.customer}</h3>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{record.product}</p>
-          </div>
-          <span className="rounded-lg bg-white p-2 text-slate-400 shadow-sm ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
-            <NexoIcon icon={tablerIcons.arrowUpRight} className="size-4" />
-          </span>
-        </div>
-        <div className="mt-7 flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800">
-          <p className="text-xs text-slate-500 dark:text-slate-400">Open the detail surface without leaving this page.</p>
-          <button type="button" onClick={() => onOpen(record)} className="inline-flex h-10 items-center justify-center rounded-lg bg-slate-900 px-4 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white">Open detail modal</button>
-        </div>
-      </div>
-      <aside className="border-l-2 border-slate-200 pl-4 dark:border-slate-700">
-        <p className="text-[10px] font-semibold tracking-[0.1em] text-slate-400 uppercase dark:text-slate-500">Behavior</p>
-        <ul className="mt-3 space-y-3 text-xs leading-5 text-slate-500 dark:text-slate-400">
-          <li>Closes with Escape, the backdrop, or the close button.</li>
-          <li>Preserves the full detail context in one surface.</li>
-          <li>Uses a short zoom transition to keep the interaction grounded.</li>
-        </ul>
-      </aside>
+    <div className="flex min-h-[420px] items-center justify-center">
+      <button
+        type="button"
+        onClick={onOpen}
+        className="inline-flex h-10 items-center justify-center rounded-lg bg-slate-900 px-4 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
+      >
+        Open detail modal
+      </button>
     </div>
   );
 }

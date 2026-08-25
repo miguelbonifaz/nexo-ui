@@ -80,7 +80,7 @@ export default function ShowcaseApp({ component }) {
   const [copied, setCopied] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(() => toDetailRecord(sampleRecords[0]));
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(() => activeId === 'detail-modal');
   const closeDetail = useCallback(() => setModalOpen(false), []);
 
   useEffect(() => {
@@ -100,13 +100,19 @@ export default function ShowcaseApp({ component }) {
     };
   }, [isExpanded]);
 
+  function togglePreviewTheme() {
+    savePreviewMode(previewMode === 'dark' ? 'light' : 'dark');
+  }
+
   function renderPreview() {
-    if (activeId === 'application-shell') return <ApplicationShellShowcase />;
-    if (activeId === 'application-shell-breadcrumb') return <ApplicationShellBreadcrumbShowcase />;
+    const shellProps = { dark: previewMode === 'dark', onToggleTheme: togglePreviewTheme };
+
+    if (activeId === 'application-shell') return <ApplicationShellShowcase {...shellProps} />;
+    if (activeId === 'application-shell-breadcrumb') return <ApplicationShellBreadcrumbShowcase {...shellProps} />;
     if (activeId === 'breadcrumb') return <BreadcrumbShowcase />;
     if (activeId === 'input') return <InputShowcase />;
     if (activeId === 'pagination') return <PaginationShowcase />;
-    if (activeId === 'detail-modal') return <DetailModalShowcase onOpen={openDetail} />;
+    if (activeId === 'detail-modal') return <DetailModalShowcase onOpen={() => openDetail(sampleRecords[0])} />;
     return <TableShowcase onSelectRecord={openDetail} />;
   }
 

@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { tablerIcons } from '@/lib/tabler-icons';
 import NexoIcon from './nexo-icon';
 
@@ -46,21 +49,18 @@ function WorkspaceItem({ workspace }) {
   );
 }
 
-function SidebarFooter() {
+function SidebarFooter({ dark, onToggleTheme }) {
   return (
     <div className="mt-auto pt-8">
-      <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 dark:border-slate-800 dark:bg-slate-900">
-        <span className="font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400">Dark</span>
-        <button type="button" aria-label="Toggle color theme" className="relative flex h-[26px] w-12 items-center justify-end rounded-full bg-slate-200 px-[3px] ring-1 ring-slate-300 dark:bg-slate-800 dark:ring-slate-700">
-          <span className="flex size-[18px] items-center justify-center rounded-full bg-white text-slate-900 shadow-sm dark:bg-slate-100">
-            <NexoIcon icon={tablerIcons.moon} className="size-3" />
-          </span>
+      <div className="flex items-center justify-between rounded-lg px-3 py-2.5">
+        <a href="#settings" className="flex items-center gap-3 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100">
+          <NexoIcon icon={tablerIcons.settings} className="size-[18px] stroke-[1.6]" />
+          <span>Settings</span>
+        </a>
+        <button type="button" aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={dark} onClick={onToggleTheme} className="flex size-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100">
+          <NexoIcon icon={dark ? tablerIcons.moon : tablerIcons.sun} spring="snappy" className="size-[18px]" />
         </button>
       </div>
-      <a href="#settings" className="mt-4 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100">
-        <NexoIcon icon={tablerIcons.settings} className="size-[18px] stroke-[1.6]" />
-        <span>Settings</span>
-      </a>
       <div className="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700/70">
         <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-2.5 dark:border-slate-800 dark:bg-slate-900">
           <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#2ec4b6] text-xs font-bold text-[#071018]">TU</span>
@@ -77,8 +77,13 @@ function SidebarFooter() {
   );
 }
 
-export default function ApplicationShell({ children, activeItem = 'Dashboard' }) {
+export default function ApplicationShell({ children, activeItem = 'Dashboard', dark, onToggleTheme }) {
+  const [localDark, setLocalDark] = useState(true);
+  const isDark = typeof dark === 'boolean' ? dark : localDark;
+  const toggleTheme = onToggleTheme ?? (() => setLocalDark((current) => !current));
+
   return (
+    <div className={isDark ? 'dark' : ''}>
     <div className="grid min-h-[520px] w-full grid-cols-[clamp(13rem,22%,22rem)_minmax(0,1fr)] overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] transition-colors dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
       <aside className="flex min-h-[520px] min-w-0 flex-col border-r border-slate-200 bg-[#FAFAF8] px-4 py-6 text-slate-600 transition-colors dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
         <div className="flex items-center gap-3 px-3 pb-10">
@@ -100,7 +105,7 @@ export default function ApplicationShell({ children, activeItem = 'Dashboard' })
           </div>
         </div>
 
-        <SidebarFooter />
+        <SidebarFooter dark={isDark} onToggleTheme={toggleTheme} />
       </aside>
 
       <main aria-label="Workspace" className="flex min-h-[520px] min-w-0 flex-col bg-slate-50 p-6 transition-colors sm:p-10 dark:bg-slate-900">
@@ -111,6 +116,7 @@ export default function ApplicationShell({ children, activeItem = 'Dashboard' })
           {children}
         </div>
       </main>
+    </div>
     </div>
   );
 }
