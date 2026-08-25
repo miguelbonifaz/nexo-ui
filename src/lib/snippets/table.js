@@ -1,4 +1,8 @@
-export const tableSnippet = String.raw`import { Eye } from 'lucide-react';
+import { tablerIconSnippet } from './tabler-icons';
+
+const iconPreamble = tablerIconSnippet(['eye']);
+
+export const tableSnippet = String.raw`${iconPreamble}
 
 export const records = [
   { id: 'Q-1048', customer: 'Olivia Carter', product: 'Chocolate Celebration Cake', deliveryDate: 'Oct 18, 2026', price: '$86.00', status: 'Pending' },
@@ -48,7 +52,7 @@ export default function Table({ records: providedRecords, onOpen }) {
                 <td className="px-5 py-4"><StatusBadge status={record.status} /></td>
                 <td className="px-5 py-4 text-right">
                   <button type="button" onClick={() => onOpen(record)} aria-label={'View ' + record.customer}>
-                    <Eye className="size-4 text-slate-400" />
+                    <MorphIcon icon={tablerIcons.eye} reducedMotion="user" className="size-4 text-slate-400" />
                   </button>
                 </td>
               </tr>

@@ -1,10 +1,11 @@
 'use client';
 
-import { Check, Copy, Monitor, Moon, Sun } from 'lucide-react';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useSyncExternalStore } from 'react';
 import { sampleRecords, toDetailRecord } from '@/lib/data';
+import { tablerIcons } from '@/lib/tabler-icons';
 import CodeBlock from './code-block';
 import ApplicationShellShowcase from './application-shell-showcase';
+import ApplicationShellBreadcrumbShowcase from './application-shell-breadcrumb-showcase';
 import BreadcrumbShowcase from './breadcrumb-showcase';
 import DetailModal from './detail-modal';
 import DetailModalShowcase from './detail-modal-showcase';
@@ -12,6 +13,42 @@ import InputShowcase from './input-showcase';
 import PaginationShowcase from './pagination-showcase';
 import ResponsivePreview from './responsive-preview';
 import TableShowcase from './table-showcase';
+import NexoIcon from './nexo-icon';
+
+const previewModeKey = 'nexo-ui-preview-mode';
+const previewModeEvent = 'nexo-ui-preview-mode-change';
+
+function readPreviewMode() {
+  try {
+    return window.localStorage.getItem(previewModeKey) === 'light' ? 'light' : 'dark';
+  } catch {
+    return 'dark';
+  }
+}
+
+function subscribeToPreviewMode(callback) {
+  window.addEventListener('storage', callback);
+  window.addEventListener(previewModeEvent, callback);
+
+  return () => {
+    window.removeEventListener('storage', callback);
+    window.removeEventListener(previewModeEvent, callback);
+  };
+}
+
+function getServerPreviewMode() {
+  return 'dark';
+}
+
+function savePreviewMode(mode) {
+  try {
+    window.localStorage.setItem(previewModeKey, mode);
+  } catch {
+    // Keep the in-memory preference available when storage is blocked.
+  }
+
+  window.dispatchEvent(new Event(previewModeEvent));
+}
 
 async function copyToClipboard(text) {
   try {
@@ -39,7 +76,7 @@ async function copyToClipboard(text) {
 export default function ShowcaseApp({ component }) {
   const activeId = component.id;
   const [showCode, setShowCode] = useState(false);
-  const [previewMode, setPreviewMode] = useState('dark');
+  const previewMode = useSyncExternalStore(subscribeToPreviewMode, readPreviewMode, getServerPreviewMode);
   const [copied, setCopied] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(() => toDetailRecord(sampleRecords[0]));
   const [modalOpen, setModalOpen] = useState(false);
@@ -47,6 +84,7 @@ export default function ShowcaseApp({ component }) {
 
   function renderPreview() {
     if (activeId === 'application-shell') return <ApplicationShellShowcase />;
+    if (activeId === 'application-shell-breadcrumb') return <ApplicationShellBreadcrumbShowcase />;
     if (activeId === 'breadcrumb') return <BreadcrumbShowcase />;
     if (activeId === 'input') return <InputShowcase />;
     if (activeId === 'pagination') return <PaginationShowcase />;
@@ -75,9 +113,9 @@ export default function ShowcaseApp({ component }) {
             <button type="button" onClick={() => setShowCode(true)} className={`relative z-10 w-full rounded-md px-0 py-1.5 text-xs font-semibold transition-colors ${showCode ? 'text-white' : 'text-slate-500 hover:text-slate-300'}`}>Code</button>
           </div>
           <div className="flex items-center gap-2">
-            {!showCode && <div className="hidden items-center gap-1 rounded-lg border border-white/[0.08] p-1 sm:flex"><button type="button" aria-label="Light preview" onClick={() => setPreviewMode('light')} className={`rounded-md p-1.5 ${previewMode === 'light' ? 'bg-white/[0.12] text-white' : 'text-slate-500'}`}><Sun className="size-3.5" /></button><button type="button" aria-label="Dark preview" onClick={() => setPreviewMode('dark')} className={`rounded-md p-1.5 ${previewMode === 'dark' ? 'bg-white/[0.12] text-white' : 'text-slate-500'}`}><Moon className="size-3.5" /></button></div>}
+            {!showCode && <div className="relative hidden items-center gap-1 rounded-lg border border-white/[0.08] p-1 sm:flex"><button type="button" aria-label="Light preview" onClick={() => savePreviewMode('light')} className={`relative z-10 flex size-7 items-center justify-center rounded-md ${previewMode === 'light' ? 'text-white' : 'text-slate-500'}`}><NexoIcon icon={tablerIcons.sun} className={previewMode === 'light' ? 'opacity-0' : 'size-3.5'} /></button><button type="button" aria-label="Dark preview" onClick={() => savePreviewMode('dark')} className={`relative z-10 flex size-7 items-center justify-center rounded-md ${previewMode === 'dark' ? 'text-white' : 'text-slate-500'}`}><NexoIcon icon={tablerIcons.moon} className={previewMode === 'dark' ? 'opacity-0' : 'size-3.5'} /></button><span aria-hidden="true" className={`pointer-events-none absolute top-1 left-1 z-20 flex size-7 items-center justify-center rounded-md bg-white/[0.12] text-white transition-transform duration-300 ease-out ${previewMode === 'dark' ? 'translate-x-[calc(100%+0.25rem)]' : 'translate-x-0'}`}><NexoIcon icon={previewMode === 'light' ? tablerIcons.sun : tablerIcons.moon} spring="snappy" className="size-3.5" /></span></div>}
             <span className="hidden border-l border-white/[0.1] pl-3 font-mono text-[10px] font-semibold tracking-[0.1em] text-slate-400 uppercase sm:block">React / JSX</span>
-            <button type="button" onClick={copyCode} className="inline-flex items-center gap-2 rounded-lg bg-cyan-300 px-3 py-2 text-xs font-semibold text-[#071018] transition hover:bg-cyan-200">{copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}{copied ? 'Copied' : 'Copy code'}</button>
+            <button type="button" onClick={copyCode} className="inline-flex items-center gap-2 rounded-lg bg-cyan-300 px-3 py-2 text-xs font-semibold text-[#071018] transition hover:bg-cyan-200"><NexoIcon icon={copied ? tablerIcons.check : tablerIcons.copy} spring="snappy" className="size-3.5" />{copied ? 'Copied' : 'Copy code'}</button>
           </div>
         </div>
         <div className="bg-[#0a101a] p-3 sm:p-5">
@@ -90,7 +128,7 @@ export default function ShowcaseApp({ component }) {
           )}
         </div>
       </section>
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500"><span className="inline-flex items-center gap-2"><Monitor className="size-3.5" /> Built for responsive React interfaces</span><span>Preview the component, then copy the JSX.</span></div>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500"><span className="inline-flex items-center gap-2"><NexoIcon icon={tablerIcons.deviceDesktop} className="size-3.5" /> Built for responsive React interfaces</span><span>Preview the component, then copy the JSX.</span></div>
       <DetailModal key={modalOpen ? 'open' : 'closed'} dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={closeDetail} onPrimaryAction={() => undefined} />
     </>
   );

@@ -1,4 +1,8 @@
-export const breadcrumbSnippet = String.raw`import { ChevronRight } from 'lucide-react';
+import { tablerIconSnippet } from './tabler-icons';
+
+const iconPreamble = tablerIconSnippet(['chevronRight']);
+
+export const breadcrumbSnippet = String.raw`${iconPreamble}
 
 export default function Breadcrumb({ items = [] }) {
   return (
@@ -9,7 +13,7 @@ export default function Breadcrumb({ items = [] }) {
 
           return (
             <li key={item.label} className="flex items-center gap-1.5">
-              {index > 0 && <ChevronRight aria-hidden="true" className="size-3.5 text-slate-300" />}
+              {index > 0 && <MorphIcon icon={tablerIcons.chevronRight} reducedMotion="user" aria-hidden="true" className="size-3.5 text-slate-300" />}
               {isCurrent ? (
                 <span aria-current="page" className="font-semibold text-slate-900">
                   {item.label}

@@ -1,7 +1,10 @@
 export const componentSections = [
   {
     title: 'Shells',
-    items: [{ id: 'application-shell', title: 'Application Shell' }],
+    items: [
+      { id: 'application-shell', title: 'Application Shell' },
+      { id: 'application-shell-breadcrumb', title: 'Application Shell with Breadcrumb' },
+    ],
   },
   {
     title: 'Navigation',
@@ -34,6 +37,16 @@ export const componentMeta = {
     seoHeading: 'React Application Shell with Tailwind CSS',
     seoDescription:
       'A reusable React application shell built with Tailwind CSS, including persistent navigation, workspaces, and a responsive empty workspace.',
+  },
+  'application-shell-breadcrumb': {
+    section: 'Shells',
+    eyebrow: 'SHELLS',
+    title: 'Application Shell with Breadcrumb',
+    description: 'A responsive application frame with a sticky header breadcrumb and mobile navigation.',
+    seoTitle: 'Application Shell with Breadcrumb Component for React & Tailwind CSS',
+    seoHeading: 'React Application Shell with Breadcrumb',
+    seoDescription:
+      'A responsive React application shell styled with Tailwind CSS, combining persistent navigation, a sticky breadcrumb header, and mobile sidebar navigation.',
   },
   breadcrumb: {
     section: 'Navigation',

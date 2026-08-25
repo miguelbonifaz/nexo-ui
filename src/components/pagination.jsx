@@ -1,4 +1,5 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { tablerIcons } from '@/lib/tabler-icons';
+import NexoIcon from './nexo-icon';
 
 export default function Pagination({
   currentPage,
@@ -31,7 +32,7 @@ export default function Pagination({
           onClick={() => onPageChange(currentPage - 1)}
           className="inline-flex size-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-slate-300 hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-35 dark:border-slate-700 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-800"
         >
-          <ChevronLeft className="size-4" />
+          <NexoIcon icon={tablerIcons.chevronLeft} className="size-4" />
         </button>
         <span className="min-w-20 text-center text-xs font-semibold text-slate-600 dark:text-slate-300">
           Page {currentPage} of {totalPages}
@@ -43,7 +44,7 @@ export default function Pagination({
           onClick={() => onPageChange(currentPage + 1)}
           className="inline-flex size-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-slate-300 hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-35 dark:border-slate-700 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-800"
         >
-          <ChevronRight className="size-4" />
+          <NexoIcon icon={tablerIcons.chevronRight} className="size-4" />
         </button>
       </div>
     </nav>

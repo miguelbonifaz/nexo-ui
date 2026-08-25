@@ -1,4 +1,8 @@
-export const paginationSnippet = String.raw`import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { tablerIconSnippet } from './tabler-icons';
+
+const iconPreamble = tablerIconSnippet(['chevronLeft', 'chevronRight']);
+
+export const paginationSnippet = String.raw`${iconPreamble}
 
 export default function Pagination({
   currentPage,
@@ -23,7 +27,7 @@ export default function Pagination({
           onClick={() => onPageChange(currentPage - 1)}
           className="inline-flex size-8 items-center justify-center rounded-lg border disabled:opacity-35"
         >
-          <ChevronLeft className="size-4" />
+          <MorphIcon icon={tablerIcons.chevronLeft} reducedMotion="user" className="size-4" />
         </button>
         <span className="px-2 text-xs font-semibold">
           Page {currentPage} of {totalPages}
@@ -35,7 +39,7 @@ export default function Pagination({
           onClick={() => onPageChange(currentPage + 1)}
           className="inline-flex size-8 items-center justify-center rounded-lg border disabled:opacity-35"
         >
-          <ChevronRight className="size-4" />
+          <MorphIcon icon={tablerIcons.chevronRight} reducedMotion="user" className="size-4" />
         </button>
       </div>
     </nav>

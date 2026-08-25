@@ -1,4 +1,5 @@
-import { ChevronRight } from 'lucide-react';
+import { tablerIcons } from '@/lib/tabler-icons';
+import NexoIcon from './nexo-icon';
 
 export default function Breadcrumb({ items = [] }) {
   return (
@@ -9,7 +10,7 @@ export default function Breadcrumb({ items = [] }) {
 
           return (
             <li key={item.label} className="flex items-center gap-1.5">
-              {index > 0 && <ChevronRight aria-hidden="true" className="size-3.5 text-slate-300 dark:text-slate-600" />}
+              {index > 0 && <NexoIcon icon={tablerIcons.chevronRight} aria-hidden="true" className="size-3.5 text-slate-300 dark:text-slate-600" />}
               {isCurrent ? (
                   <span aria-current="page" className="font-semibold text-slate-900 dark:text-slate-100">
                   {item.label}

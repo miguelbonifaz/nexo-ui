@@ -1,8 +1,9 @@
 'use client';
 
-import { Search } from 'lucide-react';
 import { useState } from 'react';
+import { tablerIcons } from '@/lib/tabler-icons';
 import Input from './input';
+import NexoIcon from './nexo-icon';
 
 export default function InputShowcase() {
   const [value, setValue] = useState('Olivia Carter');
@@ -33,7 +34,7 @@ export default function InputShowcase() {
         </div>
         <label className="relative block max-w-xl">
           <span className="sr-only">Search records</span>
-          <Search className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-slate-400" />
+          <NexoIcon icon={tablerIcons.search} className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-slate-400" />
           <input
             type="search"
             value={value}

@@ -1,5 +1,9 @@
+import { tablerIconSnippet } from './tabler-icons';
+
+const iconPreamble = tablerIconSnippet(['x']);
+
 export const detailModalSnippet = String.raw`import { useEffect } from 'react';
-import { X } from 'lucide-react';
+${iconPreamble}
 
 export default function DetailModal({ record, open, onClose }) {
   useEffect(() => {
@@ -35,7 +39,7 @@ export default function DetailModal({ record, open, onClose }) {
             <h2 id="detail-modal-title" className="mt-1 text-xl font-semibold text-slate-900">{record.title}</h2>
           </div>
           <button type="button" onClick={onClose} aria-label="Close modal" className="rounded-lg p-2 text-slate-400 hover:bg-slate-100">
-            <X className="size-4" />
+            <MorphIcon icon={tablerIcons.x} reducedMotion="user" className="size-4" />
           </button>
         </header>
         <div className="grid gap-5 px-6 py-6 sm:grid-cols-2">

@@ -1,13 +1,14 @@
-import { ArrowUpRight, Command } from 'lucide-react';
 import Link from 'next/link';
+import { tablerIcons } from '@/lib/tabler-icons';
 import { componentRegistry } from '@/lib/component-registry';
+import NexoIcon from './nexo-icon';
 
 export default function ComponentIndex() {
   return (
     <div className="min-h-screen bg-[#070a10] text-slate-100">
       <header className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-5 py-6 sm:px-8 lg:px-12">
         <Link href="/" className="flex items-center gap-3" aria-label="Nexo UI home">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-cyan-300 text-[#071018] shadow-[0_0_24px_rgb(103_232_249/0.2)]"><Command className="size-4" /></span>
+          <span className="flex size-9 items-center justify-center rounded-xl bg-cyan-300 text-[#071018] shadow-[0_0_24px_rgb(103_232_249/0.2)]"><NexoIcon icon={tablerIcons.command} className="size-4" /></span>
           <span><span className="block text-sm font-semibold tracking-tight text-white">Nexo UI</span><span className="block font-mono text-[10px] tracking-[0.08em] text-slate-500 uppercase">Component library</span></span>
         </Link>
         <Link href="/" className="text-xs font-semibold text-slate-400 transition hover:text-white">Back home</Link>
@@ -31,7 +32,7 @@ export default function ComponentIndex() {
               <Link key={component.id} href={`/components/${component.id}`} className="group flex min-h-64 flex-col rounded-2xl border border-white/[0.1] bg-[#0d131e] p-5 transition hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-[#111927]">
                 <div className="flex items-start justify-between gap-4">
                   <span className="font-mono text-[10px] font-semibold tracking-[0.14em] text-slate-600">0{index + 1}</span>
-                  <ArrowUpRight className="size-4 text-slate-600 transition group-hover:text-cyan-300" />
+                  <NexoIcon icon={tablerIcons.arrowUpRight} className="size-4 text-slate-600 transition group-hover:text-cyan-300" />
                 </div>
                 <div className="mt-auto pt-12">
                   <p className="font-mono text-[10px] font-semibold tracking-[0.14em] text-cyan-300 uppercase">{component.section}</p>

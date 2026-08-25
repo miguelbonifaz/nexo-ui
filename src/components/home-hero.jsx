@@ -1,5 +1,6 @@
-import { ArrowUpRight, Code2, Copy, Layers3 } from 'lucide-react';
 import Link from 'next/link';
+import { tablerIcons } from '@/lib/tabler-icons';
+import NexoIcon from './nexo-icon';
 
 const featuredComponents = [
   { label: 'Application Shell', id: 'application-shell' },
@@ -13,17 +14,22 @@ export default function HomeHero() {
       <header className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-5 py-6 sm:px-8 lg:px-12">
         <Link href="/" className="flex items-center gap-3" aria-label="Nexo UI home">
           <span className="flex size-9 items-center justify-center rounded-xl bg-cyan-300 text-[#071018] shadow-[0_0_24px_rgb(103_232_249/0.2)]">
-            <Layers3 className="size-4" />
+            <NexoIcon icon={tablerIcons.layersIntersect} className="size-4" />
           </span>
           <span>
             <span className="block text-sm font-semibold tracking-tight text-white">Nexo UI</span>
             <span className="block font-mono text-[10px] tracking-[0.08em] text-slate-500 uppercase">Component library</span>
           </span>
         </Link>
-        <Link href="/components" className="inline-flex items-center gap-2 rounded-lg border border-white/[0.12] px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-cyan-300/50 hover:text-cyan-200">
-          Browse components
-          <ArrowUpRight className="size-3.5" />
-        </Link>
+        <div className="flex items-center gap-2">
+          <a href="https://github.com/miguelbonifaz/nexo-ui" target="_blank" rel="noreferrer" aria-label="Open Nexo UI repository on GitHub" className="inline-flex size-9 items-center justify-center rounded-lg border border-white/[0.12] text-slate-300 transition hover:border-cyan-300/50 hover:text-cyan-200">
+            <NexoIcon icon={tablerIcons.brandGithub} className="size-4" />
+          </a>
+          <Link href="/components" className="inline-flex items-center gap-2 rounded-lg border border-white/[0.12] px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-cyan-300/50 hover:text-cyan-200">
+            Browse components
+            <NexoIcon icon={tablerIcons.arrowUpRight} className="size-3.5" />
+          </Link>
+        </div>
       </header>
 
       <main className="nexo-grid flex min-h-[calc(100vh-89px)] items-center px-5 py-16 sm:px-8 lg:px-12">
@@ -39,7 +45,7 @@ export default function HomeHero() {
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Link href="/components" className="inline-flex items-center gap-2 rounded-lg bg-cyan-300 px-4 py-3 text-sm font-semibold text-[#071018] transition hover:bg-cyan-200">
                 Explore components
-                <ArrowUpRight className="size-4" />
+                <NexoIcon icon={tablerIcons.arrowUpRight} className="size-4" />
               </Link>
               <Link href="/components/table" className="inline-flex items-center gap-2 rounded-lg border border-white/[0.14] px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/[0.05]">
                 Open Table
@@ -51,7 +57,7 @@ export default function HomeHero() {
             <div className="rounded-[20px] border border-white/[0.08] bg-[#111927] p-5 sm:p-6">
               <div className="flex items-center justify-between border-b border-white/[0.08] pb-5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-300">
-                  <Code2 className="size-4 text-cyan-300" />
+                  <NexoIcon icon={tablerIcons.code} className="size-4 text-cyan-300" />
                   Nexo UI / JSX
                 </div>
                 <span className="rounded-full border border-emerald-300/20 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.1em] text-emerald-300 uppercase">Live preview</span>
@@ -64,12 +70,12 @@ export default function HomeHero() {
                       <span className="font-mono text-[10px] text-slate-600">0{index + 1}</span>
                       <span className="text-sm font-medium text-slate-300 group-hover:text-white">{component.label}</span>
                     </span>
-                    <ArrowUpRight className="size-3.5 text-slate-600 transition group-hover:text-cyan-300" />
+                    <NexoIcon icon={tablerIcons.arrowUpRight} className="size-3.5 text-slate-600 transition group-hover:text-cyan-300" />
                   </Link>
                 ))}
               </div>
               <div className="mt-5 flex items-center gap-2 text-xs text-slate-500">
-                <Copy className="size-3.5 text-cyan-300" />
+                <NexoIcon icon={tablerIcons.copy} className="size-3.5 text-cyan-300" />
                 Preview, inspect, and adapt the code.
               </div>
             </div>

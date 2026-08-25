@@ -1,8 +1,9 @@
 'use client';
 
-import { CalendarDays, MapPin, MessageSquareText, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { tablerIcons } from '@/lib/tabler-icons';
 import StatusBadge from './status-badge';
+import NexoIcon from './nexo-icon';
 
 export default function DetailModal({ dark = false, record, open, onClose, onPrimaryAction }) {
   const [closing, setClosing] = useState(false);
@@ -75,7 +76,7 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
           <div className="flex shrink-0 items-start gap-3">
             <StatusBadge label={record.status} tone={record.tone} />
             <button type="button" onClick={closeModal} aria-label="Close modal" className="-mr-2 -mt-2 rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200">
-              <X className="size-4" />
+              <NexoIcon icon={tablerIcons.x} className="size-4" />
             </button>
           </div>
         </header>
@@ -108,14 +109,14 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
 
 function DetailNote({ icon, label, value, multiline = false }) {
   const Icon = {
-    calendar: CalendarDays,
-    location: MapPin,
-    note: MessageSquareText,
+    calendar: tablerIcons.calendar,
+    location: tablerIcons.mapPin,
+    note: tablerIcons.message2,
   }[icon];
 
   return (
     <div className="flex gap-3">
-      <Icon className="mt-0.5 size-4 shrink-0 text-slate-400 dark:text-slate-500" />
+      <NexoIcon icon={Icon} className="mt-0.5 size-4 shrink-0 text-slate-400 dark:text-slate-500" />
       <div className="min-w-0">
         <p className="text-xs font-medium text-slate-400 dark:text-slate-500">{label}</p>
         <p className={`mt-1 text-sm text-slate-700 dark:text-slate-300 ${multiline ? 'leading-6' : 'font-semibold'}`}>{value}</p>

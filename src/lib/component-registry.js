@@ -1,5 +1,6 @@
 import { componentMeta } from './component-data';
 import { applicationShellSnippet } from './snippets/application-shell';
+import { applicationShellBreadcrumbSnippet } from './snippets/application-shell-breadcrumb';
 import { breadcrumbSnippet } from './snippets/breadcrumb';
 import { detailModalSnippet } from './snippets/detail-modal';
 import { inputSnippet } from './snippets/input';
@@ -8,6 +9,7 @@ import { tableSnippet } from './snippets/table';
 
 export const componentRegistry = [
   { id: 'application-shell', ...componentMeta['application-shell'], code: applicationShellSnippet },
+  { id: 'application-shell-breadcrumb', ...componentMeta['application-shell-breadcrumb'], code: applicationShellBreadcrumbSnippet },
   { id: 'breadcrumb', ...componentMeta.breadcrumb, code: breadcrumbSnippet },
   { id: 'input', ...componentMeta.input, code: inputSnippet },
   { id: 'table', ...componentMeta.table, code: tableSnippet },

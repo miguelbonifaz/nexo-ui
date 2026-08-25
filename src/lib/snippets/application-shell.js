@@ -1,22 +1,26 @@
-export const applicationShellSnippet = String.raw`import {
-  BarChart3,
-  CalendarDays,
-  FileText,
-  FolderKanban,
-  LayoutDashboard,
-  LogOut,
-  Moon,
-  Settings,
-  Users,
-} from 'lucide-react';
+import { tablerIconSnippet } from './tabler-icons';
+
+const iconPreamble = tablerIconSnippet([
+  'chartBar',
+  'calendar',
+  'fileText',
+  'layoutKanban',
+  'layoutDashboard',
+  'logout',
+  'moon',
+  'settings',
+  'users',
+]);
+
+export const applicationShellSnippet = String.raw`${iconPreamble}
 
 const navigation = [
-  { label: 'Dashboard', icon: LayoutDashboard },
-  { label: 'Team', icon: Users },
-  { label: 'Projects', icon: FolderKanban },
-  { label: 'Calendar', icon: CalendarDays },
-  { label: 'Documents', icon: FileText },
-  { label: 'Reports', icon: BarChart3 },
+  { label: 'Dashboard', icon: tablerIcons.layoutDashboard },
+  { label: 'Team', icon: tablerIcons.users },
+  { label: 'Projects', icon: tablerIcons.layoutKanban },
+  { label: 'Calendar', icon: tablerIcons.calendar },
+  { label: 'Documents', icon: tablerIcons.fileText },
+  { label: 'Reports', icon: tablerIcons.chartBar },
 ];
 
 const workspaces = [
@@ -34,7 +38,7 @@ function SidebarItem({ item, activeItem }) {
       href={'#' + item.label.toLowerCase()}
       className={'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors ' + (isActive ? 'bg-slate-100 text-slate-900 dark:bg-slate-800/80 dark:text-[#2ec4b6]' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100')}
     >
-      <Icon className={'size-[18px] shrink-0 stroke-[1.6] ' + (isActive ? 'text-slate-900 dark:text-[#2ec4b6]' : 'text-slate-400')} />
+      <MorphIcon icon={item.icon} reducedMotion="user" className={'size-[18px] shrink-0 stroke-[1.6] ' + (isActive ? 'text-slate-900 dark:text-[#2ec4b6]' : 'text-slate-400')} />
       <span className="truncate">{item.label}</span>
     </a>
   );
@@ -55,14 +59,14 @@ function SidebarFooter() {
     <div className="mt-auto pt-8">
       <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 dark:border-slate-800 dark:bg-slate-900">
         <span className="font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase">Dark</span>
-        <button type="button" aria-label="Toggle color theme" className="relative flex h-[26px] w-12 items-center justify-end rounded-full bg-slate-800 px-[3px] ring-1 ring-slate-700"><span className="flex size-[18px] items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow-sm"><Moon className="size-3" /></span></button>
+        <button type="button" aria-label="Toggle color theme" className="relative flex h-[26px] w-12 items-center justify-end rounded-full bg-slate-800 px-[3px] ring-1 ring-slate-700"><span className="flex size-[18px] items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow-sm"><MorphIcon icon={tablerIcons.moon} reducedMotion="user" className="size-3" /></span></button>
       </div>
-      <a href="#settings" className="mt-4 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><Settings className="size-[18px] stroke-[1.6]" /><span>Settings</span></a>
+      <a href="#settings" className="mt-4 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><MorphIcon icon={tablerIcons.settings} reducedMotion="user" className="size-[18px] stroke-[1.6]" /><span>Settings</span></a>
       <div className="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700/70">
         <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-2.5 dark:border-slate-800 dark:bg-slate-900">
           <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#2ec4b6] text-xs font-bold text-[#071018]">TU</span>
           <div className="min-w-0 flex-1 leading-tight"><p className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100">Test User</p><p className="truncate text-xs text-slate-500 dark:text-slate-400">test.user@example.com</p></div>
-          <button type="button" aria-label="Sign out" className="flex size-8 shrink-0 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-200"><LogOut className="size-[18px] stroke-[1.6]" /></button>
+          <button type="button" aria-label="Sign out" className="flex size-8 shrink-0 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-200"><MorphIcon icon={tablerIcons.logout} reducedMotion="user" className="size-[18px] stroke-[1.6]" /></button>
         </div>
       </div>
     </div>
