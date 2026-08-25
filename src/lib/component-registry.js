@@ -18,3 +18,7 @@ export const componentRegistry = [
     code: detailModalSnippet,
   },
 ];
+
+export function getComponentById(id) {
+  return componentRegistry.find((component) => component.id === id);
+}

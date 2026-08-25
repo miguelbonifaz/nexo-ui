@@ -18,6 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
+## Production URL
+
+Set `NEXT_PUBLIC_SITE_URL` to the final public HTTPS domain before deploying. This value is used for `metadataBase`, canonical URLs, the sitemap, robots.txt, and structured data.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More

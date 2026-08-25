@@ -1,5 +1,5 @@
-import ShowcaseApp from '@/components/showcase-app';
+import HomeHero from '@/components/home-hero';
 
 export default function Home() {
-  return <ShowcaseApp />;
+  return <HomeHero />;
 }
