@@ -1,7 +1,7 @@
 'use client';
 
 import { Check, Copy, Monitor, Moon, Sun } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { sampleRecords, toDetailRecord } from '@/lib/data';
 import CodeBlock from './code-block';
 import ApplicationShellShowcase from './application-shell-showcase';
@@ -43,6 +43,7 @@ export default function ShowcaseApp({ component }) {
   const [copied, setCopied] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(() => toDetailRecord(sampleRecords[0]));
   const [modalOpen, setModalOpen] = useState(false);
+  const closeDetail = useCallback(() => setModalOpen(false), []);
 
   function renderPreview() {
     if (activeId === 'application-shell') return <ApplicationShellShowcase />;
@@ -90,7 +91,7 @@ export default function ShowcaseApp({ component }) {
         </div>
       </section>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500"><span className="inline-flex items-center gap-2"><Monitor className="size-3.5" /> Built for responsive React interfaces</span><span>Preview the component, then copy the JSX.</span></div>
-      <DetailModal dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={() => setModalOpen(false)} onPrimaryAction={() => setModalOpen(false)} />
+      <DetailModal key={modalOpen ? 'open' : 'closed'} dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={closeDetail} onPrimaryAction={() => undefined} />
     </>
   );
 }

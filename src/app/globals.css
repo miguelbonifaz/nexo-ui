@@ -121,19 +121,19 @@ input:focus-visible {
 }
 
 .nexo-modal-enter {
-  animation: nexo-modal-in 190ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: nexo-modal-in 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .nexo-modal-exit {
-  animation: nexo-modal-out 180ms ease-in both;
+  animation: nexo-modal-out 300ms ease-in both;
 }
 
 .nexo-backdrop-enter {
-  animation: nexo-fade-in 190ms ease-out both;
+  animation: nexo-fade-in 300ms ease-out both;
 }
 
 .nexo-backdrop-exit {
-  animation: nexo-fade-out 180ms ease-in both;
+  animation: nexo-fade-out 300ms ease-in both;
 }
 
 @keyframes nexo-enter {

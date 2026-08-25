@@ -1,10 +1,17 @@
 'use client';
 
 import { CalendarDays, MapPin, MessageSquareText, X } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import StatusBadge from './status-badge';
 
 export default function DetailModal({ dark = false, record, open, onClose, onPrimaryAction }) {
+  const [closing, setClosing] = useState(false);
+  const closeTimer = useRef(null);
+
+  useEffect(() => () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+  }, []);
+
   useEffect(() => {
     if (!open) return undefined;
 
@@ -29,12 +36,18 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
   if (!open || !record) return null;
 
   function closeModal() {
-    onClose();
+    if (closing) return;
+
+    setClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      closeTimer.current = null;
+      onClose();
+    }, 300);
   }
 
   function handlePrimaryAction() {
     onPrimaryAction?.(record);
-    onClose();
+    closeModal();
   }
 
   return (
@@ -44,14 +57,14 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
         type="button"
         aria-label="Close modal"
         onClick={closeModal}
-        className="nexo-backdrop-enter absolute inset-0 bg-slate-950/35 backdrop-blur-[2px] dark:bg-black/60"
+        className={`${closing ? 'nexo-backdrop-exit' : 'nexo-backdrop-enter'} absolute inset-0 bg-slate-950/35 backdrop-blur-[2px] dark:bg-black/60`}
       />
       <section
         role="dialog"
         aria-modal="true"
         aria-labelledby="detail-modal-title"
         onClick={(event) => event.stopPropagation()}
-        className="nexo-modal-enter relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-[0_24px_80px_rgb(15_23_42/0.2)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40"
+        className={`${closing ? 'nexo-modal-exit' : 'nexo-modal-enter'} relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-[0_24px_80px_rgb(15_23_42/0.2)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40`}
       >
         <header className="flex items-start justify-between gap-5 border-b border-slate-100 px-6 py-5 sm:px-7 dark:border-slate-800">
           <div className="min-w-0">
