@@ -10,6 +10,7 @@ import BreadcrumbShowcase from './breadcrumb-showcase';
 import DetailModal from './detail-modal';
 import DetailModalShowcase from './detail-modal-showcase';
 import InputShowcase from './input-showcase';
+import NumberedPaginationShowcase from './numbered-pagination-showcase';
 import PaginationShowcase from './pagination-showcase';
 import ResponsivePreview from './responsive-preview';
 import TableShowcase from './table-showcase';
@@ -127,7 +128,7 @@ export default function ShowcaseApp({ component }) {
     setModalOpen(true);
   }
 
-  const fitContentPreview = activeId === 'input';
+  const fitContentPreview = activeId === 'input' || activeId === 'breadcrumb' || activeId === 'pagination';
 
   return (
     <>
@@ -158,6 +159,7 @@ export default function ShowcaseApp({ component }) {
           )}
         </div>
       </section>
+      {activeId === 'pagination' && <NumberedPaginationShowcase dark={previewMode === 'dark'} onToggleTheme={(dark) => savePreviewMode(dark ? 'dark' : 'light')} />}
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500"><span className="inline-flex items-center gap-2"><NexoIcon icon={tablerIcons.deviceDesktop} className="size-3.5" /> Built for responsive React interfaces</span><span>Preview the component, then copy the JSX.</span></div>
       <DetailModal key={modalOpen ? 'open' : 'closed'} dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={closeDetail} onPrimaryAction={() => undefined} />
     </>
