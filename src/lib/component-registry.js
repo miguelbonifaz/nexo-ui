@@ -2,7 +2,7 @@ import { componentMeta } from './component-data';
 import { applicationShellSnippet } from './snippets/application-shell';
 import { applicationShellBreadcrumbSnippet } from './snippets/application-shell-breadcrumb';
 import { breadcrumbSnippet } from './snippets/breadcrumb';
-import { detailModalSnippet } from './snippets/detail-modal';
+import { modalSnippet } from './snippets/modal';
 import { inputSnippet } from './snippets/input';
 import { paginationSnippet } from './snippets/pagination';
 import { tableSnippet } from './snippets/table';
@@ -15,9 +15,9 @@ export const componentRegistry = [
   { id: 'table', ...componentMeta.table, code: tableSnippet },
   { id: 'pagination', ...componentMeta.pagination, code: paginationSnippet },
   {
-    id: 'detail-modal',
-    ...componentMeta['detail-modal'],
-    code: detailModalSnippet,
+    id: 'modal',
+    ...componentMeta.modal,
+    code: modalSnippet,
   },
 ];
 

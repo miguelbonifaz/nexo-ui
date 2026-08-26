@@ -1,8 +1,8 @@
 import ApplicationShellShowcase from './application-shell-showcase';
 import ApplicationShellBreadcrumbShowcase from './application-shell-breadcrumb-showcase';
 import BreadcrumbShowcase from './breadcrumb-showcase';
-import DetailModal from './detail-modal';
-import DetailModalShowcase from './detail-modal-showcase';
+import Modal from './modal';
+import ModalShowcase from './modal-showcase';
 import InputShowcase from './input-showcase';
 import PaginationShowcase from './pagination-showcase';
 import TableShowcase from './table-showcase';
@@ -11,7 +11,7 @@ export default function ComponentPreview({
   componentId,
   dark,
   onToggleTheme,
-  onOpenDetail,
+  onOpenModal,
   modalOpen,
   onClose,
   modalPreviewRecord,
@@ -23,13 +23,13 @@ export default function ComponentPreview({
   if (componentId === 'breadcrumb') return <BreadcrumbShowcase />;
   if (componentId === 'input') return <InputShowcase />;
   if (componentId === 'pagination') return <PaginationShowcase />;
-  if (componentId === 'detail-modal') {
+  if (componentId === 'modal') {
     return (
-      <DetailModalShowcase onOpen={onOpenDetail}>
-        <DetailModal key={modalOpen ? 'open' : 'closed'} dark={dark} record={modalPreviewRecord} open={modalOpen} onClose={onClose} withinCanvas />
-      </DetailModalShowcase>
+      <ModalShowcase onOpen={onOpenModal}>
+        <Modal key={modalOpen ? 'open' : 'closed'} dark={dark} record={modalPreviewRecord} open={modalOpen} onClose={onClose} withinCanvas />
+      </ModalShowcase>
     );
   }
 
-  return <TableShowcase onSelectRecord={onOpenDetail} />;
+  return <TableShowcase onSelectRecord={onOpenModal} />;
 }

@@ -31,7 +31,7 @@ async function copyToClipboard(text) {
   if (!copied) throw new Error('Clipboard is unavailable');
 }
 
-export default function ComponentShowcase({ component, previewMode, onSetPreviewMode, onOpenDetail, modalOpen, onClose, modalPreviewRecord }) {
+export default function ComponentShowcase({ component, previewMode, onSetPreviewMode, onOpenModal, modalOpen, onClose, modalPreviewRecord }) {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -88,7 +88,7 @@ export default function ComponentShowcase({ component, previewMode, onSetPreview
             <div className={`preview-theme ${previewMode === 'dark' ? 'dark' : ''}`}>
               <div className="preview-surface rounded-2xl p-3 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-5" style={fitContentPreview ? { minHeight: 0 } : undefined}>
                 <ResponsivePreview dark={previewMode === 'dark'} fitContent={fitContentPreview}>
-                  <ComponentPreview componentId={component.id} dark={previewMode === 'dark'} onToggleTheme={togglePreviewTheme} onOpenDetail={onOpenDetail} modalOpen={modalOpen} onClose={onClose} modalPreviewRecord={modalPreviewRecord} />
+                  <ComponentPreview componentId={component.id} dark={previewMode === 'dark'} onToggleTheme={togglePreviewTheme} onOpenModal={onOpenModal} modalOpen={modalOpen} onClose={onClose} modalPreviewRecord={modalPreviewRecord} />
                 </ResponsivePreview>
               </div>
             </div>

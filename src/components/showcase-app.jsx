@@ -3,7 +3,7 @@
 import { useCallback, useState, useSyncExternalStore } from 'react';
 import { sampleRecords, toDetailRecord } from '@/lib/data';
 import ComponentShowcase from './component-showcase';
-import DetailModal from './detail-modal';
+import Modal from './modal';
 
 const previewModeKey = 'nexo-ui-preview-mode';
 const previewModeEvent = 'nexo-ui-preview-mode-change';
@@ -52,11 +52,11 @@ function savePreviewMode(mode) {
 export default function ShowcaseApp({ group }) {
   const previewMode = useSyncExternalStore(subscribeToPreviewMode, readPreviewMode, getServerPreviewMode);
   const [selectedRecord, setSelectedRecord] = useState(() => toDetailRecord(sampleRecords[0]));
-  const [modalOpen, setModalOpen] = useState(() => group.components.some(({ id }) => id === 'detail-modal'));
-  const hasEmbeddedModal = group.components.some(({ id }) => id === 'detail-modal');
-  const closeDetail = useCallback(() => setModalOpen(false), []);
+  const [modalOpen, setModalOpen] = useState(() => group.components.some(({ id }) => id === 'modal'));
+  const hasEmbeddedModal = group.components.some(({ id }) => id === 'modal');
+  const closeModal = useCallback(() => setModalOpen(false), []);
 
-  function openDetail(record = sampleRecords[0]) {
+  function openModal(record = sampleRecords[0]) {
     setSelectedRecord(toDetailRecord(record));
     setModalOpen(true);
   }
@@ -70,14 +70,14 @@ export default function ShowcaseApp({ group }) {
             component={component}
             previewMode={previewMode}
             onSetPreviewMode={savePreviewMode}
-            onOpenDetail={openDetail}
+            onOpenModal={openModal}
             modalOpen={modalOpen}
-            onClose={closeDetail}
+            onClose={closeModal}
             modalPreviewRecord={modalPreviewRecord}
           />
         ))}
       </div>
-      {!hasEmbeddedModal && <DetailModal dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={closeDetail} onPrimaryAction={() => undefined} />}
+      {!hasEmbeddedModal && <Modal dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={closeModal} onPrimaryAction={() => undefined} />}
     </>
   );
 }

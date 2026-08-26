@@ -5,7 +5,7 @@ import NexoIcon from './nexo-icon';
 const featuredComponents = [
   { label: 'Application Shell', id: 'application-shell' },
   { label: 'Table', id: 'table' },
-  { label: 'Modal', id: 'detail-modal' },
+  { label: 'Modal', id: 'modal' },
 ];
 
 export default function HomeHero() {

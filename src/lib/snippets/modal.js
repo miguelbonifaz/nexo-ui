@@ -2,10 +2,10 @@ import { tablerIconSnippet } from './tabler-icons';
 
 const iconPreamble = tablerIconSnippet(['x']);
 
-export const detailModalSnippet = String.raw`import { useEffect } from 'react';
+export const modalSnippet = String.raw`import { useEffect } from 'react';
 ${iconPreamble}
 
-export default function DetailModal({ record, open, onClose }) {
+export default function Modal({ record, open, onClose }) {
   useEffect(() => {
     if (!open) return;
 
@@ -30,13 +30,13 @@ export default function DetailModal({ record, open, onClose }) {
       <section
         role="dialog"
         aria-modal="true"
-        aria-labelledby="detail-modal-title"
+        aria-labelledby="modal-title"
         className="relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-xl overflow-y-auto rounded-2xl bg-white shadow-[0_24px_80px_rgb(15_23_42/0.2)]"
       >
         <header className="flex items-start justify-between border-b px-6 py-5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-400">Record details</p>
-            <h2 id="detail-modal-title" className="mt-1 text-xl font-semibold text-slate-900">{record.title}</h2>
+            <h2 id="modal-title" className="mt-1 text-xl font-semibold text-slate-900">{record.title}</h2>
           </div>
           <button type="button" onClick={onClose} aria-label="Close modal" className="rounded-lg p-2 text-slate-400 hover:bg-slate-100">
             <IconX aria-hidden="true" size={16} />

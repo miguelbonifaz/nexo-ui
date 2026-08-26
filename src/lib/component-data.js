@@ -23,7 +23,7 @@ export const componentSections = [
   },
   {
     title: 'Dialogs',
-    items: [{ id: 'detail-modal', groupId: 'detail-modal', title: 'Modal' }],
+    items: [{ id: 'modal', groupId: 'modal', title: 'Modal' }],
   },
 ];
 
@@ -97,8 +97,8 @@ export const componentMeta = {
     seoDescription:
       'A compact React pagination component styled with Tailwind CSS for navigating records, search results, and longer collections.',
   },
-  'detail-modal': {
-    groupId: 'detail-modal',
+  modal: {
+    groupId: 'modal',
     section: 'Dialogs',
     eyebrow: 'DIALOGS',
     title: 'Modal',

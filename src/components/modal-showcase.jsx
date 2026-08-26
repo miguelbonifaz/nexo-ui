@@ -1,4 +1,4 @@
-export default function DetailModalShowcase({ onOpen, children }) {
+export default function ModalShowcase({ onOpen, children }) {
   return (
     <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden">
       <button

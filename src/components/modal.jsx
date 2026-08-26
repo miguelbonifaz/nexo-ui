@@ -5,7 +5,7 @@ import { tablerIcons } from '@/lib/tabler-icons';
 import StatusBadge from './status-badge';
 import NexoIcon from './nexo-icon';
 
-export default function DetailModal({ dark = false, record, open, onClose, onPrimaryAction, withinCanvas = false }) {
+export default function Modal({ dark = false, record, open, onClose, onPrimaryAction, withinCanvas = false }) {
   const [closing, setClosing] = useState(false);
   const closeTimer = useRef(null);
 
@@ -63,14 +63,14 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
       <section
         role="dialog"
         aria-modal="true"
-        aria-labelledby="detail-modal-title"
+        aria-labelledby="modal-title"
         onClick={(event) => event.stopPropagation()}
         className={`${closing ? 'nexo-modal-exit' : 'nexo-modal-enter'} relative z-10 ${withinCanvas ? 'max-h-full' : 'max-h-[calc(100dvh-2rem)]'} w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-[0_24px_80px_rgb(15_23_42/0.2)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40`}
       >
         <header className="flex items-start justify-between gap-5 border-b border-slate-100 px-6 py-5 sm:px-7 dark:border-slate-800">
           <div className="min-w-0">
             <p className="text-[10px] font-semibold tracking-[0.12em] text-slate-400 uppercase dark:text-slate-500">Record details</p>
-            <h2 id="detail-modal-title" className="mt-1 truncate text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">{record.title}</h2>
+            <h2 id="modal-title" className="mt-1 truncate text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">{record.title}</h2>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{record.id} · {record.subtitle}</p>
           </div>
           <div className="flex shrink-0 items-start gap-3">
