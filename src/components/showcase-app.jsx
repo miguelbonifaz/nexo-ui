@@ -18,6 +18,15 @@ import NexoIcon from './nexo-icon';
 
 const previewModeKey = 'nexo-ui-preview-mode';
 const previewModeEvent = 'nexo-ui-preview-mode-change';
+const modalPreviewRecord = {
+  ...toDetailRecord(sampleRecords[0]),
+  subtitle: sampleRecords[0].product,
+  fields: [
+    ['Product', sampleRecords[0].product],
+    ['Estimated price', sampleRecords[0].price],
+  ],
+  sections: [],
+};
 
 function readPreviewMode() {
   try {
@@ -113,7 +122,11 @@ export default function ShowcaseApp({ component }) {
     if (activeId === 'breadcrumb') return <BreadcrumbShowcase />;
     if (activeId === 'input') return <InputShowcase />;
     if (activeId === 'pagination') return <PaginationShowcase />;
-    if (activeId === 'detail-modal') return <DetailModalShowcase onOpen={() => openDetail(sampleRecords[0])} />;
+    if (activeId === 'detail-modal') return (
+      <DetailModalShowcase onOpen={() => openDetail(sampleRecords[0])}>
+        <DetailModal key={modalOpen ? 'open' : 'closed'} dark={previewMode === 'dark'} record={modalPreviewRecord} open={modalOpen} onClose={closeDetail} withinCanvas />
+      </DetailModalShowcase>
+    );
     return <TableShowcase onSelectRecord={openDetail} />;
   }
 
@@ -161,7 +174,7 @@ export default function ShowcaseApp({ component }) {
       </section>
       {activeId === 'pagination' && <NumberedPaginationShowcase dark={previewMode === 'dark'} onToggleTheme={(dark) => savePreviewMode(dark ? 'dark' : 'light')} />}
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500"><span className="inline-flex items-center gap-2"><NexoIcon icon={tablerIcons.deviceDesktop} className="size-3.5" /> Built for responsive React interfaces</span><span>Preview the component, then copy the JSX.</span></div>
-      <DetailModal key={modalOpen ? 'open' : 'closed'} dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={closeDetail} onPrimaryAction={() => undefined} />
+      {activeId !== 'detail-modal' && <DetailModal key={modalOpen ? 'open' : 'closed'} dark={previewMode === 'dark'} record={selectedRecord} open={modalOpen} onClose={closeDetail} onPrimaryAction={() => undefined} />}
     </>
   );
 }

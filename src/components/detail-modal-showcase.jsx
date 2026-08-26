@@ -1,6 +1,6 @@
-export default function DetailModalShowcase({ onOpen }) {
+export default function DetailModalShowcase({ onOpen, children }) {
   return (
-    <div className="flex min-h-[420px] items-center justify-center">
+    <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden">
       <button
         type="button"
         onClick={onOpen}
@@ -8,6 +8,7 @@ export default function DetailModalShowcase({ onOpen }) {
       >
         Open detail modal
       </button>
+      {children}
     </div>
   );
 }

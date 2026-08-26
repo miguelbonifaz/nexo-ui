@@ -5,7 +5,7 @@ import { tablerIcons } from '@/lib/tabler-icons';
 import StatusBadge from './status-badge';
 import NexoIcon from './nexo-icon';
 
-export default function DetailModal({ dark = false, record, open, onClose, onPrimaryAction }) {
+export default function DetailModal({ dark = false, record, open, onClose, onPrimaryAction, withinCanvas = false }) {
   const [closing, setClosing] = useState(false);
   const closeTimer = useRef(null);
 
@@ -52,8 +52,8 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
   }
 
   return (
-    <div className={`preview-theme ${dark ? 'dark' : ''}`}>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className={`preview-theme ${dark ? 'dark' : ''} ${withinCanvas ? 'absolute inset-0' : ''}`}>
+      <div className={`${withinCanvas ? 'absolute' : 'fixed'} inset-0 z-50 flex items-center justify-center p-4`}>
       <button
         type="button"
         aria-label="Close modal"
@@ -65,7 +65,7 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
         aria-modal="true"
         aria-labelledby="detail-modal-title"
         onClick={(event) => event.stopPropagation()}
-        className={`${closing ? 'nexo-modal-exit' : 'nexo-modal-enter'} relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-[0_24px_80px_rgb(15_23_42/0.2)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40`}
+        className={`${closing ? 'nexo-modal-exit' : 'nexo-modal-enter'} relative z-10 ${withinCanvas ? 'max-h-full' : 'max-h-[calc(100dvh-2rem)]'} w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-[0_24px_80px_rgb(15_23_42/0.2)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40`}
       >
         <header className="flex items-start justify-between gap-5 border-b border-slate-100 px-6 py-5 sm:px-7 dark:border-slate-800">
           <div className="min-w-0">
@@ -82,7 +82,7 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
         </header>
 
         <div className="space-y-6 px-6 py-6 sm:px-7">
-          <dl className="grid gap-x-6 gap-y-5 sm:grid-cols-2">
+          <dl className={`grid ${withinCanvas ? 'gap-x-4 gap-y-3' : 'gap-x-6 gap-y-5'} sm:grid-cols-2`}>
             {record.fields.map(([label, value]) => (
               <div key={label} className="min-w-0">
                 <dt className="text-xs font-medium text-slate-400 dark:text-slate-500">{label}</dt>
@@ -90,11 +90,11 @@ export default function DetailModal({ dark = false, record, open, onClose, onPri
               </div>
             ))}
           </dl>
-          <div className="grid gap-5 border-t border-slate-100 pt-5 sm:grid-cols-2 dark:border-slate-800">
+          {record.sections.length > 0 && <div className="grid gap-5 border-t border-slate-100 pt-5 sm:grid-cols-2 dark:border-slate-800">
             {record.sections.map((section) => (
               <DetailNote key={section.label} icon={section.icon} label={section.label} value={section.value} multiline={section.multiline} />
             ))}
-          </div>
+          </div>}
         </div>
 
         <footer className="flex flex-col-reverse gap-3 border-t border-slate-100 px-6 py-4 sm:flex-row sm:justify-end sm:px-7 dark:border-slate-800">
