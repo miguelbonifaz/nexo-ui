@@ -127,6 +127,8 @@ export default function ShowcaseApp({ component }) {
     setModalOpen(true);
   }
 
+  const fitContentPreview = activeId === 'input';
+
   return (
     <>
       <section className={`nexo-enter-delay-1 overflow-hidden border border-white/[0.1] bg-[#0d131e] shadow-[0_24px_90px_rgb(2_6_23/0.28)] ${isExpanded ? 'fixed inset-0 z-50 flex min-h-screen flex-col rounded-none border-0' : 'rounded-[22px]'}`} aria-label={`${component.title} preview and source code`}>
@@ -146,8 +148,11 @@ export default function ShowcaseApp({ component }) {
         <div className={`bg-[#0a101a] p-3 sm:p-5 ${isExpanded ? 'min-h-0 flex-1 overflow-auto' : ''}`}>
           {showCode ? <CodeBlock code={component.code} /> : (
             <div className={`preview-theme ${previewMode === 'dark' ? 'dark' : ''}`}>
-              <div className="preview-surface rounded-2xl p-3 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-5">
-                <ResponsivePreview dark={previewMode === 'dark'}>{renderPreview()}</ResponsivePreview>
+              <div
+                className="preview-surface rounded-2xl p-3 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-5"
+                style={fitContentPreview ? { minHeight: 0 } : undefined}
+              >
+                <ResponsivePreview dark={previewMode === 'dark'} fitContent={fitContentPreview}>{renderPreview()}</ResponsivePreview>
               </div>
             </div>
           )}

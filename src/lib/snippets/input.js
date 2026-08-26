@@ -9,7 +9,7 @@ export default function Input({ label, hint, ...props }) {
         </span>
       )}
       <input
-        className="block h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-sm text-slate-900 outline-none transition focus:border-slate-400 focus:ring-4 focus:ring-slate-900/[0.06] disabled:cursor-not-allowed disabled:bg-slate-100"
+        className="block h-11 w-full rounded-xl border-2 border-slate-200 bg-white px-3.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:outline-offset-0 disabled:cursor-not-allowed disabled:bg-slate-100"
         {...props}
       />
       {hint && <span className="mt-2 block text-xs text-slate-400">{hint}</span>}

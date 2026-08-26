@@ -9,7 +9,7 @@ function clampWidth(width, maxWidth) {
   return Math.min(Math.max(width, MIN_WIDTH), Math.max(MIN_WIDTH, maxWidth));
 }
 
-export default function ResponsivePreview({ children, dark = false }) {
+export default function ResponsivePreview({ children, dark = false, fitContent = false }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const draggingRef = useRef(false);
@@ -77,8 +77,8 @@ export default function ResponsivePreview({ children, dark = false }) {
     : 'border-slate-300 bg-slate-400 hover:bg-slate-600';
 
   return (
-    <div ref={containerRef} className={`relative min-h-[420px] overflow-visible rounded-xl ${dragging ? 'cursor-ew-resize select-none' : ''}`}>
-      <div className="flex min-h-[420px] min-w-full items-start justify-center">
+    <div ref={containerRef} className={`relative overflow-visible rounded-xl ${fitContent ? 'min-h-0' : 'min-h-[420px]'} ${dragging ? 'cursor-ew-resize select-none' : ''}`}>
+      <div className={`flex min-w-full justify-center ${fitContent ? 'items-center' : 'min-h-[420px] items-start'}`}>
         <div
           ref={canvasRef}
           className="nexo-preview-canvas min-w-0 shrink-0"
