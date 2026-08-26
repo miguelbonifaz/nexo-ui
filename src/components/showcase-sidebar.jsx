@@ -1,15 +1,24 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { componentSections } from '@/lib/component-data';
 import { tablerIcons } from '@/lib/tabler-icons';
 import NexoIcon from './nexo-icon';
 
 export default function ShowcaseSidebar({ activeId }) {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({ pathname, id: activeId });
+  const selectedId = selectedItem.pathname === pathname ? selectedItem.id : activeId;
 
   function closeNavigation() {
+    setMobileOpen(false);
+  }
+
+  function selectItem(id) {
+    setSelectedItem({ pathname, id });
     setMobileOpen(false);
   }
 
@@ -31,11 +40,7 @@ export default function ShowcaseSidebar({ activeId }) {
             <div key={section.title} className="mb-9">
               <p className="mb-3 px-2 font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase">{section.title}</p>
               <div className="space-y-1 border-l border-white/[0.1] pl-3">
-                {section.items.map((item) => {
-                  const isActive = item.id === activeId;
-
-                  return <Link key={item.id} href={`/components/${item.id}`} onClick={closeNavigation} aria-current={isActive ? 'page' : undefined} className={`group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm transition ${isActive ? 'bg-white/[0.08] font-semibold text-white' : 'text-slate-400 hover:bg-white/[0.04] hover:text-slate-200'}`}><span>{item.title}</span><NexoIcon icon={tablerIcons.chevronRight} className={`size-3.5 transition-transform ${isActive ? 'translate-x-0 text-cyan-300' : '-translate-x-1 text-slate-600 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`} /></Link>;
-                })}
+                {section.items.map((item) => <ComponentLink key={item.id} item={item} activeId={selectedId} onNavigate={selectItem} />)}
               </div>
             </div>
           ))}
@@ -48,4 +53,11 @@ export default function ShowcaseSidebar({ activeId }) {
       </aside>
     </>
   );
+}
+
+function ComponentLink({ item, activeId, onNavigate }) {
+  const isActive = item.id === activeId;
+  const href = item.id === item.groupId ? `/components/${item.groupId}` : `/components/${item.groupId}#${item.id}`;
+
+  return <Link href={href} onClick={() => onNavigate(item.id)} aria-current={isActive ? 'page' : undefined} className={`group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-[13px] transition ${isActive ? 'bg-white/[0.08] font-semibold text-white' : 'text-slate-400 hover:bg-white/[0.04] hover:text-slate-200'}`}><span>{item.title}</span><NexoIcon icon={tablerIcons.chevronRight} className={`size-3.5 transition-transform ${isActive ? 'translate-x-0 text-cyan-300' : '-translate-x-1 text-slate-600 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`} /></Link>;
 }

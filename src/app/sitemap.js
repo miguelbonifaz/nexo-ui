@@ -1,4 +1,4 @@
-import { componentRegistry } from '@/lib/component-registry';
+import { getComponentGroups } from '@/lib/component-registry';
 import { absoluteUrl } from '@/lib/site-config';
 
 export default function sitemap() {
@@ -7,8 +7,8 @@ export default function sitemap() {
   return [
     { url: absoluteUrl('/'), lastModified, changeFrequency: 'monthly', priority: 1 },
     { url: absoluteUrl('/components'), lastModified, changeFrequency: 'weekly', priority: 0.9 },
-    ...componentRegistry.map((component) => ({
-      url: absoluteUrl(`/components/${component.id}`),
+    ...getComponentGroups().map((group) => ({
+      url: absoluteUrl(`/components/${group.id}`),
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,

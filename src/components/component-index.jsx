@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { tablerIcons } from '@/lib/tabler-icons';
-import { componentRegistry } from '@/lib/component-registry';
+import { getComponentGroups } from '@/lib/component-registry';
 import NexoIcon from './nexo-icon';
 
 export default function ComponentIndex() {
+  const componentGroups = getComponentGroups();
+
   return (
     <div className="min-h-screen bg-[#070a10] text-slate-100">
       <header className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-5 py-6 sm:px-8 lg:px-12">
@@ -28,8 +30,10 @@ export default function ComponentIndex() {
           </div>
 
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {componentRegistry.map((component, index) => (
-              <Link key={component.id} href={`/components/${component.id}`} className="group flex min-h-64 flex-col rounded-2xl border border-white/[0.1] bg-[#0d131e] p-5 transition hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-[#111927]">
+            {componentGroups.map((group, index) => {
+              const component = group.components[0];
+
+              return <Link key={group.id} href={`/components/${group.id}`} className="group flex min-h-64 flex-col rounded-2xl border border-white/[0.1] bg-[#0d131e] p-5 transition hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-[#111927]">
                 <div className="flex items-start justify-between gap-4">
                   <span className="font-mono text-[10px] font-semibold tracking-[0.14em] text-slate-600">0{index + 1}</span>
                   <NexoIcon icon={tablerIcons.arrowUpRight} className="size-4 text-slate-600 transition group-hover:text-cyan-300" />
@@ -38,9 +42,10 @@ export default function ComponentIndex() {
                   <p className="font-mono text-[10px] font-semibold tracking-[0.14em] text-cyan-300 uppercase">{component.section}</p>
                   <h2 className="mt-3 text-xl font-semibold tracking-tight text-white">{component.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-slate-400">{component.seoDescription}</p>
+                  {group.components.length > 1 && <p className="mt-3 font-mono text-[10px] font-semibold tracking-[0.12em] text-slate-500 uppercase">{group.components.length} variants</p>}
                 </div>
-              </Link>
-            ))}
+              </Link>;
+            })}
           </div>
         </div>
       </main>

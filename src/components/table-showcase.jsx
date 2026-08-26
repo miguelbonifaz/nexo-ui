@@ -6,6 +6,7 @@ import { tablerIcons } from '@/lib/tabler-icons';
 import Pagination from './pagination';
 import StatusBadge from './status-badge';
 import NexoIcon from './nexo-icon';
+import Input from './input';
 
 const pageSize = 4;
 
@@ -44,17 +45,17 @@ export default function TableShowcase({ onSelectRecord }) {
           <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Recent records</p>
           <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">A practical table for operational collections.</p>
         </div>
-        <label className="nexo-table-search relative block">
-          <span className="sr-only">Search records</span>
+        <div className="nexo-table-search relative">
           <NexoIcon icon={tablerIcons.search} className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
-          <input
+          <Input
             type="search"
             value={query}
             onChange={(event) => updateQuery(event.target.value)}
             placeholder="Search records..."
-            className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-3 pl-9 text-xs text-slate-900 outline-none transition focus:border-slate-400 focus:bg-white focus:ring-4 focus:ring-slate-900/[0.05] placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-slate-500 dark:focus:bg-slate-900 dark:focus:ring-white/[0.08] dark:placeholder:text-slate-500"
+            aria-label="Search records"
+            className="pr-3 pl-10"
           />
-        </label>
+        </div>
       </div>
 
       {visibleRecords.length > 0 ? (

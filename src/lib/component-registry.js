@@ -24,3 +24,17 @@ export const componentRegistry = [
 export function getComponentById(id) {
   return componentRegistry.find((component) => component.id === id);
 }
+
+export function getComponentGroupById(id) {
+  const component = getComponentById(id);
+  if (!component) return undefined;
+
+  return {
+    id: component.groupId,
+    components: componentRegistry.filter((candidate) => candidate.groupId === component.groupId),
+  };
+}
+
+export function getComponentGroups() {
+  return [...new Set(componentRegistry.map((component) => component.groupId))].map(getComponentGroupById);
+}

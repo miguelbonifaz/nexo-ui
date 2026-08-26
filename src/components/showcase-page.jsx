@@ -15,12 +15,13 @@ function breadcrumbJsonLd(component) {
   };
 }
 
-export default function ShowcasePage({ component }) {
+export default function ShowcasePage({ group }) {
+  const component = group.components[0];
   const jsonLd = JSON.stringify(breadcrumbJsonLd(component)).replace(/</g, '\\u003c');
 
   return (
     <div className="min-h-screen bg-[#070a10] text-slate-100">
-      <ShowcaseSidebar activeId={component.id} />
+      <ShowcaseSidebar activeId={group.id} />
       <div className="min-h-screen lg:pl-[252px]">
         <header className="sticky top-0 z-30 flex h-[72px] items-center justify-between border-b border-white/[0.08] bg-[#070a10]/90 px-5 pl-16 backdrop-blur-xl sm:px-8 sm:pl-8 lg:px-12">
           <div>
@@ -45,7 +46,7 @@ export default function ShowcasePage({ component }) {
               <p className="mt-5 max-w-3xl text-base leading-7 text-slate-400 sm:text-lg">{component.seoDescription}</p>
             </div>
 
-        <ShowcaseApp key={component.id} component={component} />
+        <ShowcaseApp key={group.id} group={group} />
             <footer className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.08] pt-5 text-xs text-slate-500">
               <span>React &amp; Tailwind CSS / {component.title}</span>
               <Link href="/components" className="transition hover:text-slate-300">Browse all components</Link>

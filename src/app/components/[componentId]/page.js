@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import ShowcasePage from '@/components/showcase-page';
-import { componentRegistry, getComponentById } from '@/lib/component-registry';
+import { componentRegistry, getComponentGroupById } from '@/lib/component-registry';
 import { openGraphImage, siteConfig, twitterImage } from '@/lib/site-config';
 
 export const dynamicParams = false;
@@ -11,11 +11,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { componentId } = await params;
-  const component = getComponentById(componentId);
+  const group = getComponentGroupById(componentId);
 
-  if (!component) notFound();
+  if (!group) notFound();
 
-  const pathname = `/components/${component.id}`;
+  const component = group.components[0];
+  const pathname = `/components/${group.id}`;
 
   return {
     title: component.seoTitle,
@@ -40,9 +41,10 @@ export async function generateMetadata({ params }) {
 
 export default async function ComponentPage({ params }) {
   const { componentId } = await params;
-  const component = getComponentById(componentId);
+  const group = getComponentGroupById(componentId);
 
-  if (!component) notFound();
+  if (!group) notFound();
+  if (componentId !== group.id) permanentRedirect(`/components/${group.id}#${componentId}`);
 
-  return <ShowcasePage component={component} />;
+  return <ShowcasePage group={group} />;
 }
