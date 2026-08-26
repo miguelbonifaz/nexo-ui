@@ -7,6 +7,7 @@ const iconPreamble = tablerIconSnippet([
   'fileText',
   'layoutDashboard',
   'layoutKanban',
+  'layoutSidebar',
   'logout',
   'menu2',
   'moon',
@@ -18,7 +19,7 @@ const iconPreamble = tablerIconSnippet([
 
 export const applicationShellBreadcrumbSnippet = String.raw`'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 ${iconPreamble}
 
 const navigation = [
@@ -55,18 +56,21 @@ function BreadcrumbTrail({ items }) {
   );
 }
 
-function SidebarItem({ item, activeItem, onSelect }) {
+function SidebarItem({ item, activeItem, compact, onSelect }) {
   const Icon = item.icon;
   const isActive = item.label === activeItem;
 
-  return <a href={'#' + item.label.toLowerCase()} onClick={onSelect} className={'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors ' + (isActive ? 'bg-slate-100 text-slate-900 dark:bg-slate-800/80 dark:text-[#2ec4b6]' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100')}><Icon aria-hidden="true" size={18} stroke={1.6} className={'shrink-0 ' + (isActive ? 'text-slate-900 dark:text-[#2ec4b6]' : 'text-slate-400')} /><span className="truncate">{item.label}</span></a>;
+  return <a href={'#' + item.label.toLowerCase()} onClick={onSelect} aria-label={compact ? item.label : undefined} title={compact ? item.label : undefined} className={'flex items-center rounded-lg py-2.5 text-sm font-medium whitespace-nowrap transition-colors md:max-lg:justify-center md:max-lg:px-2 ' + (compact ? 'justify-center px-2 ' : 'gap-3 px-3 ') + (isActive ? 'bg-slate-100 text-slate-900 dark:bg-slate-800/80 dark:text-[#2ec4b6]' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100')}><Icon aria-hidden="true" size={18} stroke={1.6} className={'shrink-0 ' + (isActive ? 'text-slate-900 dark:text-[#2ec4b6]' : 'text-slate-400')} /><span className={compact ? 'sr-only' : 'truncate md:max-lg:sr-only'}>{item.label}</span></a>;
 }
 
-function SidebarFooter({ dark, onToggleTheme }) {
+function SidebarFooter({ compact, dark, onToggleTheme }) {
   const ThemeIcon = dark ? IconMoon : IconSun;
 
+  const compactClasses = compact ? 'flex' : 'hidden';
+  const expandedClasses = compact ? 'hidden' : 'block';
+
   return (
-    <div className="mt-auto pt-8">
+    <><div className={'mt-auto flex-col items-center gap-2 pt-8 ' + compactClasses}><a href="#settings" aria-label="Settings" title="Settings" className="flex size-9 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><IconSettings aria-hidden="true" size={18} /></a><button type="button" aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} title={dark ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={dark} onClick={onToggleTheme} className="flex size-9 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><ThemeIcon aria-hidden="true" size={18} /></button><button type="button" aria-label="Sign out" title="Sign out" className="flex size-9 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><IconLogout aria-hidden="true" size={18} /></button></div><div className={'mt-auto pt-8 ' + expandedClasses}>
       <div className="flex items-center justify-between rounded-lg px-3 py-2.5">
         <a href="#settings" className="flex items-center gap-3 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"><IconSettings aria-hidden="true" size={18} stroke={1.6} /><span>Settings</span></a>
         <button type="button" aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={dark} onClick={onToggleTheme} className="flex size-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><ThemeIcon aria-hidden="true" size={18} /></button>
@@ -74,36 +78,48 @@ function SidebarFooter({ dark, onToggleTheme }) {
       <div className="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700/70">
         <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-2.5 dark:border-slate-800 dark:bg-slate-900"><span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#2ec4b6] text-xs font-bold text-[#071018]">TU</span><div className="min-w-0 flex-1 leading-tight"><p className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100">Test User</p><p className="truncate text-xs text-slate-500 dark:text-slate-400">test.user@example.com</p></div><button type="button" aria-label="Sign out" className="flex size-8 shrink-0 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-200"><IconLogout aria-hidden="true" size={18} stroke={1.6} /></button></div>
       </div>
-    </div>
+    </div></>
   );
 }
 
-function SidebarContent({ activeItem, onClose, mobileOpen = false, dark, onToggleTheme }) {
+function SidebarContent({ activeItem, compact = false, onClose, onToggleCompact, mobileOpen = false, dark, onToggleTheme }) {
   const MobileIcon = mobileOpen ? IconX : IconMenu2;
 
   return (
     <>
-      <div className="flex items-center justify-between px-3 pb-10">
-        <div className="flex items-center gap-3"><span className="flex size-9 items-center justify-center rounded-xl bg-[#2ec4b6] text-sm font-bold text-[#071018]">N</span><span className="truncate text-base font-semibold tracking-tight text-slate-900 dark:text-slate-50">Nexo UI</span></div>
+      <div className={'flex items-center pb-10 ' + (compact ? 'justify-center px-0' : 'justify-between px-3 md:max-lg:justify-center md:max-lg:px-0')}>
+        {!compact && <div className="flex items-center gap-3 md:max-lg:hidden"><span className="flex size-9 items-center justify-center rounded-xl bg-[#2ec4b6] text-sm font-bold text-[#071018]">N</span><span className="truncate text-base font-semibold tracking-tight text-slate-900 dark:text-slate-50">Nexo UI</span></div>}
+        {onToggleCompact && <button type="button" onClick={onToggleCompact} aria-label={compact ? 'Expand sidebar' : 'Collapse sidebar'} aria-expanded={!compact} title={compact ? 'Expand sidebar' : 'Collapse sidebar'} className="flex size-9 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><IconLayoutSidebar aria-hidden="true" size={20} /></button>}
         {onClose && <button type="button" onClick={onClose} aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100"><MobileIcon aria-hidden="true" size={16} /></button>}
       </div>
-      <nav aria-label="Primary navigation"><p className="mb-3 px-3 font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400">General</p><div className="space-y-0.5">{navigation.map((item) => <SidebarItem key={item.label} item={item} activeItem={activeItem} onSelect={onClose} />)}</div></nav>
-      <div className="mt-8"><p className="mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400">Workspaces</p><div className="space-y-0.5">{workspaces.map((workspace) => <a key={workspace.name} href={'#' + workspace.name.toLowerCase().replaceAll(' ', '-')} onClick={onClose} className="flex items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><span className="min-w-0"><span className="block truncate">{workspace.name}</span><span className="block truncate text-[10px] font-normal text-slate-400 dark:text-slate-500">{workspace.description}</span></span></a>)}</div></div>
-      <SidebarFooter dark={dark} onToggleTheme={onToggleTheme} />
+      <nav aria-label="Primary navigation"><p className={'mb-3 font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400 ' + (compact ? 'sr-only' : 'px-3 md:max-lg:sr-only')}>General</p><div className="space-y-0.5">{navigation.map((item) => <SidebarItem key={item.label} item={item} activeItem={activeItem} compact={compact} onSelect={onClose} />)}</div></nav>
+      {!compact && <div className="mt-8 md:max-lg:hidden"><p className="mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400">Workspaces</p><div className="space-y-0.5">{workspaces.map((workspace) => <a key={workspace.name} href={'#' + workspace.name.toLowerCase().replaceAll(' ', '-')} onClick={onClose} className="flex items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><span className="min-w-0"><span className="block truncate">{workspace.name}</span><span className="block truncate text-[10px] font-normal text-slate-400 dark:text-slate-500">{workspace.description}</span></span></a>)}</div></div>}
+      <SidebarFooter compact={compact} dark={dark} onToggleTheme={onToggleTheme} />
     </>
   );
 }
 
 export default function ApplicationShellWithBreadcrumb({ children, activeItem = 'Dashboard', items = [] }) {
+  const shellRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [autoCompact, setAutoCompact] = useState(false);
+  const [sidebarCompact, setSidebarCompact] = useState(false);
   const [dark, setDark] = useState(true);
+  const compactSidebar = sidebarCompact || autoCompact;
   const closeNavigation = () => setMobileOpen(false);
+
+  useEffect(() => {
+    if (!shellRef.current) return undefined;
+    const observer = new ResizeObserver(([entry]) => setAutoCompact(entry.contentRect.width < 900));
+    observer.observe(shellRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className={dark ? 'dark' : ''}>
-    <div className="relative flex min-h-[520px] w-full overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <div ref={shellRef} className="relative flex min-h-[520px] w-full overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
       {mobileOpen && <button type="button" onClick={closeNavigation} aria-label="Close navigation overlay" className="absolute inset-0 z-30 bg-slate-950/35 backdrop-blur-[2px] md:hidden" />}
-      <aside className="hidden min-h-[520px] w-[272px] shrink-0 flex-col border-r border-slate-200 bg-[#FAFAF8] px-4 py-6 text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 md:flex"><SidebarContent activeItem={activeItem} dark={dark} onToggleTheme={() => setDark((current) => !current)} /></aside>
+      <aside className={'hidden min-h-[520px] shrink-0 flex-col border-r border-slate-200 bg-[#FAFAF8] py-6 text-slate-600 transition-[width,padding] duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 md:flex ' + (compactSidebar ? 'w-[76px] px-2.5' : 'w-[272px] px-4')}><SidebarContent activeItem={activeItem} compact={compactSidebar} onToggleCompact={() => setSidebarCompact((current) => !current)} dark={dark} onToggleTheme={() => setDark((current) => !current)} /></aside>
       <aside className={'absolute inset-y-0 left-0 z-40 flex w-[272px] flex-col border-r border-slate-200 bg-[#FAFAF8] px-4 py-6 text-slate-600 shadow-2xl shadow-slate-900/10 transition-transform duration-300 md:hidden dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 ' + (mobileOpen ? 'translate-x-0' : '-translate-x-full')}><SidebarContent activeItem={activeItem} onClose={closeNavigation} mobileOpen={mobileOpen} dark={dark} onToggleTheme={() => setDark((current) => !current)} /></aside>
       <div className="flex min-h-[520px] min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-20 hidden min-h-[58px] items-center border-b border-slate-200/70 bg-white/85 px-6 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/85 md:flex"><BreadcrumbTrail items={items} /></header>
