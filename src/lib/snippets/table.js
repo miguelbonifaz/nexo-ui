@@ -52,7 +52,7 @@ export default function Table({ records: providedRecords, onOpen }) {
                 <td className="px-5 py-4"><StatusBadge status={record.status} /></td>
                 <td className="px-5 py-4 text-right">
                   <button type="button" onClick={() => onOpen(record)} aria-label={'View ' + record.customer}>
-                    <MorphIcon icon={tablerIcons.eye} reducedMotion="user" className="size-4 text-slate-400" />
+                    <IconEye aria-hidden="true" size={16} className="text-slate-400" />
                   </button>
                 </td>
               </tr>

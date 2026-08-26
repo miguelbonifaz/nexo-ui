@@ -1,13 +1,7 @@
-import { tablerIcons } from '../tabler-icons';
-
 export function tablerIconSnippet(names) {
-  const entries = names
-    .map((name) => `  ${name}: ${JSON.stringify(tablerIcons[name])},`)
-    .join('\n');
+  const imports = names
+    .map((name) => `Icon${name[0].toUpperCase()}${name.slice(1)}`)
+    .join(', ');
 
-  return `import { MorphIcon } from 'morphicons/react';
-
-const tablerIcons = {
-${entries}
-};`;
+  return `import { ${imports} } from '@tabler/icons-react';`;
 }

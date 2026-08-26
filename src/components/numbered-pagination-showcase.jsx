@@ -6,6 +6,7 @@ import { tablerIcons } from '@/lib/tabler-icons';
 import CodeBlock from './code-block';
 import NexoIcon from './nexo-icon';
 import NumberedPagination from './numbered-pagination';
+import PaginationListPreview from './pagination-list-preview';
 import ResponsivePreview from './responsive-preview';
 
 async function copyToClipboard(text) {
@@ -59,7 +60,12 @@ export default function NumberedPaginationShowcase({ dark, onToggleTheme }) {
         {showCode ? <CodeBlock code={numberedPaginationSnippet} /> : (
           <div className={`preview-theme ${dark ? 'dark' : ''}`}>
             <div className="preview-surface rounded-2xl p-3 shadow-[0_14px_40px_rgb(15_23_42/0.08)] sm:p-5" style={{ minHeight: 0 }}>
-              <ResponsivePreview dark={dark} fitContent><NumberedPagination /></ResponsivePreview>
+              <ResponsivePreview dark={dark} fitContent>
+                <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-950">
+                  <PaginationListPreview />
+                  <NumberedPagination embedded />
+                </div>
+              </ResponsivePreview>
             </div>
           </div>
         )}

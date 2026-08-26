@@ -4,9 +4,9 @@ import NexoIcon from './nexo-icon';
 const pages = [1, 2, 3, 'ellipsis', 9, 10, 11];
 const itemClasses = 'flex h-9 min-w-9 shrink-0 items-center justify-center border-r border-slate-200 text-xs font-semibold text-slate-600 dark:border-slate-700 dark:text-slate-300';
 
-export default function NumberedPagination() {
+export default function NumberedPagination({ embedded = false }) {
   return (
-    <nav aria-label="Numbered pagination" className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 transition-colors dark:border-slate-800 dark:bg-slate-950">
+    <nav aria-label="Numbered pagination" className={`flex flex-wrap items-center justify-between gap-4 border-slate-200 bg-white px-5 py-4 transition-colors dark:border-slate-800 dark:bg-slate-950 ${embedded ? 'border-t' : 'rounded-2xl border'}`}>
       <p className="shrink-0 text-xs text-slate-500 dark:text-slate-400">
         Showing <strong className="font-semibold text-slate-700 dark:text-slate-200">15</strong> to <strong className="font-semibold text-slate-700 dark:text-slate-200">21</strong> of <strong className="font-semibold text-slate-700 dark:text-slate-200">42</strong> records
       </p>

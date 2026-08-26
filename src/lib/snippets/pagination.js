@@ -1,6 +1,4 @@
-import { tablerIconSnippet } from './tabler-icons';
-
-const iconPreamble = tablerIconSnippet(['chevronLeft', 'chevronRight']);
+const iconPreamble = "import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';";
 
 export const paginationSnippet = String.raw`${iconPreamble}
 
@@ -27,7 +25,7 @@ export default function Pagination({
           onClick={() => onPageChange(currentPage - 1)}
           className="inline-flex size-8 items-center justify-center rounded-lg border disabled:opacity-35"
         >
-          <MorphIcon icon={tablerIcons.chevronLeft} reducedMotion="user" className="size-4" />
+          <IconChevronLeft aria-hidden="true" size={16} />
         </button>
         <span className="px-2 text-xs font-semibold">
           Page {currentPage} of {totalPages}
@@ -39,7 +37,7 @@ export default function Pagination({
           onClick={() => onPageChange(currentPage + 1)}
           className="inline-flex size-8 items-center justify-center rounded-lg border disabled:opacity-35"
         >
-          <MorphIcon icon={tablerIcons.chevronRight} reducedMotion="user" className="size-4" />
+          <IconChevronRight aria-hidden="true" size={16} />
         </button>
       </div>
     </nav>
@@ -62,7 +60,7 @@ export default function NumberedPagination() {
         <div className="flex min-w-max justify-start sm:justify-end">
           <div className="inline-flex min-w-max overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
         <span aria-hidden="true" className={itemClasses + ' px-3 text-slate-500 dark:text-slate-400'}>
-          <MorphIcon icon={tablerIcons.chevronLeft} reducedMotion="user" className="size-4" />
+          <IconChevronLeft aria-hidden="true" size={16} />
         </span>
         {pages.map((page) => page === 'ellipsis' ? (
           <span key={page} aria-hidden="true" className={itemClasses + ' min-w-12 px-3 text-slate-400 dark:text-slate-500'}>
@@ -74,7 +72,7 @@ export default function NumberedPagination() {
           </span>
         ))}
         <span aria-hidden="true" className="flex h-9 min-w-9 shrink-0 items-center justify-center px-3 text-slate-500 dark:text-slate-400">
-          <MorphIcon icon={tablerIcons.chevronRight} reducedMotion="user" className="size-4" />
+          <IconChevronRight aria-hidden="true" size={16} />
         </span>
           </div>
         </div>
