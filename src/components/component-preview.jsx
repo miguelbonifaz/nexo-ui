@@ -4,6 +4,7 @@ import BreadcrumbShowcase from './breadcrumb-showcase';
 import Modal from './modal';
 import ModalShowcase from './modal-showcase';
 import InputShowcase from './input-showcase';
+import KanbanShowcase from './kanban-showcase';
 import PaginationShowcase from './pagination-showcase';
 import TableShowcase from './table-showcase';
 
@@ -22,6 +23,7 @@ export default function ComponentPreview({
   if (componentId === 'application-shell-breadcrumb') return <ApplicationShellBreadcrumbShowcase {...shellProps} />;
   if (componentId === 'breadcrumb') return <BreadcrumbShowcase />;
   if (componentId === 'input') return <InputShowcase />;
+  if (componentId === 'kanban') return <KanbanShowcase />;
   if (componentId === 'pagination') return <PaginationShowcase />;
   if (componentId === 'modal') {
     return (

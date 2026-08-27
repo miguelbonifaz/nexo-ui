@@ -17,6 +17,7 @@ export const componentSections = [
   {
     title: 'Lists',
     items: [
+      { id: 'kanban', groupId: 'kanban', title: 'Kanban' },
       { id: 'table', groupId: 'table', title: 'Table' },
       { id: 'pagination', groupId: 'pagination', title: 'Pagination' },
     ],
@@ -84,6 +85,17 @@ export const componentMeta = {
     seoHeading: 'React Table Component with Tailwind CSS',
     seoDescription:
       'A responsive React table component styled with Tailwind CSS, including search, pagination, status badges, and record actions.',
+  },
+  kanban: {
+    groupId: 'kanban',
+    section: 'Lists',
+    eyebrow: 'LISTS',
+    title: 'Kanban',
+    description: 'A clear board layout for grouping records by workflow stage.',
+    seoTitle: 'Kanban Component for React & Tailwind CSS',
+    seoHeading: 'React Kanban Component with Tailwind CSS',
+    seoDescription:
+      'A reusable static React Kanban board styled with Tailwind CSS, featuring workflow columns, record cards, and responsive horizontal scrolling.',
   },
   pagination: {
     groupId: 'pagination',

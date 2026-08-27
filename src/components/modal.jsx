@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { tablerIcons } from '@/lib/tabler-icons';
-import StatusBadge from './status-badge';
 import NexoIcon from './nexo-icon';
 
 export default function Modal({ dark = false, record, open, onClose, onPrimaryAction, withinCanvas = false }) {
@@ -14,14 +13,15 @@ export default function Modal({ dark = false, record, open, onClose, onPrimaryAc
   }, []);
 
   useEffect(() => {
-    if (!open) return undefined;
+    if (!open || withinCanvas) return undefined;
 
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = previousOverflow;
     };
-  }, [open]);
+  }, [open, withinCanvas]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -69,12 +69,11 @@ export default function Modal({ dark = false, record, open, onClose, onPrimaryAc
       >
         <header className="flex items-start justify-between gap-5 border-b border-slate-100 px-6 py-5 sm:px-7 dark:border-slate-800">
           <div className="min-w-0">
-            <p className="text-[10px] font-semibold tracking-[0.12em] text-slate-400 uppercase dark:text-slate-500">Record details</p>
+            <p className="text-[10px] font-semibold tracking-[0.12em] text-slate-400 uppercase dark:text-slate-500">Order details</p>
             <h2 id="modal-title" className="mt-1 truncate text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">{record.title}</h2>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{record.id} · {record.subtitle}</p>
           </div>
           <div className="flex shrink-0 items-start gap-3">
-            <StatusBadge label={record.status} tone={record.tone} />
             <button type="button" onClick={closeModal} aria-label="Close modal" className="-mr-2 -mt-2 rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200">
               <NexoIcon icon={tablerIcons.x} className="size-4" />
             </button>

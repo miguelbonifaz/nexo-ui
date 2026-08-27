@@ -42,8 +42,8 @@ export default function TableShowcase({ onSelectRecord }) {
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition-colors dark:border-slate-800 dark:bg-slate-950">
       <div className="nexo-table-header flex flex-col gap-4 border-b border-slate-200 px-5 py-4 dark:border-slate-800">
         <div>
-          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Recent records</p>
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">A practical table for operational collections.</p>
+          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Delivery orders</p>
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">A practical table for bakery delivery orders.</p>
         </div>
         <div className="nexo-table-search relative">
           <NexoIcon icon={tablerIcons.search} className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
@@ -51,8 +51,8 @@ export default function TableShowcase({ onSelectRecord }) {
             type="search"
             value={query}
             onChange={(event) => updateQuery(event.target.value)}
-            placeholder="Search records..."
-            aria-label="Search records"
+            placeholder="Search orders..."
+            aria-label="Search orders"
             className="pr-3 pl-10"
           />
         </div>
@@ -74,7 +74,7 @@ export default function TableShowcase({ onSelectRecord }) {
         </>
       ) : (
         <div className="px-6 py-16 text-center">
-          <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">No records found</p>
+          <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">No orders found</p>
           <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">Try a different search term.</p>
         </div>
       )}
@@ -103,7 +103,7 @@ function DesktopTable({ records, onSelectRecord }) {
             </td>
             <td className="px-5 py-4">
               <p className="font-medium text-slate-700 dark:text-slate-300">{record.product}</p>
-              <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">{record.servings} · {record.filling}</p>
+              <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">{record.quantity} · {record.assortment}</p>
             </td>
             <td className="px-5 py-4">
               <p className="font-medium text-slate-700 dark:text-slate-300">{record.deliveryDate}</p>

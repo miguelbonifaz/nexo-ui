@@ -4,6 +4,7 @@ import { applicationShellBreadcrumbSnippet } from './snippets/application-shell-
 import { breadcrumbSnippet } from './snippets/breadcrumb';
 import { modalSnippet } from './snippets/modal';
 import { inputSnippet } from './snippets/input';
+import { kanbanSnippet } from './snippets/kanban';
 import { paginationSnippet } from './snippets/pagination';
 import { tableSnippet } from './snippets/table';
 
@@ -12,6 +13,7 @@ export const componentRegistry = [
   { id: 'application-shell-breadcrumb', ...componentMeta['application-shell-breadcrumb'], code: applicationShellBreadcrumbSnippet },
   { id: 'breadcrumb', ...componentMeta.breadcrumb, code: breadcrumbSnippet },
   { id: 'input', ...componentMeta.input, code: inputSnippet },
+  { id: 'kanban', ...componentMeta.kanban, code: kanbanSnippet },
   { id: 'table', ...componentMeta.table, code: tableSnippet },
   { id: 'pagination', ...componentMeta.pagination, code: paginationSnippet },
   {

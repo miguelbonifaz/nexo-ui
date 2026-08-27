@@ -5,10 +5,10 @@ const iconPreamble = tablerIconSnippet(['eye']);
 export const tableSnippet = String.raw`${iconPreamble}
 
 export const records = [
-  { id: 'Q-1048', customer: 'Olivia Carter', product: 'Chocolate Celebration Cake', deliveryDate: 'Oct 18, 2026', price: '$86.00', status: 'Pending' },
-  { id: 'Q-1047', customer: 'Noah Bennett', product: 'Vanilla Garden Cake', deliveryDate: 'Oct 21, 2026', price: '$62.00', status: 'In Review' },
-  { id: 'Q-1046', customer: 'Mia Brooks', product: 'Red Velvet Number Cake', deliveryDate: 'Oct 25, 2026', price: '$108.00', status: 'Confirmed' },
-  { id: 'Q-1045', customer: 'James Rivera', product: 'Lemon Drizzle Loaf', deliveryDate: 'Oct 28, 2026', price: '$44.00', status: 'Finalized' },
+  { id: 'Q-1048', customer: 'Olivia Carter', product: 'Artisan Sourdough Loaf', deliveryDate: 'Oct 18, 2026', price: '$18.00', status: 'Pending' },
+  { id: 'Q-1047', customer: 'Noah Bennett', product: 'Morning Pastry Box', deliveryDate: 'Oct 21, 2026', price: '$34.00', status: 'In Review' },
+  { id: 'Q-1046', customer: 'Mia Brooks', product: 'Cinnamon Roll Bundle', deliveryDate: 'Oct 25, 2026', price: '$26.00', status: 'Confirmed' },
+  { id: 'Q-1045', customer: 'James Rivera', product: 'Wholegrain Bread Basket', deliveryDate: 'Oct 28, 2026', price: '$29.00', status: 'Finalized' },
 ];
 
 const statusStyles = {

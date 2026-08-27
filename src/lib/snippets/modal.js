@@ -2,8 +2,16 @@ import { tablerIconSnippet } from './tabler-icons';
 
 const iconPreamble = tablerIconSnippet(['x']);
 
-export const modalSnippet = String.raw`import { useEffect } from 'react';
+export const modalSnippet = String.raw`import { useEffect, useState } from 'react';
 ${iconPreamble}
+
+const sampleRecord = {
+  title: 'Olivia Carter',
+  fields: [
+    ['Product', 'Artisan Sourdough Loaf'],
+    ['Estimated price', '$18.00'],
+  ],
+};
 
 export default function Modal({ record, open, onClose }) {
   useEffect(() => {
@@ -35,7 +43,7 @@ export default function Modal({ record, open, onClose }) {
       >
         <header className="flex items-start justify-between border-b px-6 py-5">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-400">Record details</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-400">Order details</p>
             <h2 id="modal-title" className="mt-1 text-xl font-semibold text-slate-900">{record.title}</h2>
           </div>
           <button type="button" onClick={onClose} aria-label="Close modal" className="rounded-lg p-2 text-slate-400 hover:bg-slate-100">
@@ -57,5 +65,16 @@ export default function Modal({ record, open, onClose }) {
         </footer>
       </section>
     </div>
+  );
+}
+
+export function ModalExample() {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <>
+      {!open && <button type="button" onClick={() => setOpen(true)}>Open modal</button>}
+      <Modal record={sampleRecord} open={open} onClose={() => setOpen(false)} />
+    </>
   );
 }`;
