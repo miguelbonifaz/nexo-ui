@@ -7,6 +7,7 @@ export const tablerIcons = {
   calendar: [["path", { "d": "M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" }], ["path", { "d": "M16 3v4" }], ["path", { "d": "M8 3v4" }], ["path", { "d": "M4 11h16" }], ["path", { "d": "M11 15h1" }], ["path", { "d": "M12 15v3" }]],
   chartBar: [["path", { "d": "M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -6" }], ["path", { "d": "M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -10" }], ["path", { "d": "M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -14" }], ["path", { "d": "M4 20h14" }]],
   check: [["path", { "d": "M5 12l5 5l10 -10" }]],
+  chevronDown: [["path", { "d": "M6 9l6 6l6 -6" }]],
   chevronLeft: [["path", { "d": "M15 6l-6 6l6 6" }]],
   chevronRight: [["path", { "d": "M9 6l6 6l-6 6" }]],
   code: [["path", { "d": "M7 8l-4 4l4 4" }], ["path", { "d": "M17 8l4 4l-4 4" }], ["path", { "d": "M14 4l-4 16" }]],

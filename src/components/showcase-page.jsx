@@ -10,7 +10,7 @@ function breadcrumbJsonLd(component) {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
       { '@type': 'ListItem', position: 2, name: 'Components', item: absoluteUrl('/components') },
-      { '@type': 'ListItem', position: 3, name: component.title, item: absoluteUrl(`/components/${component.id}`) },
+      { '@type': 'ListItem', position: 3, name: component.title, item: absoluteUrl(`/components/${component.groupId}`) },
     ],
   };
 }
@@ -21,7 +21,7 @@ export default function ShowcasePage({ group }) {
 
   return (
     <div className="min-h-screen bg-[#070a10] text-slate-100">
-      <ShowcaseSidebar activeId={group.id} />
+      <ShowcaseSidebar activeId={component.id} />
       <div className="min-h-screen lg:pl-[252px]">
         <header className="sticky top-0 z-30 flex h-[72px] items-center justify-between border-b border-white/[0.08] bg-[#070a10]/90 px-5 pl-16 backdrop-blur-xl sm:px-8 sm:pl-8 lg:px-12">
           <div>

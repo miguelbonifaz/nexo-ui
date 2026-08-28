@@ -15,6 +15,27 @@ export const componentSections = [
     items: [{ id: 'input', groupId: 'input', title: 'Input' }],
   },
   {
+    title: 'Buttons',
+    items: [
+      { id: 'solid-button', groupId: 'button', title: 'Solid Button' },
+      { id: 'outline-button', groupId: 'button', title: 'Outline Button' },
+    ],
+  },
+  {
+    title: 'Badges',
+    items: [
+      { id: 'medium-badge', groupId: 'badge', title: 'Medium Badge' },
+      { id: 'small-badge', groupId: 'badge', title: 'Small Badge' },
+    ],
+  },
+  {
+    title: 'Selects',
+    items: [
+      { id: 'native-select', groupId: 'select', title: 'Native Select' },
+      { id: 'custom-select', groupId: 'select', title: 'Custom Select' },
+    ],
+  },
+  {
     title: 'Lists',
     items: [
       { id: 'kanban', groupId: 'kanban', title: 'Kanban' },
@@ -73,6 +94,72 @@ export const componentMeta = {
     seoHeading: 'React Input Component with Tailwind CSS',
     seoDescription:
       'A flexible React input component styled with Tailwind CSS for forms, filters, search fields, and short text entry.',
+  },
+  'solid-button': {
+    groupId: 'button',
+    section: 'Buttons',
+    eyebrow: 'BUTTONS',
+    title: 'Solid Button',
+    description: 'A high-contrast action button with an indigo surface and clear hierarchy.',
+    seoTitle: 'Solid Button Component for React & Tailwind CSS',
+    seoHeading: 'React Solid Button with Tailwind CSS',
+    seoDescription:
+      'A reusable solid React button styled with Tailwind CSS, including four sizes, disabled state, and optional icons.',
+  },
+  'outline-button': {
+    groupId: 'button',
+    section: 'Buttons',
+    eyebrow: 'BUTTONS',
+    title: 'Outline Button',
+    description: 'A restrained secondary action with a neutral border and quiet surface.',
+    seoTitle: 'Outline Button Component for React & Tailwind CSS',
+    seoHeading: 'React Outline Button with Tailwind CSS',
+    seoDescription:
+      'A reusable outline React button styled with Tailwind CSS, including four sizes, disabled state, and optional icons.',
+  },
+  'medium-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Medium Badge',
+    description: 'A compact medium badge with simple semantic tones for lightweight status context.',
+    seoTitle: 'Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Badge with Tailwind CSS',
+    seoDescription:
+      'A compact React badge styled with Tailwind CSS, with separate medium and small sections plus neutral, error, warning, success, info, indigo, purple, and pink tones.',
+  },
+  'small-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Small Badge',
+    description: 'A compact small badge with simple semantic tones for lightweight status context.',
+    seoTitle: 'Small Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Small Badge with Tailwind CSS',
+    seoDescription:
+      'A compact small React badge styled with Tailwind CSS, with eight direct color examples for lightweight status context.',
+  },
+  'native-select': {
+    groupId: 'select',
+    section: 'Selects',
+    eyebrow: 'SELECTS',
+    title: 'Native Select',
+    description: 'A styled select that preserves the browser’s native form behavior.',
+    seoTitle: 'Native Select Component for React & Tailwind CSS',
+    seoHeading: 'React Native Select with Tailwind CSS',
+    seoDescription:
+      'A reusable native HTML select component styled with Tailwind CSS, with single and multiple selection support.',
+  },
+  'custom-select': {
+    groupId: 'select',
+    section: 'Selects',
+    eyebrow: 'SELECTS',
+    title: 'Custom Select',
+    description: 'A fully styled select with a controlled menu that opens below the trigger.',
+    seoTitle: 'Custom Select Component for React & Tailwind CSS',
+    seoHeading: 'React Custom Select with Tailwind CSS',
+    seoDescription:
+      'An accessible custom React select with a menu that opens below the trigger, keyboard navigation, and multiple selection support.',
   },
   table: {
     groupId: 'table',

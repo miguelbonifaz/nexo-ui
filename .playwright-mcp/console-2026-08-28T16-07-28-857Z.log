@@ -1,0 +1,129 @@
+[      84ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[     256ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[     328ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  599187ms] [ERROR] ./src/lib/component-registry.js:8:1
+Error: Export mediumBadgeSnippet doesn't exist in target module
+   6 | import { inputSnippet } from './snippets/input';
+   7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+>  8 | import { mediumBadgeSnippet, smallBadgeSnippet } from './snippets/badge';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+  11 | import { kanbanSnippet } from './snippets/kanban';
+
+The export mediumBadgeSnippet was not found in module [project]/src/lib/snippets/badge.js [app-rsc] (ecmascript).
+Did you mean to import badgeSnippet?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  599188ms] [ERROR] ./src/lib/component-registry.js:8:1
+Error: Export smallBadgeSnippet doesn't exist in target module
+   6 | import { inputSnippet } from './snippets/input';
+   7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+>  8 | import { mediumBadgeSnippet, smallBadgeSnippet } from './snippets/badge';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+  11 | import { kanbanSnippet } from './snippets/kanban';
+
+The export smallBadgeSnippet was not found in module [project]/src/lib/snippets/badge.js [app-rsc] (ecmascript).
+Did you mean to import badgeSnippet?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  599189ms] [ERROR] ./src/components/badge-showcase.jsx:15:1
+Error: 'import', and 'export' cannot be used outside of module code
+  13 |
+  14 | export default function BadgeShowcase() {
+> 15 | export default function BadgeShowcase({ size = 'md' }) {
+     | ^^^^^^
+  16 |   const resolvedSize = size === 'sm' ? 'sm' : 'md';
+  17 |
+  18 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/badge-showcase.jsx [Client Component Browser]
+    ./src/components/component-preview.jsx [Client Component Browser]
+    ./src/components/component-showcase.jsx [Client Component Browser]
+    ./src/components/showcase-app.jsx [Client Component Browser]
+    ./src/components/showcase-app.jsx [Server Component]
+    ./src/components/showcase-page.jsx [Server Component]
+    ./src/app/components/[componentId]/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/components/badge-showcase.jsx [Client Component SSR]
+    ./src/components/component-preview.jsx [Client Component SSR]
+    ./src/components/component-showcase.jsx [Client Component SSR]
+    ./src/components/showcase-app.jsx [Client Component SSR]
+    ./src/components/showcase-app.jsx [Server Component]
+    ./src/components/showcase-page.jsx [Server Component]
+    ./src/app/components/[componentId]/page.js [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  599247ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  662108ms] [ERROR] ./src/lib/component-registry.js:8:1
+Error: Export mediumBadgeSnippet doesn't exist in target module
+   6 | import { inputSnippet } from './snippets/input';
+   7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+>  8 | import { mediumBadgeSnippet, smallBadgeSnippet } from './snippets/badge';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+  11 | import { kanbanSnippet } from './snippets/kanban';
+
+The export mediumBadgeSnippet was not found in module [project]/src/lib/snippets/badge.js [app-rsc] (ecmascript).
+Did you mean to import badgeSnippet?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  662108ms] [ERROR] ./src/lib/component-registry.js:8:1
+Error: Export smallBadgeSnippet doesn't exist in target module
+   6 | import { inputSnippet } from './snippets/input';
+   7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+>  8 | import { mediumBadgeSnippet, smallBadgeSnippet } from './snippets/badge';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+  11 | import { kanbanSnippet } from './snippets/kanban';
+
+The export smallBadgeSnippet was not found in module [project]/src/lib/snippets/badge.js [app-rsc] (ecmascript).
+Did you mean to import badgeSnippet?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  662169ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  670920ms] [ERROR] ./src/lib/component-registry.js:8:1
+Error: Module not found: Can't resolve './snippets/badge'
+   6 | import { inputSnippet } from './snippets/input';
+   7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+>  8 | import { mediumBadgeSnippet, smallBadgeSnippet } from './snippets/badge';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+  11 | import { kanbanSnippet } from './snippets/kanban';
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  688297ms] [LOG] [Fast Refresh] done in 26179ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776

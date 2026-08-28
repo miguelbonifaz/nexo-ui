@@ -1,0 +1,128 @@
+- generic [active] [ref=f14e1]:
+  - generic [ref=f14e2]:
+    - button "Open navigation" [ref=f14e3]
+    - complementary [ref=f14e6]:
+      - generic [ref=f14e7]:
+        - link "Nexo UI Component library" [ref=f14e8] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f14e12]:
+            - generic [ref=f14e13]: Nexo UI
+            - generic [ref=f14e14]: Component library
+        - button "Open navigation" [ref=f14e15]
+      - navigation "Component navigation" [ref=f14e18]:
+        - generic [ref=f14e19]:
+          - paragraph [ref=f14e20]: Application Shells
+          - generic [ref=f14e21]:
+            - link "Application Shell" [ref=f14e22] [cursor=pointer]:
+              - /url: /components/application-shell
+            - link "Application Shell with Breadcrumb" [ref=f14e26] [cursor=pointer]:
+              - /url: /components/application-shell#application-shell-breadcrumb
+        - generic [ref=f14e30]:
+          - paragraph [ref=f14e31]: Navigation
+          - link "Breadcrumb" [ref=f14e33] [cursor=pointer]:
+            - /url: /components/breadcrumb
+        - generic [ref=f14e37]:
+          - paragraph [ref=f14e38]: Form Controls
+          - link "Input" [ref=f14e40] [cursor=pointer]:
+            - /url: /components/input
+        - generic [ref=f14e44]:
+          - paragraph [ref=f14e45]: Buttons
+          - generic [ref=f14e46]:
+            - link "Solid Button" [ref=f14e47] [cursor=pointer]:
+              - /url: /components/button#solid-button
+            - link "Outline Button" [ref=f14e51] [cursor=pointer]:
+              - /url: /components/button#outline-button
+        - generic [ref=f14e55]:
+          - paragraph [ref=f14e56]: Badges
+          - link "Badge" [ref=f14e58] [cursor=pointer]:
+            - /url: /components/badge
+        - generic [ref=f14e62]:
+          - paragraph [ref=f14e63]: Selects
+          - generic [ref=f14e64]:
+            - link "Native Select" [ref=f14e65] [cursor=pointer]:
+              - /url: /components/select#native-select
+            - link "Custom Select" [ref=f14e69] [cursor=pointer]:
+              - /url: /components/select#custom-select
+        - generic [ref=f14e73]:
+          - paragraph [ref=f14e74]: Lists
+          - generic [ref=f14e75]:
+            - link "Kanban" [ref=f14e76] [cursor=pointer]:
+              - /url: /components/kanban
+            - link "Table" [ref=f14e80] [cursor=pointer]:
+              - /url: /components/table
+            - link "Pagination" [ref=f14e84] [cursor=pointer]:
+              - /url: /components/pagination
+        - generic [ref=f14e88]:
+          - paragraph [ref=f14e89]: Dialogs
+          - link "Modal" [ref=f14e91] [cursor=pointer]:
+            - /url: /components/modal
+      - generic [ref=f14e95]:
+        - generic [ref=f14e96]: Copy-ready components
+        - paragraph [ref=f14e99]: Reusable React patterns with live previews and adaptable JSX.
+    - generic [ref=f14e100]:
+      - banner [ref=f14e101]:
+        - generic [ref=f14e102]: Nexo UI
+        - generic [ref=f14e103]: React / JSX
+      - main [ref=f14e105]:
+        - generic [ref=f14e106]:
+          - navigation "Breadcrumb" [ref=f14e107]:
+            - link "Home" [ref=f14e108] [cursor=pointer]:
+              - /url: /
+            - text: /
+            - link "Components" [ref=f14e109] [cursor=pointer]:
+              - /url: /components
+            - text: /Native Select
+          - generic [ref=f14e110]:
+            - paragraph [ref=f14e111]: SELECTS
+            - heading "React Native Select with Tailwind CSS" [level=1] [ref=f14e112]
+            - paragraph [ref=f14e113]: A reusable native HTML select component styled with Tailwind CSS, with single and multiple selection support.
+          - generic [ref=f14e114]:
+            - generic [ref=f14e115]:
+              - heading "Native Select" [level=2] [ref=f14e117]
+              - region "Native Select preview and source code" [ref=f14e118]:
+                - generic [ref=f14e119]:
+                  - generic [ref=f14e120]:
+                    - button "Preview" [ref=f14e122]
+                    - button "Code" [ref=f14e123]
+                  - generic [ref=f14e124]:
+                    - button "Expand preview" [ref=f14e125]
+                    - button "Copy code" [ref=f14e128]
+                - generic [ref=f14e135]:
+                  - generic [ref=f14e139]:
+                    - generic [ref=f14e140]: Delivery window
+                    - combobox "Delivery window Choose when the bakery should arrive." [ref=f14e142]:
+                      - option "Select an option" [disabled]
+                      - option "Today · 4–6 PM"
+                      - option "Tomorrow · 9–11 AM" [selected]
+                      - option "Saturday · 10 AM–12 PM"
+                      - option "Friday · Fully booked" [disabled]
+                    - generic [ref=f14e143]: Choose when the bakery should arrive.
+                  - button "Resize responsive preview" [ref=f14e144]
+              - generic [ref=f14e146]:
+                - generic [ref=f14e147]: Built for responsive React interfaces
+                - generic [ref=f14e150]: Preview the component, then copy the JSX.
+            - generic [ref=f14e151]:
+              - heading "Custom Select" [level=2] [ref=f14e153]
+              - region "Custom Select preview and source code" [ref=f14e154]:
+                - generic [ref=f14e155]:
+                  - generic [ref=f14e156]:
+                    - button "Preview" [ref=f14e158]
+                    - button "Code" [ref=f14e159]
+                  - generic [ref=f14e160]:
+                    - button "Expand preview" [ref=f14e161]
+                    - button "Copy code" [ref=f14e164]
+                - generic [ref=f14e171]:
+                  - generic [ref=f14e175]:
+                    - generic [ref=f14e176]: Order extras
+                    - combobox "Order extras" [ref=f14e177]:
+                      - generic [ref=f14e178]: 2 selected
+                    - generic [ref=f14e181]: Add finishing touches to this bakery delivery.
+                  - button "Resize responsive preview" [ref=f14e182]
+              - generic [ref=f14e184]:
+                - generic [ref=f14e185]: Built for responsive React interfaces
+                - generic [ref=f14e188]: Preview the component, then copy the JSX.
+          - generic [ref=f14e189]:
+            - generic [ref=f14e190]: React & Tailwind CSS / Native Select
+            - link "Browse all components" [ref=f14e191] [cursor=pointer]:
+              - /url: /components
+  - button "Open Next.js Dev Tools" [ref=f14e197] [cursor=pointer]

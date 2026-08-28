@@ -63,7 +63,7 @@ export default function ShowcaseApp({ group }) {
 
   return (
     <>
-      <div className="space-y-10">
+      <div id={group.id} className="space-y-10">
         {group.components.map((component) => (
           <ComponentShowcase
             key={component.id}

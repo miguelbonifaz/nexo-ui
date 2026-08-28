@@ -1,0 +1,59 @@
+[     135ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[     157ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   20250ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   21252ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   22255ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   23257ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   24260ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   29262ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   34264ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   39266ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   44267ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   49271ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   54273ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[   59276ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=M_1az-dduIXrU3AFUgLAK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[ 4655636ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4655661ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4876664ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4876723ms] [LOG] [Fast Refresh] done in 13ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4876764ms] [LOG] [Fast Refresh] done in 13ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4879795ms] [ERROR] ./src/lib/component-registry.js:7:1
+Error: Module not found: Can't resolve './snippets/button'
+   5 | import { modalSnippet } from './snippets/modal';
+   6 | import { inputSnippet } from './snippets/input';
+>  7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { badgeSnippet } from './snippets/badge';
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[ 4879874ms] [ERROR] ./src/lib/component-registry.js:7:1
+Error: Module not found: Can't resolve './snippets/button'
+   5 | import { modalSnippet } from './snippets/modal';
+   6 | import { inputSnippet } from './snippets/input';
+>  7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { badgeSnippet } from './snippets/badge';
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[ 4938595ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4938668ms] [LOG] [Fast Refresh] done in 25ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4938744ms] [LOG] [Fast Refresh] done in 25ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4977967ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4978048ms] [LOG] [Fast Refresh] done in 11ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 4978086ms] [LOG] [Fast Refresh] done in 11ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776

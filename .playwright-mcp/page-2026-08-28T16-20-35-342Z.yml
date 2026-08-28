@@ -1,0 +1,135 @@
+- generic [active] [ref=f7e1]:
+  - generic [ref=f7e2]:
+    - button "Open navigation" [ref=f7e3]
+    - complementary [ref=f7e6]:
+      - generic [ref=f7e7]:
+        - link "Nexo UI Component library" [ref=f7e8] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f7e12]:
+            - generic [ref=f7e13]: Nexo UI
+            - generic [ref=f7e14]: Component library
+        - button "Open navigation" [ref=f7e15]
+      - navigation "Component navigation" [ref=f7e18]:
+        - generic [ref=f7e19]:
+          - paragraph [ref=f7e20]: Application Shells
+          - generic [ref=f7e21]:
+            - link "Application Shell" [ref=f7e22] [cursor=pointer]:
+              - /url: /components/application-shell
+            - link "Application Shell with Breadcrumb" [ref=f7e26] [cursor=pointer]:
+              - /url: /components/application-shell#application-shell-breadcrumb
+        - generic [ref=f7e30]:
+          - paragraph [ref=f7e31]: Navigation
+          - link "Breadcrumb" [ref=f7e33] [cursor=pointer]:
+            - /url: /components/breadcrumb
+        - generic [ref=f7e37]:
+          - paragraph [ref=f7e38]: Form Controls
+          - link "Input" [ref=f7e40] [cursor=pointer]:
+            - /url: /components/input
+        - generic [ref=f7e44]:
+          - paragraph [ref=f7e45]: Buttons
+          - generic [ref=f7e46]:
+            - link "Solid Button" [ref=f7e47] [cursor=pointer]:
+              - /url: /components/button#solid-button
+            - link "Outline Button" [ref=f7e51] [cursor=pointer]:
+              - /url: /components/button#outline-button
+        - generic [ref=f7e55]:
+          - paragraph [ref=f7e56]: Badges
+          - generic [ref=f7e57]:
+            - link "Medium Badge" [ref=f7e58] [cursor=pointer]:
+              - /url: /components/badge#medium-badge
+            - link "Small Badge" [ref=f7e62] [cursor=pointer]:
+              - /url: /components/badge#small-badge
+        - generic [ref=f7e66]:
+          - paragraph [ref=f7e67]: Selects
+          - generic [ref=f7e68]:
+            - link "Native Select" [ref=f7e69] [cursor=pointer]:
+              - /url: /components/select#native-select
+            - link "Custom Select" [ref=f7e73] [cursor=pointer]:
+              - /url: /components/select#custom-select
+        - generic [ref=f7e77]:
+          - paragraph [ref=f7e78]: Lists
+          - generic [ref=f7e79]:
+            - link "Kanban" [ref=f7e80] [cursor=pointer]:
+              - /url: /components/kanban
+            - link "Table" [ref=f7e84] [cursor=pointer]:
+              - /url: /components/table
+            - link "Pagination" [ref=f7e88] [cursor=pointer]:
+              - /url: /components/pagination
+        - generic [ref=f7e92]:
+          - paragraph [ref=f7e93]: Dialogs
+          - link "Modal" [ref=f7e95] [cursor=pointer]:
+            - /url: /components/modal
+      - generic [ref=f7e99]:
+        - generic [ref=f7e100]: Copy-ready components
+        - paragraph [ref=f7e103]: Reusable React patterns with live previews and adaptable JSX.
+    - generic [ref=f7e104]:
+      - banner [ref=f7e105]:
+        - generic [ref=f7e106]: Nexo UI
+        - generic [ref=f7e107]: React / JSX
+      - main [ref=f7e109]:
+        - generic [ref=f7e110]:
+          - navigation "Breadcrumb" [ref=f7e111]:
+            - link "Home" [ref=f7e112] [cursor=pointer]:
+              - /url: /
+            - text: /
+            - link "Components" [ref=f7e113] [cursor=pointer]:
+              - /url: /components
+            - text: /Medium Badge
+          - generic [ref=f7e114]:
+            - paragraph [ref=f7e115]: BADGES
+            - heading "React Badge with Tailwind CSS" [level=1] [ref=f7e116]
+            - paragraph [ref=f7e117]: A compact React badge styled with Tailwind CSS, with separate medium and small sections plus neutral, error, warning, success, info, indigo, purple, and pink tones.
+          - generic [ref=f7e118]:
+            - generic [ref=f7e119]:
+              - heading "Medium Badge" [level=2] [ref=f7e121]
+              - region "Medium Badge preview and source code" [ref=f7e122]:
+                - generic [ref=f7e123]:
+                  - generic [ref=f7e124]:
+                    - button "Preview" [ref=f7e126]
+                    - button "Code" [ref=f7e127]
+                  - generic [ref=f7e128]:
+                    - button "Expand preview" [ref=f7e129]
+                    - button "Copy code" [ref=f7e132]
+                - generic [ref=f7e139]:
+                  - generic [ref=f7e142]:
+                    - generic [ref=f7e143]: Neutral
+                    - generic [ref=f7e144]: Error
+                    - generic [ref=f7e145]: Warning
+                    - generic [ref=f7e146]: Success
+                    - generic [ref=f7e147]: Info
+                    - generic [ref=f7e148]: Indigo
+                    - generic [ref=f7e149]: Purple
+                    - generic [ref=f7e150]: Pink
+                  - button "Resize responsive preview" [ref=f7e151]
+              - generic [ref=f7e153]:
+                - generic [ref=f7e154]: Built for responsive React interfaces
+                - generic [ref=f7e157]: Preview the component, then copy the JSX.
+            - generic [ref=f7e158]:
+              - heading "Small Badge" [level=2] [ref=f7e160]
+              - region "Small Badge preview and source code" [ref=f7e161]:
+                - generic [ref=f7e162]:
+                  - generic [ref=f7e163]:
+                    - button "Preview" [ref=f7e165]
+                    - button "Code" [ref=f7e166]
+                  - generic [ref=f7e167]:
+                    - button "Expand preview" [ref=f7e168]
+                    - button "Copy code" [ref=f7e171]
+                - generic [ref=f7e178]:
+                  - generic [ref=f7e181]:
+                    - generic [ref=f7e182]: Neutral
+                    - generic [ref=f7e183]: Error
+                    - generic [ref=f7e184]: Warning
+                    - generic [ref=f7e185]: Success
+                    - generic [ref=f7e186]: Info
+                    - generic [ref=f7e187]: Indigo
+                    - generic [ref=f7e188]: Purple
+                    - generic [ref=f7e189]: Pink
+                  - button "Resize responsive preview" [ref=f7e190]
+              - generic [ref=f7e192]:
+                - generic [ref=f7e193]: Built for responsive React interfaces
+                - generic [ref=f7e196]: Preview the component, then copy the JSX.
+          - generic [ref=f7e197]:
+            - generic [ref=f7e198]: React & Tailwind CSS / Medium Badge
+            - link "Browse all components" [ref=f7e199] [cursor=pointer]:
+              - /url: /components
+  - button "Open Next.js Dev Tools" [ref=f7e205] [cursor=pointer]

@@ -6,7 +6,7 @@ import { openGraphImage, siteConfig, twitterImage } from '@/lib/site-config';
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return componentRegistry.map(({ id }) => ({ componentId: id }));
+  return [...new Set(componentRegistry.flatMap(({ id, groupId }) => [id, groupId]))].map((componentId) => ({ componentId }));
 }
 
 export async function generateMetadata({ params }) {

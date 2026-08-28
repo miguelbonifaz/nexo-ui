@@ -1,0 +1,95 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - banner [ref=f2e3]:
+      - link "Nexo UI home" [ref=f2e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f2e8]:
+          - generic [ref=f2e9]: Nexo UI
+          - generic [ref=f2e10]: Component library
+      - link "Back home" [ref=f2e11] [cursor=pointer]:
+        - /url: /
+    - main [ref=f2e12]:
+      - generic [ref=f2e13]:
+        - navigation "Breadcrumb" [ref=f2e14]:
+          - link "Home" [ref=f2e15] [cursor=pointer]:
+            - /url: /
+          - text: /Components
+        - generic [ref=f2e16]:
+          - paragraph [ref=f2e17]: React / Tailwind CSS
+          - heading "React & Tailwind CSS components." [level=1] [ref=f2e18]
+          - paragraph [ref=f2e19]: Browse reusable UI patterns with live previews, responsive behavior, and JSX you can adapt to your project.
+        - generic [ref=f2e20]:
+          - link "01 Application Shells Application Shell A reusable React application shell built with Tailwind CSS, including persistent navigation, workspaces, and a responsive empty workspace. 2 variants" [ref=f2e21] [cursor=pointer]:
+            - /url: /components/application-shell
+            - generic [ref=f2e22]: "01"
+            - generic [ref=f2e26]:
+              - paragraph [ref=f2e27]: Application Shells
+              - heading "Application Shell" [level=2] [ref=f2e28]
+              - paragraph [ref=f2e29]: A reusable React application shell built with Tailwind CSS, including persistent navigation, workspaces, and a responsive empty workspace.
+              - paragraph [ref=f2e30]: 2 variants
+          - link "02 Navigation Breadcrumb A compact, accessible React breadcrumb navigation component styled with Tailwind CSS for nested pages and dashboards." [ref=f2e31] [cursor=pointer]:
+            - /url: /components/breadcrumb
+            - generic [ref=f2e32]: "02"
+            - generic [ref=f2e36]:
+              - paragraph [ref=f2e37]: Navigation
+              - heading "Breadcrumb" [level=2] [ref=f2e38]
+              - paragraph [ref=f2e39]: A compact, accessible React breadcrumb navigation component styled with Tailwind CSS for nested pages and dashboards.
+          - link "03 Form Controls Input A flexible React input component styled with Tailwind CSS for forms, filters, search fields, and short text entry." [ref=f2e40] [cursor=pointer]:
+            - /url: /components/input
+            - generic [ref=f2e41]: "03"
+            - generic [ref=f2e45]:
+              - paragraph [ref=f2e46]: Form Controls
+              - heading "Input" [level=2] [ref=f2e47]
+              - paragraph [ref=f2e48]: A flexible React input component styled with Tailwind CSS for forms, filters, search fields, and short text entry.
+          - link "04 Buttons Solid Button A reusable solid React button styled with Tailwind CSS, including four sizes, disabled state, and optional icons. 2 variants" [ref=f2e49] [cursor=pointer]:
+            - /url: /components/button
+            - generic [ref=f2e50]: "04"
+            - generic [ref=f2e54]:
+              - paragraph [ref=f2e55]: Buttons
+              - heading "Solid Button" [level=2] [ref=f2e56]
+              - paragraph [ref=f2e57]: A reusable solid React button styled with Tailwind CSS, including four sizes, disabled state, and optional icons.
+              - paragraph [ref=f2e58]: 2 variants
+          - link "05 Badges Badge A compact React badge styled with Tailwind CSS, with medium and small sizes plus accent, neutral, info, success, warning, and error tones." [ref=f2e59] [cursor=pointer]:
+            - /url: /components/badge
+            - generic [ref=f2e60]: "05"
+            - generic [ref=f2e64]:
+              - paragraph [ref=f2e65]: Badges
+              - heading "Badge" [level=2] [ref=f2e66]
+              - paragraph [ref=f2e67]: A compact React badge styled with Tailwind CSS, with medium and small sizes plus accent, neutral, info, success, warning, and error tones.
+          - link "06 Selects Native Select A reusable native HTML select component styled with Tailwind CSS, with single and multiple selection support. 2 variants" [ref=f2e68] [cursor=pointer]:
+            - /url: /components/select
+            - generic [ref=f2e69]: "06"
+            - generic [ref=f2e73]:
+              - paragraph [ref=f2e74]: Selects
+              - heading "Native Select" [level=2] [ref=f2e75]
+              - paragraph [ref=f2e76]: A reusable native HTML select component styled with Tailwind CSS, with single and multiple selection support.
+              - paragraph [ref=f2e77]: 2 variants
+          - link "07 Lists Kanban A reusable static React Kanban board styled with Tailwind CSS, featuring workflow columns, record cards, and responsive horizontal scrolling." [ref=f2e78] [cursor=pointer]:
+            - /url: /components/kanban
+            - generic [ref=f2e79]: "07"
+            - generic [ref=f2e83]:
+              - paragraph [ref=f2e84]: Lists
+              - heading "Kanban" [level=2] [ref=f2e85]
+              - paragraph [ref=f2e86]: A reusable static React Kanban board styled with Tailwind CSS, featuring workflow columns, record cards, and responsive horizontal scrolling.
+          - link "08 Lists Table A responsive React table component styled with Tailwind CSS, including search, pagination, status badges, and record actions." [ref=f2e87] [cursor=pointer]:
+            - /url: /components/table
+            - generic [ref=f2e88]: "08"
+            - generic [ref=f2e92]:
+              - paragraph [ref=f2e93]: Lists
+              - heading "Table" [level=2] [ref=f2e94]
+              - paragraph [ref=f2e95]: A responsive React table component styled with Tailwind CSS, including search, pagination, status badges, and record actions.
+          - link "09 Lists Pagination A compact React pagination component styled with Tailwind CSS for navigating records, search results, and longer collections." [ref=f2e96] [cursor=pointer]:
+            - /url: /components/pagination
+            - generic [ref=f2e97]: "09"
+            - generic [ref=f2e101]:
+              - paragraph [ref=f2e102]: Lists
+              - heading "Pagination" [level=2] [ref=f2e103]
+              - paragraph [ref=f2e104]: A compact React pagination component styled with Tailwind CSS for navigating records, search results, and longer collections.
+          - link "010 Dialogs Modal An accessible React modal styled with Tailwind CSS for reviewing records with keyboard, backdrop, and action support." [ref=f2e105] [cursor=pointer]:
+            - /url: /components/modal
+            - generic [ref=f2e106]: "010"
+            - generic [ref=f2e110]:
+              - paragraph [ref=f2e111]: Dialogs
+              - heading "Modal" [level=2] [ref=f2e112]
+              - paragraph [ref=f2e113]: An accessible React modal styled with Tailwind CSS for reviewing records with keyboard, backdrop, and action support.
+  - button "Open Next.js Dev Tools" [ref=f2e119] [cursor=pointer]

@@ -35,7 +35,14 @@ export default function ComponentShowcase({ component, previewMode, onSetPreview
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const fitContentPreview = component.id === 'input' || component.id === 'breadcrumb' || component.id === 'pagination';
+  const fitContentPreview = component.id === 'input'
+    || component.id === 'breadcrumb'
+    || component.id === 'pagination'
+    || component.id === 'solid-button'
+    || component.id === 'outline-button'
+    || component.id === 'medium-badge'
+    || component.id === 'small-badge'
+    || component.id === 'native-select';
 
   useEffect(() => {
     if (!isExpanded) return undefined;

@@ -1,0 +1,162 @@
+- generic [ref=f9e1]:
+  - generic [ref=f9e2]:
+    - complementary [ref=f9e6]:
+      - link "Nexo UI Component library" [ref=f9e8] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f9e12]:
+          - generic [ref=f9e13]: Nexo UI
+          - generic [ref=f9e14]: Component library
+      - navigation "Component navigation" [ref=f9e18]:
+        - generic [ref=f9e19]:
+          - paragraph [ref=f9e20]: Application Shells
+          - generic [ref=f9e21]:
+            - link "Application Shell" [ref=f9e22] [cursor=pointer]:
+              - /url: /components/application-shell
+            - link "Application Shell with Breadcrumb" [ref=f9e26] [cursor=pointer]:
+              - /url: /components/application-shell#application-shell-breadcrumb
+        - generic [ref=f9e30]:
+          - paragraph [ref=f9e31]: Navigation
+          - link "Breadcrumb" [ref=f9e33] [cursor=pointer]:
+            - /url: /components/breadcrumb
+        - generic [ref=f9e37]:
+          - paragraph [ref=f9e38]: Form Controls
+          - link "Input" [ref=f9e40] [cursor=pointer]:
+            - /url: /components/input
+        - generic [ref=f9e44]:
+          - paragraph [ref=f9e45]: Buttons
+          - generic [ref=f9e46]:
+            - link "Solid Button" [ref=f9e47] [cursor=pointer]:
+              - /url: /components/button#solid-button
+            - link "Outline Button" [ref=f9e51] [cursor=pointer]:
+              - /url: /components/button#outline-button
+        - generic [ref=f9e55]:
+          - paragraph [ref=f9e56]: Badges
+          - link "Badge" [ref=f9e58] [cursor=pointer]:
+            - /url: /components/badge
+        - generic [ref=f9e62]:
+          - paragraph [ref=f9e63]: Selects
+          - generic [ref=f9e64]:
+            - link "Native Select" [ref=f9e65] [cursor=pointer]:
+              - /url: /components/select#native-select
+            - link "Custom Select" [ref=f9e69] [cursor=pointer]:
+              - /url: /components/select#custom-select
+        - generic [ref=f9e73]:
+          - paragraph [ref=f9e74]: Lists
+          - generic [ref=f9e75]:
+            - link "Kanban" [ref=f9e76] [cursor=pointer]:
+              - /url: /components/kanban
+            - link "Table" [ref=f9e80] [cursor=pointer]:
+              - /url: /components/table
+            - link "Pagination" [ref=f9e84] [cursor=pointer]:
+              - /url: /components/pagination
+        - generic [ref=f9e88]:
+          - paragraph [ref=f9e89]: Dialogs
+          - link "Modal" [ref=f9e91] [cursor=pointer]:
+            - /url: /components/modal
+      - generic [ref=f9e95]:
+        - generic [ref=f9e96]: Copy-ready components
+        - paragraph [ref=f9e99]: Reusable React patterns with live previews and adaptable JSX.
+    - generic [ref=f9e100]:
+      - banner [ref=f9e101]:
+        - generic [ref=f9e102]: React & Tailwind CSS / Buttons
+        - generic [ref=f9e103]:
+          - generic [ref=f9e233]: Live preview
+          - generic [ref=f9e104]: React / JSX
+      - main [ref=f9e105]:
+        - generic [ref=f9e106]:
+          - navigation "Breadcrumb" [ref=f9e107]:
+            - link "Home" [ref=f9e108] [cursor=pointer]:
+              - /url: /
+            - text: /
+            - link "Components" [ref=f9e109] [cursor=pointer]:
+              - /url: /components
+            - text: /Solid Button
+          - generic [ref=f9e110]:
+            - paragraph [ref=f9e111]: BUTTONS
+            - heading "React Solid Button with Tailwind CSS" [level=1] [ref=f9e112]
+            - paragraph [ref=f9e113]: A reusable solid React button styled with Tailwind CSS, including four sizes, disabled state, and optional icons.
+          - generic [ref=f9e114]:
+            - generic [ref=f9e115]:
+              - heading "Solid Button" [level=2] [ref=f9e117]
+              - region "Solid Button preview and source code" [ref=f9e118]:
+                - generic [ref=f9e119]:
+                  - generic [ref=f9e120]:
+                    - button "Preview" [ref=f9e122]
+                    - button "Code" [ref=f9e123]
+                  - generic [ref=f9e124]:
+                    - generic [ref=f9e564]:
+                      - button "Light preview" [active] [ref=f9e565]
+                      - button "Dark preview" [ref=f9e568]
+                    - generic [ref=f9e242]: React / JSX
+                    - button "Expand preview" [ref=f9e571]
+                    - button "Copy code" [ref=f9e128]
+                - generic [ref=f9e577]:
+                  - generic [ref=f9e580]:
+                    - generic [ref=f9e581]:
+                      - generic [ref=f9e582]:
+                        - button "Place order" [ref=f9e583]
+                        - generic [ref=f9e584]: XL
+                      - generic [ref=f9e585]:
+                        - button "Place order" [ref=f9e586]
+                        - generic [ref=f9e587]: LG
+                      - generic [ref=f9e588]:
+                        - button "Place order" [ref=f9e589]
+                        - generic [ref=f9e590]: MD
+                      - generic [ref=f9e591]:
+                        - button "Place order" [ref=f9e592]
+                        - generic [ref=f9e593]: SM
+                    - generic [ref=f9e594]:
+                      - button "Create product" [ref=f9e595]
+                      - button "Cancel" [ref=f9e596]
+                      - button "Place order" [ref=f9e597]
+                      - button "Disabled" [disabled]
+                    - status [ref=f9e601]: Cancel clicked
+                  - button "Resize responsive preview" [ref=f9e602]
+              - generic [ref=f9e162]:
+                - generic [ref=f9e163]: Built for responsive React interfaces
+                - generic [ref=f9e166]: Preview the component, then copy the JSX.
+            - generic [ref=f9e167]:
+              - heading "Outline Button" [level=2] [ref=f9e169]
+              - region "Outline Button preview and source code" [ref=f9e170]:
+                - generic [ref=f9e171]:
+                  - generic [ref=f9e172]:
+                    - button "Preview" [ref=f9e174]
+                    - button "Code" [ref=f9e175]
+                  - generic [ref=f9e176]:
+                    - generic [ref=f9e243]:
+                      - button "Light preview" [ref=f9e244]
+                      - button "Dark preview" [ref=f9e247]
+                    - generic [ref=f9e250]: React / JSX
+                    - button "Expand preview" [ref=f9e177]
+                    - button "Copy code" [ref=f9e180]
+                - generic [ref=f9e187]:
+                  - generic [ref=f9e190]:
+                    - generic [ref=f9e191]:
+                      - generic [ref=f9e192]:
+                        - button "Place order" [ref=f9e193]
+                        - generic [ref=f9e194]: XL
+                      - generic [ref=f9e195]:
+                        - button "Place order" [ref=f9e196]
+                        - generic [ref=f9e197]: LG
+                      - generic [ref=f9e198]:
+                        - button "Place order" [ref=f9e199]
+                        - generic [ref=f9e200]: MD
+                      - generic [ref=f9e201]:
+                        - button "Place order" [ref=f9e202]
+                        - generic [ref=f9e203]: SM
+                    - generic [ref=f9e204]:
+                      - button "Create product" [ref=f9e205]
+                      - button "Cancel" [ref=f9e206]
+                      - button "Place order" [ref=f9e207]
+                      - button "Disabled" [disabled]
+                    - status [ref=f9e211]: Buttons are ready to use.
+                  - button "Resize responsive preview" [ref=f9e212]
+              - generic [ref=f9e214]:
+                - generic [ref=f9e215]: Built for responsive React interfaces
+                - generic [ref=f9e218]: Preview the component, then copy the JSX.
+          - generic [ref=f9e219]:
+            - generic [ref=f9e220]: React & Tailwind CSS / Solid Button
+            - link "Browse all components" [ref=f9e221] [cursor=pointer]:
+              - /url: /components
+  - button "Open Next.js Dev Tools" [ref=f9e227] [cursor=pointer]
+  - alert [ref=f9e231]

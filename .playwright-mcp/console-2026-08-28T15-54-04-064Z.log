@@ -1,0 +1,50 @@
+[     244ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[     264ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  513408ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  513489ms] [LOG] [Fast Refresh] done in 12ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  513549ms] [LOG] [Fast Refresh] done in 12ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  716721ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  716818ms] [LOG] [Fast Refresh] done in 31ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  716876ms] [LOG] [Fast Refresh] done in 31ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  727532ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  727593ms] [LOG] [Fast Refresh] done in 5ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  733922ms] [ERROR] ./src/lib/component-registry.js:8:1
+Error: Module not found: Can't resolve './snippets/badge'
+   6 | import { inputSnippet } from './snippets/input';
+   7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+>  8 | import { badgeSnippet } from './snippets/badge';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+  11 | import { kanbanSnippet } from './snippets/kanban';
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  733990ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  734013ms] [ERROR] ./src/lib/component-registry.js:8:1
+Error: Module not found: Can't resolve './snippets/badge'
+   6 | import { inputSnippet } from './snippets/input';
+   7 | import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+>  8 | import { badgeSnippet } from './snippets/badge';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { nativeSelectSnippet } from './snippets/native-select';
+  10 | import { customSelectSnippet } from './snippets/custom-select';
+  11 | import { kanbanSnippet } from './snippets/kanban';
+
+Import trace:
+  Server Component:
+    ./src/lib/component-registry.js
+    ./src/components/component-index.jsx
+    ./src/app/components/page.js
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  756668ms] [LOG] [Fast Refresh] done in 22705ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  756716ms] [LOG] [Fast Refresh] done in 22705ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  761961ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  762039ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  762074ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776

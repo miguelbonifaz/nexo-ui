@@ -4,6 +4,10 @@ import { applicationShellBreadcrumbSnippet } from './snippets/application-shell-
 import { breadcrumbSnippet } from './snippets/breadcrumb';
 import { modalSnippet } from './snippets/modal';
 import { inputSnippet } from './snippets/input';
+import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
+import { mediumBadgeSnippet, smallBadgeSnippet } from './snippets/badge';
+import { nativeSelectSnippet } from './snippets/native-select';
+import { customSelectSnippet } from './snippets/custom-select';
 import { kanbanSnippet } from './snippets/kanban';
 import { paginationSnippet } from './snippets/pagination';
 import { tableSnippet } from './snippets/table';
@@ -13,6 +17,12 @@ export const componentRegistry = [
   { id: 'application-shell-breadcrumb', ...componentMeta['application-shell-breadcrumb'], code: applicationShellBreadcrumbSnippet },
   { id: 'breadcrumb', ...componentMeta.breadcrumb, code: breadcrumbSnippet },
   { id: 'input', ...componentMeta.input, code: inputSnippet },
+  { id: 'solid-button', ...componentMeta['solid-button'], code: solidButtonSnippet },
+  { id: 'outline-button', ...componentMeta['outline-button'], code: outlineButtonSnippet },
+  { id: 'medium-badge', ...componentMeta['medium-badge'], code: mediumBadgeSnippet },
+  { id: 'small-badge', ...componentMeta['small-badge'], code: smallBadgeSnippet },
+  { id: 'native-select', ...componentMeta['native-select'], code: nativeSelectSnippet },
+  { id: 'custom-select', ...componentMeta['custom-select'], code: customSelectSnippet },
   { id: 'kanban', ...componentMeta.kanban, code: kanbanSnippet },
   { id: 'table', ...componentMeta.table, code: tableSnippet },
   { id: 'pagination', ...componentMeta.pagination, code: paginationSnippet },
@@ -28,7 +38,7 @@ export function getComponentById(id) {
 }
 
 export function getComponentGroupById(id) {
-  const component = getComponentById(id);
+  const component = getComponentById(id) ?? componentRegistry.find((candidate) => candidate.groupId === id);
   if (!component) return undefined;
 
   return {

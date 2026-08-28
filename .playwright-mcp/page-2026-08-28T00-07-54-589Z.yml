@@ -1,0 +1,174 @@
+- generic [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - button "Open navigation" [ref=f2e3]
+    - complementary [ref=f2e6]:
+      - generic [ref=f2e7]:
+        - link "Nexo UI Component library" [ref=f2e8] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f2e12]:
+            - generic [ref=f2e13]: Nexo UI
+            - generic [ref=f2e14]: Component library
+        - button "Open navigation" [ref=f2e15]
+      - navigation "Component navigation" [ref=f2e18]:
+        - generic [ref=f2e19]:
+          - paragraph [ref=f2e20]: Application Shells
+          - generic [ref=f2e21]:
+            - link "Application Shell" [ref=f2e22] [cursor=pointer]:
+              - /url: /components/application-shell
+            - link "Application Shell with Breadcrumb" [ref=f2e26] [cursor=pointer]:
+              - /url: /components/application-shell#application-shell-breadcrumb
+        - generic [ref=f2e30]:
+          - paragraph [ref=f2e31]: Navigation
+          - link "Breadcrumb" [ref=f2e33] [cursor=pointer]:
+            - /url: /components/breadcrumb
+        - generic [ref=f2e37]:
+          - paragraph [ref=f2e38]: Form Controls
+          - link "Input" [ref=f2e40] [cursor=pointer]:
+            - /url: /components/input
+        - generic [ref=f2e44]:
+          - paragraph [ref=f2e45]: Buttons
+          - generic [ref=f2e46]:
+            - link "Solid Button" [ref=f2e47] [cursor=pointer]:
+              - /url: /components/button#solid-button
+            - link "Outline Button" [ref=f2e51] [cursor=pointer]:
+              - /url: /components/button#outline-button
+        - generic [ref=f2e55]:
+          - paragraph [ref=f2e56]: Badges
+          - link "Badge" [ref=f2e58] [cursor=pointer]:
+            - /url: /components/badge
+        - generic [ref=f2e62]:
+          - paragraph [ref=f2e63]: Selects
+          - generic [ref=f2e64]:
+            - link "Native Select" [ref=f2e65] [cursor=pointer]:
+              - /url: /components/select#native-select
+            - link "Custom Select" [ref=f2e69] [cursor=pointer]:
+              - /url: /components/select#custom-select
+        - generic [ref=f2e73]:
+          - paragraph [ref=f2e74]: Lists
+          - generic [ref=f2e75]:
+            - link "Kanban" [ref=f2e76] [cursor=pointer]:
+              - /url: /components/kanban
+            - link "Table" [ref=f2e80] [cursor=pointer]:
+              - /url: /components/table
+            - link "Pagination" [ref=f2e84] [cursor=pointer]:
+              - /url: /components/pagination
+        - generic [ref=f2e88]:
+          - paragraph [ref=f2e89]: Dialogs
+          - link "Modal" [ref=f2e91] [cursor=pointer]:
+            - /url: /components/modal
+      - generic [ref=f2e95]:
+        - generic [ref=f2e96]: Copy-ready components
+        - paragraph [ref=f2e99]: Reusable React patterns with live previews and adaptable JSX.
+    - generic [ref=f2e100]:
+      - banner [ref=f2e101]:
+        - generic [ref=f2e102]: React & Tailwind CSS / Badges
+        - generic [ref=f2e104]:
+          - generic [ref=f2e105]: Live preview
+          - generic [ref=f2e107]: React / JSX
+      - main [ref=f2e108]:
+        - generic [ref=f2e109]:
+          - navigation "Breadcrumb" [ref=f2e110]:
+            - link "Home" [ref=f2e111] [cursor=pointer]:
+              - /url: /
+            - text: /
+            - link "Components" [ref=f2e112] [cursor=pointer]:
+              - /url: /components
+            - text: /Badge
+          - generic [ref=f2e113]:
+            - paragraph [ref=f2e114]: BADGES
+            - heading "React Badge with Tailwind CSS" [level=1] [ref=f2e115]
+            - paragraph [ref=f2e116]: A compact React badge styled with Tailwind CSS, with medium and small sizes for lightweight labels and status context.
+          - generic [ref=f2e118]:
+            - heading "Badge" [level=2] [ref=f2e120]
+            - region "Badge preview and source code" [ref=f2e121]:
+              - generic [ref=f2e122]:
+                - generic [ref=f2e123]:
+                  - button "Preview" [ref=f2e125]
+                  - button "Code" [active] [ref=f2e126]
+                - generic [ref=f2e127]:
+                  - generic [ref=f2e135]: React / JSX
+                  - button "Copy code" [ref=f2e139]
+              - generic [ref=f2e176]:
+                - generic [ref=f2e177]: JSX
+                - code [ref=f2e184]:
+                  - generic [ref=f2e185]:
+                    - generic [ref=f2e186]: "1"
+                    - generic [ref=f2e187]: "const sizeClasses = {"
+                  - generic [ref=f2e188]:
+                    - generic [ref=f2e189]: "2"
+                    - generic [ref=f2e190]: "md: 'px-2.5 py-1 text-[11px]',"
+                  - generic [ref=f2e191]:
+                    - generic [ref=f2e192]: "3"
+                    - generic [ref=f2e193]: "sm: 'px-2 py-0.5 text-[10px]',"
+                  - generic [ref=f2e194]:
+                    - generic [ref=f2e195]: "4"
+                    - generic [ref=f2e196]: "};"
+                  - generic [ref=f2e197]: "5"
+                  - generic [ref=f2e199]:
+                    - generic [ref=f2e200]: "6"
+                    - generic [ref=f2e201]: "export default function Badge({ size = 'md', children, className = '', ...props }) {"
+                  - generic [ref=f2e202]:
+                    - generic [ref=f2e203]: "7"
+                    - generic [ref=f2e204]: "const resolvedSize = sizeClasses[size] ? size : 'md';"
+                  - generic [ref=f2e205]: "8"
+                  - generic [ref=f2e207]:
+                    - generic [ref=f2e208]: "9"
+                    - generic [ref=f2e209]: return (
+                  - generic [ref=f2e210]:
+                    - generic [ref=f2e211]: "10"
+                    - generic [ref=f2e212]: <span
+                  - generic [ref=f2e213]:
+                    - generic [ref=f2e214]: "11"
+                    - generic [ref=f2e215]: "className={'inline-flex items-center rounded-full border border-cyan-200 bg-cyan-50 font-semibold tracking-[0.02em] text-cyan-700 dark:border-cyan-300/25 dark:bg-cyan-300/10 dark:text-cyan-200 ' + sizeClasses[resolvedSize] + ' ' + className}"
+                  - generic [ref=f2e216]:
+                    - generic [ref=f2e217]: "12"
+                    - generic [ref=f2e218]: "{...props}"
+                  - generic [ref=f2e219]:
+                    - generic [ref=f2e220]: "13"
+                    - generic [ref=f2e221]: ">"
+                  - generic [ref=f2e222]:
+                    - generic [ref=f2e223]: "14"
+                    - generic [ref=f2e224]: "{children}"
+                  - generic [ref=f2e225]:
+                    - generic [ref=f2e226]: "15"
+                    - generic [ref=f2e227]: </span>
+                  - generic [ref=f2e228]:
+                    - generic [ref=f2e229]: "16"
+                    - generic [ref=f2e230]: );
+                  - generic [ref=f2e231]:
+                    - generic [ref=f2e232]: "17"
+                    - generic [ref=f2e233]: "}"
+                  - generic [ref=f2e234]: "18"
+                  - generic [ref=f2e236]:
+                    - generic [ref=f2e237]: "19"
+                    - generic [ref=f2e238]: "export function BadgeExample() {"
+                  - generic [ref=f2e239]:
+                    - generic [ref=f2e240]: "20"
+                    - generic [ref=f2e241]: return (
+                  - generic [ref=f2e242]:
+                    - generic [ref=f2e243]: "21"
+                    - generic [ref=f2e244]: <div className="flex flex-wrap items-center gap-4">
+                  - generic [ref=f2e245]:
+                    - generic [ref=f2e246]: "22"
+                    - generic [ref=f2e247]: <Badge size="md">Fresh today</Badge>
+                  - generic [ref=f2e248]:
+                    - generic [ref=f2e249]: "23"
+                    - generic [ref=f2e250]: <Badge size="sm">Pre-order</Badge>
+                  - generic [ref=f2e251]:
+                    - generic [ref=f2e252]: "24"
+                    - generic [ref=f2e253]: </div>
+                  - generic [ref=f2e254]:
+                    - generic [ref=f2e255]: "25"
+                    - generic [ref=f2e256]: );
+                  - generic [ref=f2e257]:
+                    - generic [ref=f2e258]: "26"
+                    - generic [ref=f2e259]: "}"
+            - generic [ref=f2e158]:
+              - generic [ref=f2e159]: Built for responsive React interfaces
+              - generic [ref=f2e162]: Preview the component, then copy the JSX.
+          - generic [ref=f2e163]:
+            - generic [ref=f2e164]: React & Tailwind CSS / Badge
+            - link "Browse all components" [ref=f2e165] [cursor=pointer]:
+              - /url: /components
+  - button "Open Next.js Dev Tools" [ref=f2e171] [cursor=pointer]
+  - alert [ref=f2e175]

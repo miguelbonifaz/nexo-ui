@@ -1,0 +1,435 @@
+- generic [ref=f9e1]:
+  - generic [ref=f9e2]:
+    - complementary [ref=f9e6]:
+      - link "Nexo UI Component library" [ref=f9e8] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f9e12]:
+          - generic [ref=f9e13]: Nexo UI
+          - generic [ref=f9e14]: Component library
+      - navigation "Component navigation" [ref=f9e18]:
+        - generic [ref=f9e19]:
+          - paragraph [ref=f9e20]: Application Shells
+          - generic [ref=f9e21]:
+            - link "Application Shell" [ref=f9e22] [cursor=pointer]:
+              - /url: /components/application-shell
+            - link "Application Shell with Breadcrumb" [ref=f9e26] [cursor=pointer]:
+              - /url: /components/application-shell#application-shell-breadcrumb
+        - generic [ref=f9e30]:
+          - paragraph [ref=f9e31]: Navigation
+          - link "Breadcrumb" [ref=f9e33] [cursor=pointer]:
+            - /url: /components/breadcrumb
+        - generic [ref=f9e37]:
+          - paragraph [ref=f9e38]: Form Controls
+          - link "Input" [ref=f9e40] [cursor=pointer]:
+            - /url: /components/input
+        - generic [ref=f9e44]:
+          - paragraph [ref=f9e45]: Buttons
+          - generic [ref=f9e46]:
+            - link "Solid Button" [ref=f9e47] [cursor=pointer]:
+              - /url: /components/button#solid-button
+            - link "Outline Button" [ref=f9e51] [cursor=pointer]:
+              - /url: /components/button#outline-button
+        - generic [ref=f9e55]:
+          - paragraph [ref=f9e56]: Badges
+          - link "Badge" [ref=f9e58] [cursor=pointer]:
+            - /url: /components/badge
+        - generic [ref=f9e62]:
+          - paragraph [ref=f9e63]: Selects
+          - generic [ref=f9e64]:
+            - link "Native Select" [ref=f9e65] [cursor=pointer]:
+              - /url: /components/select#native-select
+            - link "Custom Select" [ref=f9e69] [cursor=pointer]:
+              - /url: /components/select#custom-select
+        - generic [ref=f9e73]:
+          - paragraph [ref=f9e74]: Lists
+          - generic [ref=f9e75]:
+            - link "Kanban" [ref=f9e76] [cursor=pointer]:
+              - /url: /components/kanban
+            - link "Table" [ref=f9e80] [cursor=pointer]:
+              - /url: /components/table
+            - link "Pagination" [ref=f9e84] [cursor=pointer]:
+              - /url: /components/pagination
+        - generic [ref=f9e88]:
+          - paragraph [ref=f9e89]: Dialogs
+          - link "Modal" [ref=f9e91] [cursor=pointer]:
+            - /url: /components/modal
+      - generic [ref=f9e95]:
+        - generic [ref=f9e96]: Copy-ready components
+        - paragraph [ref=f9e99]: Reusable React patterns with live previews and adaptable JSX.
+    - generic [ref=f9e100]:
+      - banner [ref=f9e101]:
+        - generic [ref=f9e102]: React & Tailwind CSS / Buttons
+        - generic [ref=f9e103]:
+          - generic [ref=f9e233]: Live preview
+          - generic [ref=f9e104]: React / JSX
+      - main [ref=f9e105]:
+        - generic [ref=f9e106]:
+          - navigation "Breadcrumb" [ref=f9e107]:
+            - link "Home" [ref=f9e108] [cursor=pointer]:
+              - /url: /
+            - text: /
+            - link "Components" [ref=f9e109] [cursor=pointer]:
+              - /url: /components
+            - text: /Solid Button
+          - generic [ref=f9e110]:
+            - paragraph [ref=f9e111]: BUTTONS
+            - heading "React Solid Button with Tailwind CSS" [level=1] [ref=f9e112]
+            - paragraph [ref=f9e113]: A reusable solid React button styled with Tailwind CSS, including four sizes, disabled state, and optional icons.
+          - generic [ref=f9e114]:
+            - generic [ref=f9e115]:
+              - heading "Solid Button" [level=2] [ref=f9e117]
+              - region "Solid Button preview and source code" [ref=f9e118]:
+                - generic [ref=f9e119]:
+                  - generic [ref=f9e120]:
+                    - button "Preview" [ref=f9e122]
+                    - button "Code" [ref=f9e123]
+                  - generic [ref=f9e124]:
+                    - generic [ref=f9e564]:
+                      - button "Light preview" [ref=f9e565]
+                      - button "Dark preview" [ref=f9e568]
+                    - generic [ref=f9e242]: React / JSX
+                    - button "Expand preview" [ref=f9e571]
+                    - button "Copy code" [ref=f9e128]
+                - generic [ref=f9e577]:
+                  - generic [ref=f9e580]:
+                    - generic [ref=f9e581]:
+                      - generic [ref=f9e582]:
+                        - button "Place order" [ref=f9e583]
+                        - generic [ref=f9e584]: XL
+                      - generic [ref=f9e585]:
+                        - button "Place order" [ref=f9e586]
+                        - generic [ref=f9e587]: LG
+                      - generic [ref=f9e588]:
+                        - button "Place order" [ref=f9e589]
+                        - generic [ref=f9e590]: MD
+                      - generic [ref=f9e591]:
+                        - button "Place order" [ref=f9e592]
+                        - generic [ref=f9e593]: SM
+                    - generic [ref=f9e594]:
+                      - button "Create product" [ref=f9e595]
+                      - button "Cancel" [ref=f9e596]
+                      - button "Place order" [ref=f9e597]
+                      - button "Disabled" [disabled]
+                    - status [ref=f9e601]: Cancel clicked
+                  - button "Resize responsive preview" [ref=f9e602]
+              - generic [ref=f9e162]:
+                - generic [ref=f9e163]: Built for responsive React interfaces
+                - generic [ref=f9e166]: Preview the component, then copy the JSX.
+            - generic [ref=f9e167]:
+              - heading "Outline Button" [level=2] [ref=f9e169]
+              - region "Outline Button preview and source code" [ref=f9e170]:
+                - generic [ref=f9e171]:
+                  - generic [ref=f9e172]:
+                    - button "Preview" [ref=f9e174]
+                    - button "Code" [active] [ref=f9e175]
+                  - generic [ref=f9e176]:
+                    - generic [ref=f9e250]: React / JSX
+                    - button "Copy code" [ref=f9e180]
+                - generic [ref=f9e604]:
+                  - generic [ref=f9e605]: JSX
+                  - code [ref=f9e612]:
+                    - generic [ref=f9e613]:
+                      - generic [ref=f9e614]: "1"
+                      - generic [ref=f9e615]: "'use client';"
+                    - generic [ref=f9e616]: "2"
+                    - generic [ref=f9e618]:
+                      - generic [ref=f9e619]: "3"
+                      - generic [ref=f9e620]: "import { useState } from 'react';"
+                    - generic [ref=f9e621]:
+                      - generic [ref=f9e622]: "4"
+                      - generic [ref=f9e623]: "import { IconArrowUpRight } from '@tabler/icons-react';"
+                    - generic [ref=f9e624]: "5"
+                    - generic [ref=f9e626]:
+                      - generic [ref=f9e627]: "6"
+                      - generic [ref=f9e628]: "export default function OutlineButtonExample() {"
+                    - generic [ref=f9e629]:
+                      - generic [ref=f9e630]: "7"
+                      - generic [ref=f9e631]: const [message, setMessage] = useState('Buttons are ready to use.');
+                    - generic [ref=f9e632]:
+                      - generic [ref=f9e633]: "8"
+                      - generic [ref=f9e634]: const [saving, setSaving] = useState(false);
+                    - generic [ref=f9e635]: "9"
+                    - generic [ref=f9e637]:
+                      - generic [ref=f9e638]: "10"
+                      - generic [ref=f9e639]: "function handleCreate(event) {"
+                    - generic [ref=f9e640]:
+                      - generic [ref=f9e641]: "11"
+                      - generic [ref=f9e642]: event.preventDefault();
+                    - generic [ref=f9e643]:
+                      - generic [ref=f9e644]: "12"
+                      - generic [ref=f9e645]: setSaving(true);
+                    - generic [ref=f9e646]:
+                      - generic [ref=f9e647]: "13"
+                      - generic [ref=f9e648]: setMessage('Guardando...');
+                    - generic [ref=f9e649]: "14"
+                    - generic [ref=f9e651]:
+                      - generic [ref=f9e652]: "15"
+                      - generic [ref=f9e653]: "window.setTimeout(() => {"
+                    - generic [ref=f9e654]:
+                      - generic [ref=f9e655]: "16"
+                      - generic [ref=f9e656]: setSaving(false);
+                    - generic [ref=f9e657]:
+                      - generic [ref=f9e658]: "17"
+                      - generic [ref=f9e659]: setMessage('Producto creado');
+                    - generic [ref=f9e660]:
+                      - generic [ref=f9e661]: "18"
+                      - generic [ref=f9e662]: "}, 700);"
+                    - generic [ref=f9e663]:
+                      - generic [ref=f9e664]: "19"
+                      - generic [ref=f9e665]: "}"
+                    - generic [ref=f9e666]: "20"
+                    - generic [ref=f9e668]:
+                      - generic [ref=f9e669]: "21"
+                      - generic [ref=f9e670]: "function handleCancel() {"
+                    - generic [ref=f9e671]:
+                      - generic [ref=f9e672]: "22"
+                      - generic [ref=f9e673]: setSaving(false);
+                    - generic [ref=f9e674]:
+                      - generic [ref=f9e675]: "23"
+                      - generic [ref=f9e676]: setMessage('Cancelado');
+                    - generic [ref=f9e677]:
+                      - generic [ref=f9e678]: "24"
+                      - generic [ref=f9e679]: "}"
+                    - generic [ref=f9e680]: "25"
+                    - generic [ref=f9e682]:
+                      - generic [ref=f9e683]: "26"
+                      - generic [ref=f9e684]: return (
+                    - generic [ref=f9e685]:
+                      - generic [ref=f9e686]: "27"
+                      - generic [ref=f9e687]: <div className="flex flex-wrap items-end gap-4">
+                    - generic [ref=f9e688]:
+                      - generic [ref=f9e689]: "28"
+                      - generic [ref=f9e690]: <div className="flex flex-col items-start gap-2">
+                    - generic [ref=f9e691]:
+                      - generic [ref=f9e692]: "29"
+                      - generic [ref=f9e693]: <button
+                    - generic [ref=f9e694]:
+                      - generic [ref=f9e695]: "30"
+                      - generic [ref=f9e696]: type="button"
+                    - generic [ref=f9e697]:
+                      - generic [ref=f9e698]: "31"
+                      - generic [ref=f9e699]: "onClick={() => setMessage('XL clicked')}"
+                    - generic [ref=f9e700]:
+                      - generic [ref=f9e701]: "32"
+                      - generic [ref=f9e702]: className="rounded-md border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e703]:
+                      - generic [ref=f9e704]: "33"
+                      - generic [ref=f9e705]: ">"
+                    - generic [ref=f9e706]:
+                      - generic [ref=f9e707]: "34"
+                      - generic [ref=f9e708]: XL button
+                    - generic [ref=f9e709]:
+                      - generic [ref=f9e710]: "35"
+                      - generic [ref=f9e711]: </button>
+                    - generic [ref=f9e712]:
+                      - generic [ref=f9e713]: "36"
+                      - generic [ref=f9e714]: <span className="font-mono text-[10px] font-semibold tracking-[0.12em] text-slate-400 uppercase">XL</span>
+                    - generic [ref=f9e715]:
+                      - generic [ref=f9e716]: "37"
+                      - generic [ref=f9e717]: </div>
+                    - generic [ref=f9e718]:
+                      - generic [ref=f9e719]: "38"
+                      - generic [ref=f9e720]: <div className="flex flex-col items-start gap-2">
+                    - generic [ref=f9e721]:
+                      - generic [ref=f9e722]: "39"
+                      - generic [ref=f9e723]: <button
+                    - generic [ref=f9e724]:
+                      - generic [ref=f9e725]: "40"
+                      - generic [ref=f9e726]: type="button"
+                    - generic [ref=f9e727]:
+                      - generic [ref=f9e728]: "41"
+                      - generic [ref=f9e729]: "onClick={() => setMessage('LG clicked')}"
+                    - generic [ref=f9e730]:
+                      - generic [ref=f9e731]: "42"
+                      - generic [ref=f9e732]: className="rounded-md border border-slate-300 bg-white px-[18px] py-2.5 text-sm font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e733]:
+                      - generic [ref=f9e734]: "43"
+                      - generic [ref=f9e735]: ">"
+                    - generic [ref=f9e736]:
+                      - generic [ref=f9e737]: "44"
+                      - generic [ref=f9e738]: LG button
+                    - generic [ref=f9e739]:
+                      - generic [ref=f9e740]: "45"
+                      - generic [ref=f9e741]: </button>
+                    - generic [ref=f9e742]:
+                      - generic [ref=f9e743]: "46"
+                      - generic [ref=f9e744]: <span className="font-mono text-[10px] font-semibold tracking-[0.12em] text-slate-400 uppercase">LG</span>
+                    - generic [ref=f9e745]:
+                      - generic [ref=f9e746]: "47"
+                      - generic [ref=f9e747]: </div>
+                    - generic [ref=f9e748]:
+                      - generic [ref=f9e749]: "48"
+                      - generic [ref=f9e750]: <div className="flex flex-col items-start gap-2">
+                    - generic [ref=f9e751]:
+                      - generic [ref=f9e752]: "49"
+                      - generic [ref=f9e753]: <button
+                    - generic [ref=f9e754]:
+                      - generic [ref=f9e755]: "50"
+                      - generic [ref=f9e756]: type="button"
+                    - generic [ref=f9e757]:
+                      - generic [ref=f9e758]: "51"
+                      - generic [ref=f9e759]: "onClick={() => setMessage('MD clicked')}"
+                    - generic [ref=f9e760]:
+                      - generic [ref=f9e761]: "52"
+                      - generic [ref=f9e762]: className="rounded-md border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e763]:
+                      - generic [ref=f9e764]: "53"
+                      - generic [ref=f9e765]: ">"
+                    - generic [ref=f9e766]:
+                      - generic [ref=f9e767]: "54"
+                      - generic [ref=f9e768]: MD button
+                    - generic [ref=f9e769]:
+                      - generic [ref=f9e770]: "55"
+                      - generic [ref=f9e771]: </button>
+                    - generic [ref=f9e772]:
+                      - generic [ref=f9e773]: "56"
+                      - generic [ref=f9e774]: <span className="font-mono text-[10px] font-semibold tracking-[0.12em] text-slate-400 uppercase">MD</span>
+                    - generic [ref=f9e775]:
+                      - generic [ref=f9e776]: "57"
+                      - generic [ref=f9e777]: </div>
+                    - generic [ref=f9e778]:
+                      - generic [ref=f9e779]: "58"
+                      - generic [ref=f9e780]: <div className="flex flex-col items-start gap-2">
+                    - generic [ref=f9e781]:
+                      - generic [ref=f9e782]: "59"
+                      - generic [ref=f9e783]: <button
+                    - generic [ref=f9e784]:
+                      - generic [ref=f9e785]: "60"
+                      - generic [ref=f9e786]: type="button"
+                    - generic [ref=f9e787]:
+                      - generic [ref=f9e788]: "61"
+                      - generic [ref=f9e789]: "onClick={() => setMessage('SM clicked')}"
+                    - generic [ref=f9e790]:
+                      - generic [ref=f9e791]: "62"
+                      - generic [ref=f9e792]: className="rounded-md border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e793]:
+                      - generic [ref=f9e794]: "63"
+                      - generic [ref=f9e795]: ">"
+                    - generic [ref=f9e796]:
+                      - generic [ref=f9e797]: "64"
+                      - generic [ref=f9e798]: SM button
+                    - generic [ref=f9e799]:
+                      - generic [ref=f9e800]: "65"
+                      - generic [ref=f9e801]: </button>
+                    - generic [ref=f9e802]:
+                      - generic [ref=f9e803]: "66"
+                      - generic [ref=f9e804]: <span className="font-mono text-[10px] font-semibold tracking-[0.12em] text-slate-400 uppercase">SM</span>
+                    - generic [ref=f9e805]:
+                      - generic [ref=f9e806]: "67"
+                      - generic [ref=f9e807]: </div>
+                    - generic [ref=f9e808]: "68"
+                    - generic [ref=f9e810]:
+                      - generic [ref=f9e811]: "69"
+                      - generic [ref=f9e812]: "<form onSubmit={handleCreate} className=\"basis-full flex flex-wrap items-center gap-3 border-t border-slate-200/80 pt-6 dark:border-slate-800\">"
+                    - generic [ref=f9e813]:
+                      - generic [ref=f9e814]: "70"
+                      - generic [ref=f9e815]: <button
+                    - generic [ref=f9e816]:
+                      - generic [ref=f9e817]: "71"
+                      - generic [ref=f9e818]: type="submit"
+                    - generic [ref=f9e819]:
+                      - generic [ref=f9e820]: "72"
+                      - generic [ref=f9e821]: "disabled={saving}"
+                    - generic [ref=f9e822]:
+                      - generic [ref=f9e823]: "73"
+                      - generic [ref=f9e824]: className="rounded-md border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e825]:
+                      - generic [ref=f9e826]: "74"
+                      - generic [ref=f9e827]: ">"
+                    - generic [ref=f9e828]:
+                      - generic [ref=f9e829]: "75"
+                      - generic [ref=f9e830]: "{saving ? 'Guardando...' : 'Crear producto'}"
+                    - generic [ref=f9e831]:
+                      - generic [ref=f9e832]: "76"
+                      - generic [ref=f9e833]: </button>
+                    - generic [ref=f9e834]:
+                      - generic [ref=f9e835]: "77"
+                      - generic [ref=f9e836]: <button
+                    - generic [ref=f9e837]:
+                      - generic [ref=f9e838]: "78"
+                      - generic [ref=f9e839]: type="button"
+                    - generic [ref=f9e840]:
+                      - generic [ref=f9e841]: "79"
+                      - generic [ref=f9e842]: "onClick={handleCancel}"
+                    - generic [ref=f9e843]:
+                      - generic [ref=f9e844]: "80"
+                      - generic [ref=f9e845]: className="rounded-md border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e846]:
+                      - generic [ref=f9e847]: "81"
+                      - generic [ref=f9e848]: ">"
+                    - generic [ref=f9e849]:
+                      - generic [ref=f9e850]: "82"
+                      - generic [ref=f9e851]: Cancelar
+                    - generic [ref=f9e852]:
+                      - generic [ref=f9e853]: "83"
+                      - generic [ref=f9e854]: </button>
+                    - generic [ref=f9e855]:
+                      - generic [ref=f9e856]: "84"
+                      - generic [ref=f9e857]: </form>
+                    - generic [ref=f9e858]: "85"
+                    - generic [ref=f9e860]:
+                      - generic [ref=f9e861]: "86"
+                      - generic [ref=f9e862]: <button
+                    - generic [ref=f9e863]:
+                      - generic [ref=f9e864]: "87"
+                      - generic [ref=f9e865]: type="button"
+                    - generic [ref=f9e866]:
+                      - generic [ref=f9e867]: "88"
+                      - generic [ref=f9e868]: "onClick={() => setMessage('Place order clicked')}"
+                    - generic [ref=f9e869]:
+                      - generic [ref=f9e870]: "89"
+                      - generic [ref=f9e871]: className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e872]:
+                      - generic [ref=f9e873]: "90"
+                      - generic [ref=f9e874]: ">"
+                    - generic [ref=f9e875]:
+                      - generic [ref=f9e876]: "91"
+                      - generic [ref=f9e877]: "<IconArrowUpRight aria-hidden=\"true\" size={16} />"
+                    - generic [ref=f9e878]:
+                      - generic [ref=f9e879]: "92"
+                      - generic [ref=f9e880]: Place order
+                    - generic [ref=f9e881]:
+                      - generic [ref=f9e882]: "93"
+                      - generic [ref=f9e883]: </button>
+                    - generic [ref=f9e884]:
+                      - generic [ref=f9e885]: "94"
+                      - generic [ref=f9e886]: <button
+                    - generic [ref=f9e887]:
+                      - generic [ref=f9e888]: "95"
+                      - generic [ref=f9e889]: type="button"
+                    - generic [ref=f9e890]:
+                      - generic [ref=f9e891]: "96"
+                      - generic [ref=f9e892]: disabled
+                    - generic [ref=f9e893]:
+                      - generic [ref=f9e894]: "97"
+                      - generic [ref=f9e895]: className="rounded-md border border-slate-300 bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-700 shadow-xs hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800/70 dark:focus-visible:outline-slate-300"
+                    - generic [ref=f9e896]:
+                      - generic [ref=f9e897]: "98"
+                      - generic [ref=f9e898]: ">"
+                    - generic [ref=f9e899]:
+                      - generic [ref=f9e900]: "99"
+                      - generic [ref=f9e901]: Disabled
+                    - generic [ref=f9e902]:
+                      - generic [ref=f9e903]: "100"
+                      - generic [ref=f9e904]: </button>
+                    - generic [ref=f9e905]:
+                      - generic [ref=f9e906]: "101"
+                      - generic [ref=f9e907]: "<p role=\"status\" aria-live=\"polite\" className=\"basis-full text-xs text-slate-400 dark:text-slate-500\">{message}</p>"
+                    - generic [ref=f9e908]:
+                      - generic [ref=f9e909]: "102"
+                      - generic [ref=f9e910]: </div>
+                    - generic [ref=f9e911]:
+                      - generic [ref=f9e912]: "103"
+                      - generic [ref=f9e913]: );
+                    - generic [ref=f9e914]:
+                      - generic [ref=f9e915]: "104"
+                      - generic [ref=f9e916]: "}"
+              - generic [ref=f9e214]:
+                - generic [ref=f9e215]: Built for responsive React interfaces
+                - generic [ref=f9e218]: Preview the component, then copy the JSX.
+          - generic [ref=f9e219]:
+            - generic [ref=f9e220]: React & Tailwind CSS / Solid Button
+            - link "Browse all components" [ref=f9e221] [cursor=pointer]:
+              - /url: /components
+  - button "Open Next.js Dev Tools" [ref=f9e227] [cursor=pointer]
+  - alert [ref=f9e231]

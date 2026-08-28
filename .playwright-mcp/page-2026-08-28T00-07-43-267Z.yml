@@ -1,0 +1,160 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - button "Open navigation" [ref=f1e3]
+    - complementary [ref=f1e6]:
+      - generic [ref=f1e7]:
+        - link "Nexo UI Component library" [ref=f1e8] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f1e12]:
+            - generic [ref=f1e13]: Nexo UI
+            - generic [ref=f1e14]: Component library
+        - button "Open navigation" [ref=f1e15]
+      - navigation "Component navigation" [ref=f1e18]:
+        - generic [ref=f1e19]:
+          - paragraph [ref=f1e20]: Application Shells
+          - generic [ref=f1e21]:
+            - link "Application Shell" [ref=f1e22] [cursor=pointer]:
+              - /url: /components/application-shell
+            - link "Application Shell with Breadcrumb" [ref=f1e26] [cursor=pointer]:
+              - /url: /components/application-shell#application-shell-breadcrumb
+        - generic [ref=f1e30]:
+          - paragraph [ref=f1e31]: Navigation
+          - link "Breadcrumb" [ref=f1e33] [cursor=pointer]:
+            - /url: /components/breadcrumb
+        - generic [ref=f1e37]:
+          - paragraph [ref=f1e38]: Form Controls
+          - link "Input" [ref=f1e40] [cursor=pointer]:
+            - /url: /components/input
+        - generic [ref=f1e44]:
+          - paragraph [ref=f1e45]: Buttons
+          - generic [ref=f1e46]:
+            - link "Solid Button" [ref=f1e47] [cursor=pointer]:
+              - /url: /components/button#solid-button
+            - link "Outline Button" [ref=f1e51] [cursor=pointer]:
+              - /url: /components/button#outline-button
+        - generic [ref=f1e55]:
+          - paragraph [ref=f1e56]: Badges
+          - link "Badge" [ref=f1e58] [cursor=pointer]:
+            - /url: /components/badge
+        - generic [ref=f1e62]:
+          - paragraph [ref=f1e63]: Selects
+          - generic [ref=f1e64]:
+            - link "Native Select" [ref=f1e65] [cursor=pointer]:
+              - /url: /components/select#native-select
+            - link "Custom Select" [ref=f1e69] [cursor=pointer]:
+              - /url: /components/select#custom-select
+        - generic [ref=f1e73]:
+          - paragraph [ref=f1e74]: Lists
+          - generic [ref=f1e75]:
+            - link "Kanban" [ref=f1e76] [cursor=pointer]:
+              - /url: /components/kanban
+            - link "Table" [ref=f1e80] [cursor=pointer]:
+              - /url: /components/table
+            - link "Pagination" [ref=f1e84] [cursor=pointer]:
+              - /url: /components/pagination
+        - generic [ref=f1e88]:
+          - paragraph [ref=f1e89]: Dialogs
+          - link "Modal" [ref=f1e91] [cursor=pointer]:
+            - /url: /components/modal
+      - generic [ref=f1e95]:
+        - generic [ref=f1e96]: Copy-ready components
+        - paragraph [ref=f1e99]: Reusable React patterns with live previews and adaptable JSX.
+    - generic [ref=f1e100]:
+      - banner [ref=f1e101]:
+        - generic [ref=f1e102]: React & Tailwind CSS / Buttons
+        - generic [ref=f1e104]:
+          - generic [ref=f1e105]: Live preview
+          - generic [ref=f1e107]: React / JSX
+      - main [ref=f1e108]:
+        - generic [ref=f1e109]:
+          - navigation "Breadcrumb" [ref=f1e110]:
+            - link "Home" [ref=f1e111] [cursor=pointer]:
+              - /url: /
+            - text: /
+            - link "Components" [ref=f1e112] [cursor=pointer]:
+              - /url: /components
+            - text: /Solid Button
+          - generic [ref=f1e113]:
+            - paragraph [ref=f1e114]: BUTTONS
+            - heading "React Solid Button with Tailwind CSS" [level=1] [ref=f1e115]
+            - paragraph [ref=f1e116]: A reusable solid React button styled with Tailwind CSS, including four sizes, disabled state, and optional icons.
+          - generic [ref=f1e117]:
+            - generic [ref=f1e118]:
+              - heading "Solid Button" [level=2] [ref=f1e120]
+              - region "Solid Button preview and source code" [ref=f1e121]:
+                - generic [ref=f1e122]:
+                  - generic [ref=f1e123]:
+                    - button "Preview" [ref=f1e125]
+                    - button "Code" [ref=f1e126]
+                  - generic [ref=f1e127]:
+                    - generic [ref=f1e128]:
+                      - button "Light preview" [ref=f1e129]
+                      - button "Dark preview" [ref=f1e132]
+                    - generic [ref=f1e135]: React / JSX
+                    - button "Expand preview" [ref=f1e136]
+                    - button "Copy code" [ref=f1e139]
+                - generic [ref=f1e146]:
+                  - generic [ref=f1e149]:
+                    - generic [ref=f1e150]:
+                      - generic [ref=f1e151]:
+                        - button "Place order" [ref=f1e152]
+                        - generic [ref=f1e153]: XL
+                      - generic [ref=f1e154]:
+                        - button "Place order" [ref=f1e155]
+                        - generic [ref=f1e156]: LG
+                      - generic [ref=f1e157]:
+                        - button "Place order" [ref=f1e158]
+                        - generic [ref=f1e159]: MD
+                      - generic [ref=f1e160]:
+                        - button "Place order" [ref=f1e161]
+                        - generic [ref=f1e162]: SM
+                    - generic [ref=f1e163]:
+                      - button "Place order" [ref=f1e164]
+                      - button "Disabled" [disabled]
+                    - status [ref=f1e168]: Buttons are ready to use.
+                  - button "Resize responsive preview" [ref=f1e169]
+              - generic [ref=f1e171]:
+                - generic [ref=f1e172]: Built for responsive React interfaces
+                - generic [ref=f1e175]: Preview the component, then copy the JSX.
+            - generic [ref=f1e176]:
+              - heading "Outline Button" [level=2] [ref=f1e178]
+              - region "Outline Button preview and source code" [ref=f1e179]:
+                - generic [ref=f1e180]:
+                  - generic [ref=f1e181]:
+                    - button "Preview" [ref=f1e183]
+                    - button "Code" [ref=f1e184]
+                  - generic [ref=f1e185]:
+                    - generic [ref=f1e186]:
+                      - button "Light preview" [ref=f1e187]
+                      - button "Dark preview" [ref=f1e190]
+                    - generic [ref=f1e193]: React / JSX
+                    - button "Expand preview" [ref=f1e194]
+                    - button "Copy code" [ref=f1e197]
+                - generic [ref=f1e204]:
+                  - generic [ref=f1e207]:
+                    - generic [ref=f1e208]:
+                      - generic [ref=f1e209]:
+                        - button "Place order" [ref=f1e210]
+                        - generic [ref=f1e211]: XL
+                      - generic [ref=f1e212]:
+                        - button "Place order" [ref=f1e213]
+                        - generic [ref=f1e214]: LG
+                      - generic [ref=f1e215]:
+                        - button "Place order" [ref=f1e216]
+                        - generic [ref=f1e217]: MD
+                      - generic [ref=f1e218]:
+                        - button "Place order" [ref=f1e219]
+                        - generic [ref=f1e220]: SM
+                    - generic [ref=f1e221]:
+                      - button "Save for later" [ref=f1e222]
+                      - button "Disabled" [disabled]
+                    - status [ref=f1e226]: Buttons are ready to use.
+                  - button "Resize responsive preview" [ref=f1e227]
+              - generic [ref=f1e229]:
+                - generic [ref=f1e230]: Built for responsive React interfaces
+                - generic [ref=f1e233]: Preview the component, then copy the JSX.
+          - generic [ref=f1e234]:
+            - generic [ref=f1e235]: React & Tailwind CSS / Solid Button
+            - link "Browse all components" [ref=f1e236] [cursor=pointer]:
+              - /url: /components
+  - button "Open Next.js Dev Tools" [ref=f1e242] [cursor=pointer]
