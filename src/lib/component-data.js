@@ -26,6 +26,12 @@ export const componentSections = [
     items: [
       { id: 'medium-badge', groupId: 'badge', title: 'Medium Badge' },
       { id: 'small-badge', groupId: 'badge', title: 'Small Badge' },
+      { id: 'medium-rounded-badge', groupId: 'badge', title: 'Medium Rounded Badge' },
+      { id: 'small-rounded-badge', groupId: 'badge', title: 'Small Rounded Badge' },
+      { id: 'medium-bordered-badge', groupId: 'badge', title: 'Medium Bordered Badge' },
+      { id: 'small-bordered-badge', groupId: 'badge', title: 'Small Bordered Badge' },
+      { id: 'medium-rounded-bordered-badge', groupId: 'badge', title: 'Medium Rounded Bordered Badge' },
+      { id: 'small-rounded-bordered-badge', groupId: 'badge', title: 'Small Rounded Bordered Badge' },
     ],
   },
   {
@@ -138,6 +144,72 @@ export const componentMeta = {
     seoHeading: 'React Small Badge with Tailwind CSS',
     seoDescription:
       'A compact small React badge styled with Tailwind CSS, with eight direct color examples for lightweight status context.',
+  },
+  'medium-rounded-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Medium Rounded Badge',
+    description: 'A compact medium badge with fully rounded edges and lightweight status colors.',
+    seoTitle: 'Rounded Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Rounded Badge with Tailwind CSS',
+    seoDescription:
+      'A reusable medium React badge with fully rounded edges, styled with Tailwind CSS and shown in eight direct color examples.',
+  },
+  'small-rounded-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Small Rounded Badge',
+    description: 'A compact small badge with fully rounded edges and lightweight status colors.',
+    seoTitle: 'Small Rounded Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Small Rounded Badge with Tailwind CSS',
+    seoDescription:
+      'A reusable small React badge with fully rounded edges, styled with Tailwind CSS and shown in eight direct color examples.',
+  },
+  'medium-bordered-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Medium Bordered Badge',
+    description: 'A compact medium badge with a subtle tone-matched border and lightweight status colors.',
+    seoTitle: 'Bordered Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Bordered Badge with Tailwind CSS',
+    seoDescription:
+      'A reusable medium React badge with a tone-matched border, styled with Tailwind CSS and shown in eight direct color examples.',
+  },
+  'small-bordered-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Small Bordered Badge',
+    description: 'A compact small badge with a subtle tone-matched border and lightweight status colors.',
+    seoTitle: 'Small Bordered Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Small Bordered Badge with Tailwind CSS',
+    seoDescription:
+      'A reusable small React badge with a tone-matched border, styled with Tailwind CSS and shown in eight direct color examples.',
+  },
+  'medium-rounded-bordered-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Medium Rounded Bordered Badge',
+    description: 'A compact medium badge with fully rounded edges and a subtle tone-matched border.',
+    seoTitle: 'Medium Rounded Bordered Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Medium Rounded Bordered Badge with Tailwind CSS',
+    seoDescription:
+      'A reusable medium React badge with fully rounded edges and a tone-matched border, styled with Tailwind CSS.',
+  },
+  'small-rounded-bordered-badge': {
+    groupId: 'badge',
+    section: 'Badges',
+    eyebrow: 'BADGES',
+    title: 'Small Rounded Bordered Badge',
+    description: 'A compact small badge with fully rounded edges and a subtle tone-matched border.',
+    seoTitle: 'Small Rounded Bordered Badge Component for React & Tailwind CSS',
+    seoHeading: 'React Small Rounded Bordered Badge with Tailwind CSS',
+    seoDescription:
+      'A reusable small React badge with fully rounded edges and a tone-matched border, styled with Tailwind CSS.',
   },
   'native-select': {
     groupId: 'select',

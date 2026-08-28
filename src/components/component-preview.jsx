@@ -31,6 +31,12 @@ export default function ComponentPreview({
   if (componentId === 'outline-button') return <ButtonShowcase variant="outline" />;
   if (componentId === 'medium-badge') return <BadgeShowcase size="md" />;
   if (componentId === 'small-badge') return <BadgeShowcase size="sm" />;
+  if (componentId === 'medium-rounded-badge') return <BadgeShowcase size="md" rounded />;
+  if (componentId === 'small-rounded-badge') return <BadgeShowcase size="sm" rounded />;
+  if (componentId === 'medium-bordered-badge') return <BadgeShowcase size="md" bordered />;
+  if (componentId === 'small-bordered-badge') return <BadgeShowcase size="sm" bordered />;
+  if (componentId === 'medium-rounded-bordered-badge') return <BadgeShowcase size="md" rounded bordered />;
+  if (componentId === 'small-rounded-bordered-badge') return <BadgeShowcase size="sm" rounded bordered />;
   if (componentId === 'native-select') return <NativeSelectShowcase />;
   if (componentId === 'custom-select') return <CustomSelectShowcase />;
   if (componentId === 'kanban') return <KanbanShowcase />;

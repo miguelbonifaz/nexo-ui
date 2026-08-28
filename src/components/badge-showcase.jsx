@@ -11,13 +11,13 @@ const badgeExamples = [
   { tone: 'pink', label: 'Pink' },
 ];
 
-export default function BadgeShowcase({ size = 'md' }) {
+export default function BadgeShowcase({ size = 'md', rounded = false, bordered = false }) {
   const resolvedSize = size === 'sm' ? 'sm' : 'md';
 
   return (
     <div className="@container flex min-h-[180px] items-center justify-center px-5 py-8 sm:px-8">
       <div className="flex w-full max-w-2xl flex-wrap items-center justify-center gap-2.5">
-        {badgeExamples.map(({ tone, label }) => <Badge key={tone} size={resolvedSize} tone={tone}>{label}</Badge>)}
+        {badgeExamples.map(({ tone, label }) => <Badge key={tone} size={resolvedSize} tone={tone} rounded={rounded} bordered={bordered}>{label}</Badge>)}
       </div>
     </div>
   );

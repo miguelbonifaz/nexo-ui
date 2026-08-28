@@ -5,7 +5,16 @@ import { breadcrumbSnippet } from './snippets/breadcrumb';
 import { modalSnippet } from './snippets/modal';
 import { inputSnippet } from './snippets/input';
 import { solidButtonSnippet, outlineButtonSnippet } from './snippets/button';
-import { mediumBadgeSnippet, smallBadgeSnippet } from './snippets/badge';
+import {
+  mediumBadgeSnippet,
+  smallBadgeSnippet,
+  mediumRoundedBadgeSnippet,
+  smallRoundedBadgeSnippet,
+  mediumBorderedBadgeSnippet,
+  smallBorderedBadgeSnippet,
+  mediumRoundedBorderedBadgeSnippet,
+  smallRoundedBorderedBadgeSnippet,
+} from './snippets/badge';
 import { nativeSelectSnippet } from './snippets/native-select';
 import { customSelectSnippet } from './snippets/custom-select';
 import { kanbanSnippet } from './snippets/kanban';
@@ -21,6 +30,12 @@ export const componentRegistry = [
   { id: 'outline-button', ...componentMeta['outline-button'], code: outlineButtonSnippet },
   { id: 'medium-badge', ...componentMeta['medium-badge'], code: mediumBadgeSnippet },
   { id: 'small-badge', ...componentMeta['small-badge'], code: smallBadgeSnippet },
+  { id: 'medium-rounded-badge', ...componentMeta['medium-rounded-badge'], code: mediumRoundedBadgeSnippet },
+  { id: 'small-rounded-badge', ...componentMeta['small-rounded-badge'], code: smallRoundedBadgeSnippet },
+  { id: 'medium-bordered-badge', ...componentMeta['medium-bordered-badge'], code: mediumBorderedBadgeSnippet },
+  { id: 'small-bordered-badge', ...componentMeta['small-bordered-badge'], code: smallBorderedBadgeSnippet },
+  { id: 'medium-rounded-bordered-badge', ...componentMeta['medium-rounded-bordered-badge'], code: mediumRoundedBorderedBadgeSnippet },
+  { id: 'small-rounded-bordered-badge', ...componentMeta['small-rounded-bordered-badge'], code: smallRoundedBorderedBadgeSnippet },
   { id: 'native-select', ...componentMeta['native-select'], code: nativeSelectSnippet },
   { id: 'custom-select', ...componentMeta['custom-select'], code: customSelectSnippet },
   { id: 'kanban', ...componentMeta.kanban, code: kanbanSnippet },

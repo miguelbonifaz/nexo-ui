@@ -42,6 +42,12 @@ export default function ComponentShowcase({ component, previewMode, onSetPreview
     || component.id === 'outline-button'
     || component.id === 'medium-badge'
     || component.id === 'small-badge'
+    || component.id === 'medium-rounded-badge'
+    || component.id === 'small-rounded-badge'
+    || component.id === 'medium-bordered-badge'
+    || component.id === 'small-bordered-badge'
+    || component.id === 'medium-rounded-bordered-badge'
+    || component.id === 'small-rounded-bordered-badge'
     || component.id === 'native-select';
 
   useEffect(() => {
