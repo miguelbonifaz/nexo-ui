@@ -14,9 +14,9 @@ const navigation = [
 ];
 
 const workspaces = [
-  { name: 'Nexo UI', description: 'Component library' },
-  { name: 'Dulce Sabor', description: 'Product workspace' },
-  { name: 'Client Projects', description: 'Shared workspace' },
+  { name: 'Nexo UI', initials: 'N', description: 'Component library' },
+  { name: 'Dulce Sabor', initials: 'DS', description: 'Product workspace' },
+  { name: 'Client Projects', initials: 'CP', description: 'Shared workspace' },
 ];
 
 function SidebarItem({ item, activeItem, compact, mobile, onSelect }) {
@@ -36,19 +36,19 @@ function SidebarItem({ item, activeItem, compact, mobile, onSelect }) {
   );
 }
 
-function WorkspaceItem({ workspace, onSelect }) {
-  const { name, description } = workspace;
+function WorkspaceItem({ workspace, compact, onSelect }) {
+  const { name, initials, description } = workspace;
+  const workspaceLabel = `${name} — ${description}`;
 
   return (
     <a
       href={`#${name.toLowerCase().replaceAll(' ', '-')}`}
       onClick={onSelect}
-      className="flex items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"
+      aria-label={compact ? workspaceLabel : undefined}
+      title={compact ? workspaceLabel : undefined}
+      className={`flex items-center rounded-lg py-2 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100 ${compact ? 'justify-center px-0' : 'px-3'}`}
     >
-      <span className="min-w-0">
-        <span className="block truncate">{name}</span>
-        <span className="block truncate text-[10px] font-normal text-slate-400 dark:text-slate-500">{description}</span>
-      </span>
+      {compact ? <span className="flex size-9 items-center justify-center rounded-lg bg-slate-100 text-xs font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-200">{initials}</span> : <span className="min-w-0"><span className="block truncate">{name}</span><span className="block truncate text-[10px] font-normal text-slate-400 dark:text-slate-500">{description}</span></span>}
     </a>
   );
 }
@@ -103,9 +103,9 @@ function SidebarContent({ activeItem, compact, mobile = false, onClose, onToggle
         <p className={`mb-3 font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400 ${compact ? 'sr-only' : 'px-3'}`}>General</p>
         <div className="space-y-0.5">{navigation.map((item) => <SidebarItem key={item.label} item={item} activeItem={activeItem} compact={compact} mobile={mobile} onSelect={onClose} />)}</div>
       </nav>
-      <div className={compact && !mobile ? 'hidden' : 'mt-8'}>
-        <p className="mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400">Workspaces</p>
-        <div className="space-y-0.5">{workspaces.map((workspace) => <WorkspaceItem key={workspace.name} workspace={workspace} onSelect={onClose} />)}</div>
+      <div className="mt-8">
+        <p className={`mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400 ${compact && !mobile ? 'sr-only' : ''}`}>Workspaces</p>
+        <div className="space-y-0.5">{workspaces.map((workspace) => <WorkspaceItem key={workspace.name} workspace={workspace} compact={compact && !mobile} onSelect={onClose} />)}</div>
       </div>
       <SidebarFooter compact={compact} mobile={mobile} dark={dark} onToggleTheme={onToggleTheme} />
     </>

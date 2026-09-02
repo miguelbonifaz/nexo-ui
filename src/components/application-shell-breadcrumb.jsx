@@ -15,20 +15,27 @@ const navigation = [
 ];
 
 const workspaces = [
-  { name: 'Nexo UI', description: 'Component library' },
-  { name: 'Dulce Sabor', description: 'Product workspace' },
-  { name: 'Client Projects', description: 'Shared workspace' },
+  { name: 'Nexo UI', initials: 'N', description: 'Component library' },
+  { name: 'Dulce Sabor', initials: 'DS', description: 'Product workspace' },
+  { name: 'Client Projects', initials: 'CP', description: 'Shared workspace' },
 ];
 
-function SidebarItem({ item, activeItem, compact, onSelect }) {
+function SidebarItem({ item, activeItem, compact, mobile, onSelect }) {
   const isActive = item.label === activeItem;
 
   return (
-    <a href={`#${item.label.toLowerCase()}`} onClick={onSelect} aria-label={compact ? item.label : undefined} title={compact ? item.label : undefined} className={`flex items-center rounded-lg py-2.5 text-sm font-medium whitespace-nowrap transition-colors md:max-lg:justify-center md:max-lg:px-2 ${compact ? 'justify-center px-2' : 'gap-3 px-3'} ${isActive ? 'bg-slate-100 text-slate-900 dark:bg-slate-800/80 dark:text-[#2ec4b6]' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'}`}>
+    <a href={`#${item.label.toLowerCase()}`} onClick={onSelect} aria-label={compact ? item.label : undefined} title={compact ? item.label : undefined} className={`flex items-center rounded-lg py-2.5 text-sm font-medium whitespace-nowrap transition-colors ${mobile ? 'gap-3 px-3' : `md:max-lg:justify-center md:max-lg:px-2 ${compact ? 'justify-center px-2' : 'gap-3 px-3'}`} ${isActive ? 'bg-slate-100 text-slate-900 dark:bg-slate-800/80 dark:text-[#2ec4b6]' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'}`}>
       <NexoIcon icon={item.icon} className={`size-[18px] shrink-0 stroke-[1.6] ${isActive ? 'text-slate-900 dark:text-[#2ec4b6]' : 'text-slate-400'}`} />
-      <span className={compact ? 'sr-only' : 'truncate md:max-lg:sr-only'}>{item.label}</span>
+      <span className={mobile ? 'truncate' : compact ? 'sr-only' : 'truncate md:max-lg:sr-only'}>{item.label}</span>
     </a>
   );
+}
+
+function WorkspaceItem({ workspace, compact, onSelect }) {
+  const { name, initials, description } = workspace;
+  const workspaceLabel = `${name} — ${description}`;
+
+  return <a href={`#${name.toLowerCase().replaceAll(' ', '-')}`} onClick={onSelect} aria-label={compact ? workspaceLabel : undefined} title={compact ? workspaceLabel : undefined} className={`flex items-center rounded-lg py-2 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100 ${compact ? 'justify-center px-0' : 'px-3'}`}>{compact ? <span className="flex size-9 items-center justify-center rounded-lg bg-slate-100 text-xs font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-200">{initials}</span> : <span className="min-w-0"><span className="block truncate">{name}</span><span className="block truncate text-[10px] font-normal text-slate-400 dark:text-slate-500">{description}</span></span>}</a>;
 }
 
 function SidebarFooter({ compact, dark, onToggleTheme }) {
@@ -58,6 +65,8 @@ function SidebarFooter({ compact, dark, onToggleTheme }) {
 }
 
 function SidebarContent({ activeItem, compact = false, onClose, onToggleCompact, mobileOpen = false, dark, onToggleTheme }) {
+  const mobile = Boolean(onClose);
+
   return (
     <>
       <div className={`flex items-center pb-10 ${compact ? 'justify-center px-0' : 'justify-between px-3 md:max-lg:justify-center md:max-lg:px-0'}`}>
@@ -70,11 +79,11 @@ function SidebarContent({ activeItem, compact = false, onClose, onToggleCompact,
       </div>
       <nav aria-label="Primary navigation">
         <p className={`mb-3 font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase dark:text-slate-400 ${compact ? 'sr-only' : 'px-3 md:max-lg:sr-only'}`}>General</p>
-        <div className="space-y-0.5">{navigation.map((item) => <SidebarItem key={item.label} item={item} activeItem={activeItem} compact={compact} onSelect={onClose} />)}</div>
+        <div className="space-y-0.5">{navigation.map((item) => <SidebarItem key={item.label} item={item} activeItem={activeItem} compact={compact} mobile={mobile} onSelect={onClose} />)}</div>
       </nav>
-      <div className={compact ? 'hidden' : 'mt-8 md:max-lg:hidden'}>
-        <p className="mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400">Workspaces</p>
-        <div className="space-y-0.5">{workspaces.map((workspace) => <a key={workspace.name} href={`#${workspace.name.toLowerCase().replaceAll(' ', '-')}`} onClick={onClose} className="flex items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100"><span className="min-w-0"><span className="block truncate">{workspace.name}</span><span className="block truncate text-[10px] font-normal text-slate-400 dark:text-slate-500">{workspace.description}</span></span></a>)}</div>
+      <div className="mt-8">
+        <p className={`mb-3 px-3 text-xs font-semibold text-slate-500 dark:text-slate-400 ${compact && !mobile ? 'sr-only' : ''}`}>Workspaces</p>
+        <div className="space-y-0.5">{workspaces.map((workspace) => <WorkspaceItem key={workspace.name} workspace={workspace} compact={compact && !mobile} onSelect={onClose} />)}</div>
       </div>
       <SidebarFooter compact={compact} dark={dark} onToggleTheme={onToggleTheme} />
     </>
