@@ -96,6 +96,7 @@ export default function ApplicationShellWithBreadcrumb({ children, activeItem = 
   const [autoCompact, setAutoCompact] = useState(false);
   const [sidebarCompact, setSidebarCompact] = useState(false);
   const [localDark, setLocalDark] = useState(true);
+  const [shellHeight, setShellHeight] = useState(0);
   const isDark = typeof dark === 'boolean' ? dark : localDark;
   const compactSidebar = sidebarCompact || autoCompact;
   const breadcrumbItems = items ?? [];
@@ -104,7 +105,10 @@ export default function ApplicationShellWithBreadcrumb({ children, activeItem = 
 
   useEffect(() => {
     if (!shellRef.current) return undefined;
-    const observer = new ResizeObserver(([entry]) => setAutoCompact(entry.contentRect.width < 900));
+    const observer = new ResizeObserver(([entry]) => {
+      setAutoCompact(entry.contentRect.width < 900);
+      setShellHeight((currentHeight) => Math.max(currentHeight, entry.contentRect.height));
+    });
     observer.observe(shellRef.current);
     return () => observer.disconnect();
   }, []);
@@ -122,7 +126,7 @@ export default function ApplicationShellWithBreadcrumb({ children, activeItem = 
 
   return (
     <div className={isDark ? 'dark' : ''}>
-    <div ref={shellRef} className="relative flex min-h-[520px] w-full overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <div ref={shellRef} style={autoCompact && shellHeight > 0 ? { minHeight: `${shellHeight}px` } : undefined} className="relative flex min-h-[520px] w-full overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
       {autoCompact && mobileOpen && <button type="button" onClick={closeNavigation} aria-label="Close navigation overlay" className="absolute inset-0 z-30 bg-slate-950/35 backdrop-blur-[2px]" />}
       {!autoCompact && <aside className={`min-h-[520px] shrink-0 flex-col border-r border-slate-200 bg-[#FAFAF8] py-6 text-slate-600 transition-[width,padding] duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 ${compactSidebar ? 'flex w-[76px] px-2.5' : 'flex w-[272px] px-4'}`}><SidebarContent activeItem={activeItem} compact={compactSidebar} onToggleCompact={() => setSidebarCompact((current) => !current)} dark={isDark} onToggleTheme={toggleTheme} /></aside>}
       {autoCompact && <aside aria-hidden={!mobileOpen} inert={!mobileOpen} className={`absolute inset-y-0 left-0 z-40 flex w-[272px] flex-col border-r border-slate-200 bg-[#FAFAF8] px-4 py-6 text-slate-600 shadow-2xl shadow-slate-900/10 transition-transform duration-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}><SidebarContent activeItem={activeItem} onClose={closeNavigation} mobileOpen={mobileOpen} dark={isDark} onToggleTheme={toggleTheme} /></aside>}

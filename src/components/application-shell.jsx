@@ -118,6 +118,7 @@ export default function ApplicationShell({ children, activeItem = 'Dashboard', d
   const [autoCompact, setAutoCompact] = useState(false);
   const [sidebarCompact, setSidebarCompact] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [shellHeight, setShellHeight] = useState(0);
   const isDark = typeof dark === 'boolean' ? dark : localDark;
   const compactSidebar = sidebarCompact || autoCompact;
   const toggleTheme = onToggleTheme ?? (() => setLocalDark((current) => !current));
@@ -125,7 +126,10 @@ export default function ApplicationShell({ children, activeItem = 'Dashboard', d
 
   useEffect(() => {
     if (!shellRef.current) return undefined;
-    const observer = new ResizeObserver(([entry]) => setAutoCompact(entry.contentRect.width < 900));
+    const observer = new ResizeObserver(([entry]) => {
+      setAutoCompact(entry.contentRect.width < 900);
+      setShellHeight((currentHeight) => Math.max(currentHeight, entry.contentRect.height));
+    });
     observer.observe(shellRef.current);
     return () => observer.disconnect();
   }, []);
@@ -143,7 +147,7 @@ export default function ApplicationShell({ children, activeItem = 'Dashboard', d
 
   return (
     <div className={isDark ? 'dark' : ''}>
-    <div ref={shellRef} className={`relative grid min-h-[520px] w-full overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] transition-[grid-template-columns,colors] duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 ${autoCompact ? 'grid-cols-[minmax(0,1fr)]' : compactSidebar ? 'grid-cols-[76px_minmax(0,1fr)]' : 'grid-cols-[clamp(13rem,22%,22rem)_minmax(0,1fr)]'}`}>
+    <div ref={shellRef} style={autoCompact && shellHeight > 0 ? { minHeight: `${shellHeight}px` } : undefined} className={`relative grid min-h-[520px] w-full overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] transition-[grid-template-columns,colors] duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 ${autoCompact ? 'grid-cols-[minmax(0,1fr)]' : compactSidebar ? 'grid-cols-[76px_minmax(0,1fr)]' : 'grid-cols-[clamp(13rem,22%,22rem)_minmax(0,1fr)]'}`}>
       {autoCompact && mobileOpen && <button type="button" onClick={closeNavigation} aria-label="Close navigation overlay" className="absolute inset-0 z-30 bg-slate-950/35 backdrop-blur-[2px]" />}
       {!autoCompact && <aside className={`min-h-[520px] min-w-0 flex-col border-r border-slate-200 bg-[#FAFAF8] py-6 text-slate-600 transition-[padding] duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 ${compactSidebar ? 'flex px-2.5' : 'flex px-4'}`}>
         <SidebarContent activeItem={activeItem} compact={compactSidebar} onToggleCompact={() => setSidebarCompact((current) => !current)} dark={isDark} onToggleTheme={toggleTheme} />
