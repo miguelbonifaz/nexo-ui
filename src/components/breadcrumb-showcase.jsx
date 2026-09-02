@@ -2,7 +2,8 @@ import Breadcrumb from './breadcrumb';
 
 const breadcrumbItems = [
   { label: 'Workspace', href: '#workspace' },
-  { label: 'Dashboard' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Overview' },
 ];
 
 export default function BreadcrumbShowcase() {

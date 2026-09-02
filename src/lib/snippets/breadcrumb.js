@@ -4,7 +4,13 @@ const iconPreamble = tablerIconSnippet(['chevronRight']);
 
 export const breadcrumbSnippet = String.raw`${iconPreamble}
 
-export default function Breadcrumb({ items = [] }) {
+const breadcrumbItems = [
+  { label: 'Workspace', href: '#workspace' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Overview' },
+];
+
+export default function Breadcrumb({ items = breadcrumbItems }) {
   return (
     <nav aria-label="Breadcrumb">
       <ol className="flex flex-wrap items-center gap-1.5 text-sm">

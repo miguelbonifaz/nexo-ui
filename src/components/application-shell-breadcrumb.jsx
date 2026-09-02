@@ -100,15 +100,26 @@ export default function ApplicationShellWithBreadcrumb({ children, activeItem = 
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
+
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') closeNavigation();
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileOpen]);
+
   return (
     <div className={isDark ? 'dark' : ''}>
     <div ref={shellRef} className="relative flex min-h-[520px] w-full overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-900 shadow-[0_14px_40px_rgb(15_23_42/0.08)] dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
-      {mobileOpen && <button type="button" onClick={closeNavigation} aria-label="Close navigation overlay" className="absolute inset-0 z-30 bg-slate-950/35 backdrop-blur-[2px] md:hidden" />}
-      <aside className={`hidden min-h-[520px] shrink-0 flex-col border-r border-slate-200 bg-[#FAFAF8] py-6 text-slate-600 transition-[width,padding] duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 md:flex ${compactSidebar ? 'w-[76px] px-2.5' : 'w-[272px] px-4'}`}><SidebarContent activeItem={activeItem} compact={compactSidebar} onToggleCompact={() => setSidebarCompact((current) => !current)} dark={isDark} onToggleTheme={toggleTheme} /></aside>
-      <aside className={`absolute inset-y-0 left-0 z-40 flex w-[272px] flex-col border-r border-slate-200 bg-[#FAFAF8] px-4 py-6 text-slate-600 shadow-2xl shadow-slate-900/10 transition-transform duration-300 md:hidden dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}><SidebarContent activeItem={activeItem} onClose={closeNavigation} mobileOpen={mobileOpen} dark={isDark} onToggleTheme={toggleTheme} /></aside>
+      {autoCompact && mobileOpen && <button type="button" onClick={closeNavigation} aria-label="Close navigation overlay" className="absolute inset-0 z-30 bg-slate-950/35 backdrop-blur-[2px]" />}
+      {!autoCompact && <aside className={`min-h-[520px] shrink-0 flex-col border-r border-slate-200 bg-[#FAFAF8] py-6 text-slate-600 transition-[width,padding] duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 ${compactSidebar ? 'flex w-[76px] px-2.5' : 'flex w-[272px] px-4'}`}><SidebarContent activeItem={activeItem} compact={compactSidebar} onToggleCompact={() => setSidebarCompact((current) => !current)} dark={isDark} onToggleTheme={toggleTheme} /></aside>}
+      {autoCompact && <aside aria-hidden={!mobileOpen} inert={!mobileOpen} className={`absolute inset-y-0 left-0 z-40 flex w-[272px] flex-col border-r border-slate-200 bg-[#FAFAF8] px-4 py-6 text-slate-600 shadow-2xl shadow-slate-900/10 transition-transform duration-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}><SidebarContent activeItem={activeItem} onClose={closeNavigation} mobileOpen={mobileOpen} dark={isDark} onToggleTheme={toggleTheme} /></aside>}
       <div className="flex min-h-[520px] min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-20 hidden min-h-[58px] items-center border-b border-slate-200/70 bg-white/85 px-6 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/85 md:flex"><Breadcrumb items={breadcrumbItems} /></header>
-        <header className="flex min-h-[58px] items-center justify-between border-b border-slate-200/70 bg-white px-4 dark:border-slate-800/70 dark:bg-slate-950 md:hidden"><button type="button" onClick={() => setMobileOpen(true)} aria-label="Open navigation" className="flex size-9 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"><NexoIcon icon={tablerIcons.menu2} className="size-5" /></button><span className="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100">Nexo UI</span><span className="size-9" /></header>
+        {!autoCompact && <header className="sticky top-0 z-20 min-h-[58px] items-center border-b border-slate-200/70 bg-white/85 px-6 backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/85 flex"><Breadcrumb items={breadcrumbItems} /></header>}
+        {autoCompact && <header className="flex min-h-[58px] items-center justify-between border-b border-slate-200/70 bg-white px-4 dark:border-slate-800/70 dark:bg-slate-950"><button type="button" onClick={() => setMobileOpen(true)} aria-label="Open navigation" aria-expanded={mobileOpen} className="flex size-9 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"><NexoIcon icon={tablerIcons.menu2} className="size-5" /></button><span className="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100">Nexo UI</span><span className="size-9" /></header>}
         <main className="flex min-h-[462px] flex-1 flex-col bg-slate-50 p-4 dark:bg-slate-900 sm:p-6"><div aria-label="Dashboard workspace" className="flex min-h-[400px] flex-1 flex-col rounded-xl border border-dashed border-slate-300 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgb(100_116_139/0.08)_10px,rgb(100_116_139/0.08)_12px)] p-5 dark:border-slate-700/80 dark:bg-slate-900/60 dark:bg-[repeating-linear-gradient(135deg,transparent_0,transparent_10px,rgb(148_163_184/0.08)_10px,rgb(148_163_184/0.08)_12px)]">{children}</div></main>
       </div>
     </div>

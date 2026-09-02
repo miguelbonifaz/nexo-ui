@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { componentSections } from '@/lib/component-data';
 import { tablerIcons } from '@/lib/tabler-icons';
 import NexoIcon from './nexo-icon';
@@ -12,6 +12,18 @@ export default function ShowcaseSidebar({ activeId }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({ pathname, id: activeId });
   const selectedId = selectedItem.pathname === pathname ? selectedItem.id : activeId;
+
+  useEffect(() => {
+    function syncSelectedItem() {
+      const hashId = window.location.hash.slice(1);
+      const hasKnownHash = componentSections.some(({ items }) => items.some((item) => item.id === hashId));
+      setSelectedItem({ pathname, id: hasKnownHash ? hashId : activeId });
+    }
+
+    syncSelectedItem();
+    window.addEventListener('hashchange', syncSelectedItem);
+    return () => window.removeEventListener('hashchange', syncSelectedItem);
+  }, [activeId, pathname]);
 
   function closeNavigation() {
     setMobileOpen(false);
@@ -37,12 +49,14 @@ export default function ShowcaseSidebar({ activeId }) {
 
         <nav className="mt-12 flex-1 overflow-y-auto pr-1" aria-label="Component navigation">
           {componentSections.map((section) => (
-            <div key={section.title} className="mb-9">
-              <p className="mb-3 px-2 font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase">{section.title}</p>
-              <div className="space-y-1 border-l border-white/[0.1] pl-3">
-                {section.items.map((item) => <ComponentLink key={item.id} item={item} activeId={selectedId} onNavigate={selectItem} />)}
-              </div>
-            </div>
+            section.items.length === 1
+              ? <div key={section.title} className="mb-1"><ComponentLink item={section.items[0]} activeId={selectedId} onNavigate={selectItem} /></div>
+              : <div key={section.title} className="mb-7">
+                  <p className="mb-2 px-2 font-mono text-[10px] font-semibold tracking-[0.16em] text-slate-500 uppercase">{section.title}</p>
+                  <div className="space-y-0.5 border-l border-white/[0.1] pl-3">
+                    {section.items.map((item) => <ComponentLink key={item.id} item={item} activeId={selectedId} onNavigate={selectItem} />)}
+                  </div>
+                </div>
           ))}
         </nav>
 
@@ -59,5 +73,5 @@ function ComponentLink({ item, activeId, onNavigate }) {
   const isActive = item.id === activeId;
   const href = item.id === item.groupId ? `/components/${item.groupId}` : `/components/${item.groupId}#${item.id}`;
 
-  return <Link href={href} onClick={() => onNavigate(item.id)} aria-current={isActive ? 'page' : undefined} className={`group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-[13px] transition ${isActive ? 'bg-white/[0.08] font-semibold text-white' : 'text-slate-400 hover:bg-white/[0.04] hover:text-slate-200'}`}><span>{item.title}</span><NexoIcon icon={tablerIcons.chevronRight} className={`size-3.5 transition-transform ${isActive ? 'translate-x-0 text-cyan-300' : '-translate-x-1 text-slate-600 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`} /></Link>;
+  return <Link href={href} onClick={() => onNavigate(item.id)} aria-current={isActive ? 'page' : undefined} className={`flex w-full items-center rounded-lg px-3 py-2 text-left text-[13px] font-medium transition ${isActive ? 'bg-white/[0.08] text-white' : 'text-slate-400 hover:bg-white/[0.04] hover:text-slate-200'}`}><span>{item.title}</span></Link>;
 }

@@ -1,17 +1,17 @@
 export const componentSections = [
   {
-    title: 'Application Shells',
+    title: 'Shells',
     items: [
       { id: 'application-shell', groupId: 'application-shell', title: 'Application Shell' },
       { id: 'application-shell-breadcrumb', groupId: 'application-shell', title: 'Application Shell with Breadcrumb' },
     ],
   },
   {
-    title: 'Navigation',
+    title: 'Breadcrumb',
     items: [{ id: 'breadcrumb', groupId: 'breadcrumb', title: 'Breadcrumb' }],
   },
   {
-    title: 'Form Controls',
+    title: 'Input',
     items: [{ id: 'input', groupId: 'input', title: 'Input' }],
   },
   {
@@ -42,15 +42,18 @@ export const componentSections = [
     ],
   },
   {
+    title: 'Kanban',
+    items: [{ id: 'kanban', groupId: 'kanban', title: 'Kanban' }],
+  },
+  {
     title: 'Lists',
     items: [
-      { id: 'kanban', groupId: 'kanban', title: 'Kanban' },
       { id: 'table', groupId: 'table', title: 'Table' },
       { id: 'pagination', groupId: 'pagination', title: 'Pagination' },
     ],
   },
   {
-    title: 'Dialogs',
+    title: 'Modal',
     items: [{ id: 'modal', groupId: 'modal', title: 'Modal' }],
   },
 ];
